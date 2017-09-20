@@ -1,0 +1,225 @@
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+# Set the mod key to the "Windows key" and the floating modifier to the mod key.
+set $mod Mod4
+floating_modifier $mod
+
+############################################
+#    Constants                             #
+############################################
+
+set $urgentTextColour           #101218
+set $primaryBackgroundColour    #1f222d
+set $secondaryBackgroundColour  #252936
+set $textColour                 #7780a1
+
+set $statusLineColour           #d1d4e0
+set $focusedTextColour          #ffffff
+set $urgentBackground           #ee829f
+set $indicatorColour            #fcc09e
+
+set $workspace1 "1: "
+set $workspace2 "2: "
+set $workspace3 "3: "
+set $workspace4 "4: "
+set $workspace5 "5: "
+set $workspace6 "6: "
+set $workspace7 "7: "
+set $workspace8 "8: "
+set $workspace9 "9: "
+set $workspace10 "10:  "
+set $workspace11 " Enpass"
+
+############################################
+#    i3 management keys                    #
+############################################
+# use the interactive tool xev to find the keycode
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+shift+s layout stacking
+bindsym $mod+shift+w layout tabbed
+bindsym $mod+shift+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+Escape exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+Delete exec "i3-nagbar -t alert -m 'Do you really want to shut down?' -b 'Yes, Shutdown' 'shutdown -h now'"
+
+# focus on the parent window
+bindsym $mod+shift+p focus parent
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up   resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Lock the computer
+bindsym $mod+l exec /bin/bash ~/.config/i3/scripts/i3lock.sh
+
+############################################
+#    Application Keys                      #
+############################################
+bindsym $mod+Return exec xfce4-terminal                                 # terminal
+bindsym $mod+w exec chromium                                            # Webbrowser
+bindsym $mod+e exec nautilus                                            # File manager
+bindsym Print exec gnome-screenshot                                     # Fullscreen screenshot
+bindsym $mod+Print exec /bin/bash ~/.config/i3/scripts/screenshot.sh    # Show screenshot window
+bindsym $mod+shift+b exec /bin/bash ~/.config/i3/scripts/brightness.sh
+
+# Rofi
+bindsym $mod+d exec "rofi -color-window '#273238, #273238, #1e2529' -color-normal '#273238, #c1c1c1, #273238, #394249, #ffffff' -color-active '#273238, #80cbc4, #273238, #394249, #80cbc4' -color-urgent '#273238, #ff1844, #273238, #394249, #ff1844' -lines 10 -line-padding 5 -show run"
+bindsym $mod+Tab exec "rofi -color-window '#273238, #273238, #1e2529' -color-normal '#273238, #c1c1c1, #273238, #394249, #ffffff' -color-active '#273238, #80cbc4, #273238, #394249, #80cbc4' -color-urgent '#273238, #ff1844, #273238, #394249, #ff1844' -lines 10 -line-padding 5 -show"
+
+############################################
+#    Media keys                            #
+############################################
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+############################################
+#    Workspaces                            #
+############################################
+# switch to workspace
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
+bindsym $mod+p workspace $workspace11
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
+
+############################################
+#    Appearance settings                   #
+############################################
+# Set the default font
+#font pango:DejaVu Sans Mono 8
+font pango:System San Francisco Display 10
+
+# Bar decoration
+bar {
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	position top
+        strip_workspace_numbers no
+
+        colors {
+                separator $textColour
+                background $primaryBackgroundColour
+                statusline $statusLineColour
+                #                  border                   background                  text
+                focused_workspace  $primaryBackgroundColour $primaryBackgroundColour    $focusedTextColour
+                active_workspace   $primaryBackgroundColour $secondaryBackgroundColour  $textColour
+                inactive_workspace $primaryBackgroundColour $primaryBackgroundColour    $textColour
+                urgent_workspace   $primaryBackgroundColour $primaryBackgroundColour    $urgentBackground
+    }
+}
+
+new_window 1pixel
+hide_edge_borders both
+
+# Widow Colours
+#                       border                     background                  text               indicator
+client.focused          $primaryBackgroundColour   $primaryBackgroundColour    $focusedTextColour $indicatorColour
+client.focused_inactive $secondaryBackgroundColour $secondaryBackgroundColour  $textColour        $indicatorColour
+client.unfocused        $secondaryBackgroundColour $secondaryBackgroundColour  $textColour        $indicatorColour
+client.urgent           $secondaryBackgroundColour $urgentBackground           $urgentTextColour  $indicatorColour
+
+# Floating windows
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Lxappearance"] floating enable
+for_window [class="Arandr"] floating enable
+for_window [class="Eog"] floating enable
+
+############################################
+#    Workspace specific tools              #
+#       Use xprop to determine class       #
+############################################
+assign [class="Google Play Music Desktop Player"] $workspace10
+assign [class="Franz"] $workspace9
+assign [class="Enpass-Desktop"] $workspace11
+assign [class="robo3t"] $workspace8
+assign [class="Mysql-workbench-bin"] $workspace8
+
+
+############################################
+#    Autorun                               #
+############################################
+exec --no-startup-id i3-msg 'workspace $workspace2; exec xfce4-terminal' && i3-msg 'workspace $workspace1'
+exec 'enpass'
+exec --no-startup-id nm-applet
+exec_always feh --bg-scale ~/Pictures/Wallpapers/wallpaper.jpg
+exec /usr/bin/compton
+exec /bin/bash ~/.config/i3/scripts/startup.sh
