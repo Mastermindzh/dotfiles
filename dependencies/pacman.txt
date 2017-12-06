@@ -17,3 +17,4 @@ xorg-xrandr
 networkmanager
 notify-osd
 eog
+yaourt

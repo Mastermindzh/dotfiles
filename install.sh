@@ -28,12 +28,14 @@ function install_rice {
 
 # install other configs
 function install_config {
+	rm ~/.notify-osd && mv notify-osd/notify-osd ~/.notify-osd
 	rsync -av ./config ~/.config
 }
 
 # Installs the dependencies on Arch Linux
 function install_dependencies {
-	sudo pacman -S $(cat dependencies.txt | sed ':a;N;$!ba;s/\n/ /g')
+	sudo pacman -S $(cat dependencies/pacman.txt | sed ':a;N;$!ba;s/\n/ /g')
+	yaourt -S --noconfirm $(cat dependencies/aur.txt | sed ':a;N;$!ba;s/\n/ /g')
 }
 
 # list the dependencies file
@@ -41,7 +43,8 @@ function list_dependencies {
 	echo ""
 	echo "=========================="
 	echo ""
-	cat dependencies.txt
+	cat dependencies/pacman.txt
+	cat dependencies/aur.txt
 	echo ""
 	echo "=========================="	
 	echo ""
@@ -60,9 +63,14 @@ function intro {
 # Run the intro function
 intro
 
+yes_or_no "Do you want to continue?" &&
+
 # Ask for dependency installation
 list_dependencies
-yes_or_no "Do you want to install the list of applications above?" && install_dependencies
+yes_or_no "Do you want to install the list of applications above? (might prompt for password)" && install_dependencies
+
+# Ask for config installation
+yes_or_no "Do you want to install the config files?" && install_config
 
 # Ask for font installation
 yes_or_no "Do you want to install the fonts?" && install_fonts
