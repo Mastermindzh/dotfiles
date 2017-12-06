@@ -1,0 +1,107 @@
+# useful dockers
+alias phpserver='docker run --rm -p 2000:80 -v "$PWD":/var/www/html mastermindzh/php-xdebug'
+alias nodeserver='docker run --rm -p 3000:3000 -v "$PWD":/app mastermindzh/generic_node'
+alias reactserver='docker run --rm -p 8080:8080 -v "$PWD":/app mastermindzh/generic_node'
+
+#upload text to sprunge.us
+#USAGE cat file.txt | sprunge
+alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
+
+## pacman and yaourt
+alias aur='yaourt --noconfirm'
+alias update='yaourt -Syyu --noconfirm --aur'
+
+## systeminfo
+alias meminfo='free -mth'
+alias cpuinfo='lscpu'
+alias hddinfo='df -h'
+alias temp='watch "sensors | grep Core"'
+alias internalip=$'ip route get 8.8.8.8 | awk \'NR==1 {print $NF}\''
+
+#show 5 most memory consuming apps
+alias psmem='ps auxf | sort -nr -k 5 | head -n 5'
+
+#git
+alias gitdiff='git diff --name-only --diff-filter=U'
+alias status='git status'
+alias push='git push'
+alias add='git add .'
+
+##utility
+alias nmapscan='nmap -n -sP'
+
+# show file content without comment lines
+alias nocomment='grep -Ev '\''^(#|$)'\'''
+
+#show directories
+alias dirs='ls -FlA | grep :*/' 
+
+#show executables
+alias execx='ls -FlA | grep -v \*' 
+
+#ls -al
+alias la='ls -al'
+
+# show external ip
+alias cmyip='curl -s http://ipecho.net/plain; echo'
+
+## default command fixes :P
+alias mkdir='mkdir -p'
+alias wget='wget -c'
+alias ls='ls --color=auto'
+
+## Functions
+
+# function to cd up a couple of times
+# USAGE: up 3 (goes up 3 directories)
+up(){ 
+	DEEP=$1; 
+	[ -z "${DEEP}" ] && { DEEP=1; }; 
+	for i in $(seq 1 ${DEEP}); do 
+	cd ../; 
+	done; 
+}
+# function to extract ... well anything really
+extract () {
+   if [ -f $1 ] ; then
+       case $1 in
+           *.tar.bz2)   tar xvjf $1    ;;
+           *.tar.gz)    tar xvzf $1    ;;
+           *.bz2)       bunzip2 $1     ;;
+           *.rar)       unrar x $1     ;;
+           *.gz)        gunzip $1      ;;
+           *.tar)       tar xvf $1     ;;
+           *.tbz2)      tar xvjf $1    ;;
+           *.tgz)       tar xvzf $1    ;;
+           *.zip)       unzip $1       ;;
+           *.Z)         uncompress $1  ;;
+           *.7z)        7z x $1        ;;
+           *)           echo "don't know how to extract '$1'..." ;;
+       esac
+   else
+       echo "'$1' is not a valid file!"
+   fi
+} 
+
+# function to return uptime in a human readable format
+myuptime () {
+  uptime | awk '{ print "Uptime:", $3, $4, $5 }' | sed 's/,//g'
+  return;
+}
+
+# function to check whether a specific host is up
+isup(){
+	if ! [ -z "$1" ]; then
+		ping -c 3 $1 > /dev/null 2>&1
+		if [ $? -ne 0 ]; then
+			echo "$1 Seems to be offline";
+		else
+			echo "$1 Seems to be online";
+		fi
+	fi 
+}
+
+# function to print a line across the screen
+printLine(){
+     printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
+}
