@@ -176,7 +176,7 @@ bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	position top
         strip_workspace_numbers no
-
+	tray_output primary
         colors {
                 separator $textColour
                 background $primaryBackgroundColour

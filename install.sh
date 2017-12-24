@@ -17,25 +17,29 @@ function yes_or_no {
 
 # moves all fonts into the fonts directory (overwriting existing files)
 function install_fonts {
+	mkdir ~/.fonts
 	yes | cp -rf ./fonts/*.ttf ~/.fonts
 }
 
 # install basic rice files
 function install_rice {
 	mkdir ~/.config/i3
-	yes | cp -rf ../* ~/.config/i3
+	mkdir ~/Pictures/Wallpapers
+	yes | cp -rf i3/* ~/.config/i3
+	cp wallpapers/wallpaper.jpeg ~/Pictures/Wallpapers/wallpaper.jpg
 }
 
 # install other configs
 function install_config {
-	rm ~/.notify-osd && mv notify-osd/notify-osd ~/.notify-osd
+	rm ~/.notify-osd 
+	mv notify-osd/notify-osd ~/.notify-osd
 	rsync -av ./config ~/.config
 }
 
 # Installs the dependencies on Arch Linux
 function install_dependencies {
-	sudo pacman -S $(cat dependencies/pacman.txt | sed ':a;N;$!ba;s/\n/ /g')
-	yaourt -S --noconfirm $(cat dependencies/aur.txt | sed ':a;N;$!ba;s/\n/ /g')
+	sudo pacman --force -S $(cat dependencies/pacman.txt | sed ':a;N;$!ba;s/\n/ /g')
+	yaourt --force -S --noconfirm $(cat dependencies/aur.txt | sed ':a;N;$!ba;s/\n/ /g')
 }
 
 # list the dependencies file

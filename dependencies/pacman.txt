@@ -5,6 +5,7 @@ chromium
 xfce4-terminal
 nautilus
 sushi
+libconfig
 compton
 lxappearance
 arc-gtk-theme
@@ -15,6 +16,5 @@ wmctrl
 zenity
 xorg-xrandr
 networkmanager
-notify-osd
 eog
 yaourt
