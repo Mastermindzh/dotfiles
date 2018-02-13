@@ -33,6 +33,9 @@ alias nmapscan='nmap -n -sP'
 # show file content without comment lines
 alias nocomment='grep -Ev '\''^(#|$)'\'''
 
+# list files/dirs on separate lines
+alias list='find ./ -maxdepth 1 -printf "%f\n"'
+
 #show directories
 alias dirs='ls -FlA | grep :*/' 
 

@@ -17,23 +17,31 @@ function yes_or_no {
 
 # moves all fonts into the fonts directory (overwriting existing files)
 function install_fonts {
-	mkdir ~/.fonts
+	mkdir -p ~/.fonts
 	yes | cp -rf ./fonts/*.ttf ~/.fonts
 }
 
 # install basic rice files
 function install_rice {
-	mkdir ~/.config/i3
-	mkdir ~/Pictures/Wallpapers
-	yes | cp -rf i3/* ~/.config/i3
+	mkdir -p ~/.config/i3
+	mkdir -p ~/Pictures/Wallpapers
 	cp wallpapers/wallpaper.jpeg ~/Pictures/Wallpapers/wallpaper.jpg
+	yes | cp -rf i3/* ~/.config/i3
 }
 
 # install other configs
 function install_config {
 	rm ~/.notify-osd 
-	mv notify-osd/notify-osd ~/.notify-osd
-	rsync -av ./config ~/.config
+	cp -f notify-osd/notify-osd ~/.notify-osd
+	cp -f ./bash/.alias.sh ~/.alias
+	cp -f ./bash/.bashrc ~/
+	cp -f ./nano/.nanorc ~/
+	cp -rf ./config ~/.config
+}
+
+# Installs the file templates in the ~/Templates directory.
+function install_file_templates {
+	cp -rf ./templates/* ~/Templates
 }
 
 # Installs the dependencies on Arch Linux
@@ -79,5 +87,8 @@ yes_or_no "Do you want to install the config files?" && install_config
 # Ask for font installation
 yes_or_no "Do you want to install the fonts?" && install_fonts
 
+# Ask for template file installation
+yes_or_no "Do you want to install the file templates? (~/Templates)" && install_file_templates
+
 # Ask the user whether it wants to continue
-yes_or_no "Are you sure you want to install my rice?" && install_rice
+yes_or_no "Are you sure you want to install my i3 rice?" && install_rice

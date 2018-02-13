@@ -1,3 +1,4 @@
+rsync
 i3lock
 feh
 arandr
