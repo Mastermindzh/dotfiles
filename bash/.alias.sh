@@ -3,6 +3,11 @@ alias phpserver='docker run --rm -p 2000:80 -v "$PWD":/var/www/html mastermindzh
 alias nodeserver='docker run --rm -p 3000:3000 -v "$PWD":/app mastermindzh/generic_node'
 alias reactserver='docker run --rm -p 8080:8080 -v "$PWD":/app mastermindzh/generic_node'
 
+# useful docker commands
+alias stop-dockers = "docker stop $(docker ps -aq)"
+alias remove-dockers = "docker rm -v $(docker ps -aq -f 'status=exited')"
+alias clean-dockers = "docker rmi $(docker images -aq -f 'dangling=true')"
+
 #upload text to sprunge.us
 #USAGE cat file.txt | sprunge
 alias sprunge='curl -F "sprunge=<-" http://sprunge.us'

@@ -19,3 +19,5 @@ xorg-xrandr
 networkmanager
 eog
 yaourt
+thefuck
+screenfetch
