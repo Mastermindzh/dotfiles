@@ -1,3 +1,4 @@
+i3-gaps
 rsync
 i3lock
 feh
