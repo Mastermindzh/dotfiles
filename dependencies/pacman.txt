@@ -2,6 +2,7 @@ i3-gaps
 rsync
 i3lock
 feh
+scrot
 arandr
 chromium
 xfce4-terminal
