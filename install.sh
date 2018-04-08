@@ -100,4 +100,4 @@ yes_or_no "Are you sure you want to install my i3 rice?" && install_rice
 # ask to enable gdm
 yes_or_no "Do you want to enable GDM?" && sudo systemctl enable gdm.service
 
-echo "Enjoy using my ricing! Do not forget to select \"i3\" in GDM :)"
+echo "Enjoy using my rice! Do not forget to select \"i3\" in GDM :)"
