@@ -15,39 +15,42 @@ function yes_or_no {
     done
 }
 
-# moves all fonts into the fonts directory (overwriting existing files)
+# moves all fonts into the fonts directories (overwriting existing files)
 function install_fonts {
 	mkdir -p ~/.fonts
-	yes | cp -rf ./fonts/*.ttf ~/.fonts
+	mkdir -p ~/.local/share/fonts
+	yes | cp -rf ./fonts/* ~/.fonts
+	yes | cp -rf ./fonts/* ~/.local/share/fonts
 }
 
-# install basic rice files
+# Link basic rice files
 function install_rice {
-	mkdir -p ~/.config/i3
 	mkdir -p ~/Pictures/Wallpapers
-	cp wallpapers/wallpaper.jpeg ~/Pictures/Wallpapers/wallpaper.jpg
-	yes | cp -rf i3/* ~/.config/i3
+	ln -sf "$PWD"/wallpapers/wallpaper.jpeg ~/Pictures/Wallpapers/wallpaper.jpg
+	ln -sf "$PWD"/i3/ ~/.config/i3
 }
 
 # install other configs
 function install_config {
 	rm ~/.notify-osd 
-	cp -f notify-osd/notify-osd ~/.notify-osd
-	cp -f ./bash/.alias.sh ~/.alias
-	cp -f ./bash/.bashrc ~/
-	cp -f ./nano/.nanorc ~/
-	cp -rf ./config ~/.config
+	ln -sf "$PWD"/notify-osd/notify-osd ~/.notify-osd
+	ln -sf "$PWD"/bash/.bashrc ~/.bashrc
+	ln -sf "$PWD"/bash/.alias.sh ~/.alias
+	ln -sf "$PWD"/nano/.nanorc ~/.nanorc
+	mkdir -p ~/.config/gtk-3.0
+	ln -sf "$PWD"/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/.config
 }
 
-# Installs the file templates in the ~/Templates directory.
+# Symlinks the file templates in the ~/Templates directory.
 function install_file_templates {
-	cp -rf ./templates/* ~/Templates
+	ln -sf "$PWD"/templates ~/Templates
 }
 
 # Installs the dependencies on Arch Linux
 function install_dependencies {
 	sudo pacman --force -S $(cat dependencies/pacman.txt | sed ':a;N;$!ba;s/\n/ /g')
 	yaourt --force -S --noconfirm $(cat dependencies/aur.txt | sed ':a;N;$!ba;s/\n/ /g')
+	sudo pip install $(cat dependencies/pip.txt | sed ':a;N;$!ba;s/\n/ /g')
 }
 
 # list the dependencies file
@@ -57,6 +60,7 @@ function list_dependencies {
 	echo ""
 	cat dependencies/pacman.txt
 	cat dependencies/aur.txt
+	cat dependencies/pip.txt
 	echo ""
 	echo "=========================="	
 	echo ""
@@ -92,3 +96,8 @@ yes_or_no "Do you want to install the file templates? (~/Templates)" && install_
 
 # Ask the user whether it wants to continue
 yes_or_no "Are you sure you want to install my i3 rice?" && install_rice
+
+# ask to enable gdm
+yes_or_no "Do you want to enable GDM?" && sudo systemctl enable gdm.service
+
+echo "Enjoy using my ricing! Do not forget to select \"i3\" in GDM :)"

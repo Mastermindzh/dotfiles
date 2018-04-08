@@ -2,3 +2,6 @@ notify-osd-customizable
 notifyconf
 enpass-bin
 insync
+visual-studio-code-insiders
+gpmdp
+ttf-font-awesome-4
