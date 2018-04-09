@@ -33,11 +33,13 @@ function install_rice {
 # install other configs
 function install_config {
 	rm ~/.notify-osd 
+	mkdir ~/.config/xfce4/
 	ln -sf "$PWD"/notify-osd/notify-osd ~/.notify-osd
 	ln -sf "$PWD"/bash/.bashrc ~/.bashrc
 	ln -sf "$PWD"/bash/.alias.sh ~/.alias
 	ln -sf "$PWD"/nano/.nanorc ~/.nanorc
 	ln -sf "$PWD"/bash/.powerline-shell.json ~/.powerline-shell.json
+	ln -sf "$PWD"/terminal/xfce4-term ~/.config/xfce4/terminal/
 	mkdir -p ~/.config/gtk-3.0
 	ln -sf "$PWD"/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/.config
 }

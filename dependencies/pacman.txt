@@ -25,4 +25,6 @@ thefuck
 screenfetch
 python
 python-pip
-gdmneofetch
+gdm
+neofetch
+
