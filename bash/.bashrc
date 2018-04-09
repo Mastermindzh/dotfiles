@@ -13,7 +13,8 @@ source ~/.alias
 eval $(thefuck --alias)
 
 #... :P fancy stuffs
-screenfetch -t -A "UBUNTU"
+#screenfetch -t -A "UBUNTU"
+neofetch
 PS1='[\u@\h \W]\$ '
 
 if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then

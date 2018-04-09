@@ -26,7 +26,7 @@ function install_fonts {
 # Link basic rice files
 function install_rice {
 	mkdir -p ~/Pictures/Wallpapers
-	ln -sf "$PWD"/wallpapers/wallpaper.jpeg ~/Pictures/Wallpapers/wallpaper.jpg
+	ln -sf "$PWD"/wallpapers/wallpaper.jpg ~/Pictures/Wallpapers/wallpaper.jpg
 	ln -sf "$PWD"/i3/ ~/.config/i3
 }
 
@@ -37,6 +37,7 @@ function install_config {
 	ln -sf "$PWD"/bash/.bashrc ~/.bashrc
 	ln -sf "$PWD"/bash/.alias.sh ~/.alias
 	ln -sf "$PWD"/nano/.nanorc ~/.nanorc
+	ln -sf "$PWD"/bash/.powerline-shell.json ~/.powerline-shell.json
 	mkdir -p ~/.config/gtk-3.0
 	ln -sf "$PWD"/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/.config
 }
