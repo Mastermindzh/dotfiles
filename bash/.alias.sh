@@ -12,9 +12,9 @@ alias clean-dockers='docker rmi $(docker images -aq -f "dangling=true")'
 #USAGE cat file.txt | sprunge
 alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
 
-## pacman and yaourt
-alias aur='yaourt --noconfirm'
-alias update='yaourt -Syyu --noconfirm --aur'
+## pacman and trizen
+alias aur='trizen --noconfirm'
+alias update='trizen -Syyu --noconfirm'
 
 ## systeminfo
 alias meminfo='free -mth'

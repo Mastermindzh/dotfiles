@@ -20,11 +20,10 @@ zenity
 xorg-xrandr
 networkmanager
 eog
-yaourt
 thefuck
 screenfetch
 python
 python-pip
 gdm
 neofetch
-
+git

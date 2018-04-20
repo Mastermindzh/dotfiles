@@ -23,6 +23,15 @@ function install_fonts {
 	yes | cp -rf ./fonts/* ~/.local/share/fonts
 }
 
+# install trizen, a aur helper
+function install_trizen {
+    git clone https://aur.archlinux.org/trizen.git
+    pushd trizen
+    makepkg -si 
+    popd
+    sudo rm -dRf trizen/
+}
+
 # Link basic rice files
 function install_rice {
 	mkdir -p ~/Pictures/Wallpapers
@@ -38,6 +47,8 @@ function install_config {
 	ln -sf "$PWD"/bash/.bashrc ~/.bashrc
 	ln -sf "$PWD"/bash/.alias.sh ~/.alias
 	ln -sf "$PWD"/nano/.nanorc ~/.nanorc
+	sudo ln -sf "$PWD"/package-managers/pacman.conf /etc/pacman.conf
+	sudo ln -sf "$PWD"/package-managers/makepkg.conf /etc/makepkg.conf
 	ln -sf "$PWD"/bash/.powerline-shell.json ~/.powerline-shell.json
 	ln -sf "$PWD"/terminal/xfce4-term ~/.config/xfce4/terminal/
 	mkdir -p ~/.config/gtk-3.0
@@ -52,7 +63,10 @@ function install_file_templates {
 # Installs the dependencies on Arch Linux
 function install_dependencies {
 	sudo pacman --force -S $(cat dependencies/pacman.txt | sed ':a;N;$!ba;s/\n/ /g')
-	yaourt --force -S --noconfirm $(cat dependencies/aur.txt | sed ':a;N;$!ba;s/\n/ /g')
+	
+	install_trizen
+	trizen --force -S --noconfirm $(cat dependencies/aur.txt | sed ':a;N;$!ba;s/\n/ /g')
+	
 	sudo pip install $(cat dependencies/pip.txt | sed ':a;N;$!ba;s/\n/ /g')
 }
 
@@ -97,7 +111,7 @@ yes_or_no "Do you want to install the fonts?" && install_fonts
 # Ask for template file installation
 yes_or_no "Do you want to install the file templates? (~/Templates)" && install_file_templates
 
-# Ask the user whether it wants to continue
+# Ask for i3 rice installation
 yes_or_no "Are you sure you want to install my i3 rice?" && install_rice
 
 # ask to enable gdm
