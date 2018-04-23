@@ -34,8 +34,12 @@ function install_trizen {
 
 # Link basic rice files
 function install_rice {
-	mkdir -p ~/Pictures/Wallpapers
-	ln -sf "$PWD"/wallpapers/wallpaper.jpg ~/Pictures/Wallpapers/wallpaper.jpg
+	rm -rf ~/Pictures/Wallpapers
+	ln -sf "$PWD"/wallpapers ~/Pictures/Wallpapers
+	
+	# set default for i3
+	ln -sf "$PWD"/wallpapers/space.jpg ~/Pictures/Wallpapers/wallpaper.jpg
+	
 	ln -sf "$PWD"/i3/ ~/.config/i3
 }
 
@@ -43,14 +47,15 @@ function install_rice {
 function install_config {
 	rm ~/.notify-osd 
 	mkdir ~/.config/xfce4/
-	ln -sf "$PWD"/notify-osd/notify-osd ~/.notify-osd
+	ln -sf "$PWD"/config/notify-osd/notify-osd ~/.notify-osd
 	ln -sf "$PWD"/bash/.bashrc ~/.bashrc
 	ln -sf "$PWD"/bash/.alias.sh ~/.alias
-	ln -sf "$PWD"/nano/.nanorc ~/.nanorc
-	sudo ln -sf "$PWD"/package-managers/pacman.conf /etc/pacman.conf
-	sudo ln -sf "$PWD"/package-managers/makepkg.conf /etc/makepkg.conf
+	ln -sf "$PWD"/config/nano/.nanorc ~/.nanorc
+	sudo ln -sf "$PWD"/config/package-managers/pacman.conf /etc/pacman.conf
+	sudo ln -sf "$PWD"/config/package-managers/makepkg.conf /etc/makepkg.conf
+	sudo ln -sf "$PWD"/config/ntp.conf /etc/ntp.conf
 	ln -sf "$PWD"/bash/.powerline-shell.json ~/.powerline-shell.json
-	ln -sf "$PWD"/terminal/xfce4-term ~/.config/xfce4/terminal/
+	ln -sf "$PWD"/config/terminal/xfce4-term ~/.config/xfce4/terminal/
 	mkdir -p ~/.config/gtk-3.0
 	ln -sf "$PWD"/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/.config
 }
