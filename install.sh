@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # =======================================
-# Functions
+# Helper functions
 # =======================================
 
 # Ask a question and return true or false based on the users input
@@ -9,11 +9,27 @@ function yes_or_no {
     while true; do
         read -p "$* [y/n]: " yn
         case $yn in
-            [Yy]*) return 0  ;;  
+            [Yy]*) return 0  ;;
             [Nn]*) echo "Aborted" ; return  1 ;;
         esac
     done
 }
+
+# delete target, create dirs if they don't exist yet and finally symlink the dir
+function linkDir {
+	rm -rf $2;
+	mkdir -p "${2%/*}"
+	ln -sf $1 $2
+}
+
+# replace line endings with a space (for use in package managers)
+function fileToList {
+    echo $(cat $1 | sed ':a;N;$!ba;s/\n/ /g')
+}
+
+# =======================================
+# Installation functions
+# =======================================
 
 # moves all fonts into the fonts directories (overwriting existing files)
 function install_fonts {
@@ -27,53 +43,50 @@ function install_fonts {
 function install_trizen {
     git clone https://aur.archlinux.org/trizen.git
     pushd trizen
-    makepkg -si 
+    makepkg -si
     popd
     sudo rm -dRf trizen/
 }
 
-# Link basic rice files
-function install_rice {
-	rm -rf ~/Pictures/Wallpapers
-	ln -sf "$PWD"/wallpapers ~/Pictures/Wallpapers
-	
-	# set default for i3
-	ln -sf "$PWD"/wallpapers/space.jpg ~/Pictures/Wallpapers/wallpaper.jpg
-	
-	ln -sf "$PWD"/i3/ ~/.config/i3
-}
-
 # install other configs
 function install_config {
-	rm ~/.notify-osd 
-	mkdir ~/.config/xfce4/
-	ln -sf "$PWD"/config/notify-osd/notify-osd ~/.notify-osd
+
+	# link directories
+	linkDir "$PWD"/wallpapers ~/Pictures/Wallpapers
+	linkDir "$PWD"/i3/ ~/.config/i3
+	linkDir "$PWD"/config/notify-osd/notify-osd ~/.notify-osd
+	linkDir "$PWD"/config/terminal/xfce4-term ~/.config/xfce4/terminal
+	linkDir "$PWD"/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/.config
+	linkDir "$PWD"/templates ~/Templates
+
+	# link user files
 	ln -sf "$PWD"/bash/.bashrc ~/.bashrc
 	ln -sf "$PWD"/bash/.alias.sh ~/.alias
 	ln -sf "$PWD"/config/nano/.nanorc ~/.nanorc
+	ln -sf "$PWD"/bash/.powerline-shell.json ~/.powerline-shell.json
+	ln -sf "$PWD"/wallpapers/space.jpg ~/Pictures/Wallpapers/wallpaper.jpg
+
+	# link system files
 	sudo ln -sf "$PWD"/config/package-managers/pacman.conf /etc/pacman.conf
 	sudo ln -sf "$PWD"/config/package-managers/makepkg.conf /etc/makepkg.conf
 	sudo ln -sf "$PWD"/config/ntp.conf /etc/ntp.conf
-	ln -sf "$PWD"/bash/.powerline-shell.json ~/.powerline-shell.json
-	ln -sf "$PWD"/config/terminal/xfce4-term ~/.config/xfce4/terminal/
-	mkdir -p ~/.config/gtk-3.0
-	ln -sf "$PWD"/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/.config
-}
 
-# Symlinks the file templates in the ~/Templates directory.
-function install_file_templates {
-	ln -sf "$PWD"/templates ~/Templates
 }
 
 # Installs the dependencies on Arch Linux
 function install_dependencies {
-	sudo pacman --force -S $(cat dependencies/pacman.txt | sed ':a;N;$!ba;s/\n/ /g')
-	
+	fileToList dependencies/pacman.txt | xargs sudo pacman --force -S
+
 	install_trizen
-	trizen --force -S --noconfirm $(cat dependencies/aur.txt | sed ':a;N;$!ba;s/\n/ /g')
-	
-	sudo pip install $(cat dependencies/pip.txt | sed ':a;N;$!ba;s/\n/ /g')
+	fileToList dependencies/aur.txt | xargs trizen --force -S --noconfirm
+
+	fileToList dependencies/pip.txt | xargs pip install
 }
+
+
+# =======================================
+# User output functions
+# =======================================
 
 # list the dependencies file
 function list_dependencies {
@@ -84,13 +97,29 @@ function list_dependencies {
 	cat dependencies/aur.txt
 	cat dependencies/pip.txt
 	echo ""
-	echo "=========================="	
+	echo "=========================="
 	echo ""
 }
 
 # Run the intro bit
 function intro {
-	echo "This will install my i3rice".
+	echo "___  ___          _                      _           _     _     _ "
+	echo "|  \/  |         | |                    (_)         | |   | |   ( )"
+	echo "| .  . | __ _ ___| |_ ___ _ __ _ __ ___  _ _ __   __| |___| |__ |/ "
+	echo "| |\/| |/ _\` / __| __/ _ \ '__| '_ \` _ \| | '_ \ / _' |_  / '_ \  "
+	echo "| |  | | (_| \__ \ ||  __/ |  | | | | | | | | | | (_| |/ /| | | |  "
+	echo "\_|  |_/\__,_|___/\__\___|_|  |_| |_| |_|_|_| |_|\__,_/___|_| |_|  "
+	echo "                                                                   "
+	echo "                                                                   "
+	echo "                  __ _                       _                     "
+	echo "                 / _(_)         ___         (_)                    "
+	echo "  ___ ___  _ __ | |_ _  __ _   ( _ )    _ __ _  ___ ___            "
+	echo " / __/ _ \| '_ \|  _| |/ _\` |  / _ \/\ | '__| |/ __/ _ \          "
+	echo "| (_| (_) | | | | | | | (_| | | (_>  < | |  | | (_|  __/           "
+	echo " \___\___/|_| |_|_| |_|\__, |  \___/\/ |_|  |_|\___\___|           "
+	echo "                        __/ |                                      "
+	echo "                       |___/                     "
+	echo ""
 }
 
 
@@ -101,7 +130,7 @@ function intro {
 # Run the intro function
 intro
 
-yes_or_no "Do you want to continue?" &&
+yes_or_no "Do you want to continue installing my config and rice?" &&
 
 # Ask for dependency installation
 list_dependencies
@@ -112,12 +141,6 @@ yes_or_no "Do you want to install the config files?" && install_config
 
 # Ask for font installation
 yes_or_no "Do you want to install the fonts?" && install_fonts
-
-# Ask for template file installation
-yes_or_no "Do you want to install the file templates? (~/Templates)" && install_file_templates
-
-# Ask for i3 rice installation
-yes_or_no "Are you sure you want to install my i3 rice?" && install_rice
 
 # ask to enable gdm
 yes_or_no "Do you want to enable GDM?" && sudo systemctl enable gdm.service
