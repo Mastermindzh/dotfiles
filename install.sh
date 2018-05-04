@@ -5,13 +5,34 @@
 # =======================================
 
 # Ask a question and return true or false based on the users input
-function yes_or_no {
+ask() {
+    # from https://djm.me/ask
+    local prompt default reply
+
     while true; do
-        read -p "$* [y/n]: " yn
-        case $yn in
-            [Yy]*) return 0  ;;
-            [Nn]*) echo "Aborted" ; return  1 ;;
+
+        if [ "${2:-}" = "Y" ]; then
+            prompt="Y/n"
+            default=Y
+        elif [ "${2:-}" = "N" ]; then
+            prompt="y/N"
+            default=N
+        else
+            prompt="y/n"
+            default=
+        fi
+        echo -n "$1 [$prompt] "
+        read reply </dev/tty
+
+        if [ -z "$reply" ]; then
+            reply=$default
+        fi
+
+        case "$reply" in
+			[Yy]*) return 0  ;;
+            [Nn]*) return  1 ;;
         esac
+
     done
 }
 
@@ -65,6 +86,7 @@ function install_config {
 	ln -sf "$PWD"/config/nano/.nanorc ~/.nanorc
 	ln -sf "$PWD"/bash/.powerline-shell.json ~/.powerline-shell.json
 	ln -sf "$PWD"/wallpapers/space.jpg ~/Pictures/Wallpapers/wallpaper.jpg
+	ln -sf "$PWD"/config/rofi ~/.config/rofi/config
 
 	# link system files
 	sudo ln -sf "$PWD"/config/package-managers/pacman.conf /etc/pacman.conf
@@ -73,14 +95,19 @@ function install_config {
 
 }
 
+function install_HiDPI {
+	ln -sf "$PWD"/config/xorg/xinitrc ~/.xinitrc
+	ln -sf "$PWD"/config/xorg/Xresources ~/.Xresources
+}
+
 # Installs the dependencies on Arch Linux
 function install_dependencies {
-	fileToList dependencies/pacman.txt | xargs sudo pacman --force -S
+	fileToList dependencies/pacman.txt | xargs sudo pacman --noconfirm --force -S
 
 	install_trizen
 	fileToList dependencies/aur.txt | xargs trizen --force -S --noconfirm
 
-	fileToList dependencies/pip.txt | xargs pip install
+	fileToList dependencies/pip.txt | xargs sudo pip install
 }
 
 
@@ -130,19 +157,31 @@ function intro {
 # Run the intro function
 intro
 
-yes_or_no "Do you want to continue installing my config and rice?" &&
+ask "Do you want to continue installing my config and rice?" Y &&
 
 # Ask for dependency installation
 list_dependencies
-yes_or_no "Do you want to install the list of applications above? (might prompt for password)" && install_dependencies
+if ask "Do you want to install the list of applications above? (might prompt for password)" Y; then
+    install_dependencies
+fi
 
 # Ask for config installation
-yes_or_no "Do you want to install the config files?" && install_config
+if ask "Do you want to install the config files?" Y; then
+    install_config
+fi
+
+# Ask for HiDPI installation
+if ask "Do you want to continue install the HiDPI patches?" N; then
+    install_HiDPI
+fi
 
 # Ask for font installation
-yes_or_no "Do you want to install the fonts?" && install_fonts
-
+if ask "Do you want to install the fonts?" Y; then
+    install_fonts
+fi
 # ask to enable gdm
-yes_or_no "Do you want to enable GDM?" && sudo systemctl enable gdm.service
+if ask "Do you want to enable GDM?" Y; then
+    sudo systemctl enable gdm.service
+fi
 
 echo "Enjoy using my rice! Do not forget to select \"i3\" in GDM :)"

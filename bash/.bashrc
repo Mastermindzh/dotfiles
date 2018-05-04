@@ -3,7 +3,9 @@
 #
 
 function _update_ps1() {
-    PS1=$(powerline-shell $?)
+    if hash powerline-shell 2>/dev/null; then
+        PS1=$(powerline-shell $?)
+    fi
 }
 
 source ~/.alias

@@ -27,3 +27,17 @@ python-pip
 gdm
 neofetch
 git
+networkmanager
+scrot
+acpi
+imagemagick
+docker
+docker-compose
+htop
+powertop
+network-manager-applet
+pavucontrol
+alsa-utils
+ntp
+xclip
+openssh
