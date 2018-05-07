@@ -57,6 +57,10 @@ alias cmyip='curl -s http://ipecho.net/plain; echo'
 alias mkdir='mkdir -p'
 alias wget='wget -c'
 alias ls='ls --color=auto'
+alias sudo='sudo '
+
+# grub
+alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
 
 ## Functions
 

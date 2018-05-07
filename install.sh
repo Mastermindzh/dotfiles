@@ -96,8 +96,10 @@ function install_config {
 }
 
 function install_HiDPI {
-	ln -sf "$PWD"/config/xorg/xinitrc ~/.xinitrc
-	ln -sf "$PWD"/config/xorg/Xresources ~/.Xresources
+	ln -sf "$PWD"/config/hidpi/xorg/xinitrc ~/.xinitrc
+	ln -sf "$PWD"/config/hidpi/xorg/Xresources ~/.Xresources
+	
+	sudo ln -sf "$PWD"/config/hidpi/environment /etc/environment
 }
 
 # Installs the dependencies on Arch Linux
