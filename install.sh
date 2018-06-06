@@ -173,7 +173,7 @@ if ask "Do you want to install the config files?" Y; then
 fi
 
 # Ask for HiDPI installation
-if ask "Do you want to continue install the HiDPI patches?" N; then
+if ask "Do you want to install the HiDPI patches?" N; then
     install_HiDPI
 fi
 
