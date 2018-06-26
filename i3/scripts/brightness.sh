@@ -9,7 +9,9 @@ else
     selected_display="${displays[0]}"
 fi
 
-zenity --scale --title "Set brightness of $selected_display" --value=100 --print-partial |
+current_brightness=($(xrandr --current --verbose | grep -m1 Brightness | awk '{print $2}' | sed 's/0.//' | sed 's/.0/00/' ))
+
+zenity --scale --title "Set brightness of $selected_display" --value=$current_brightness --print-partial |
 while read brightness
 do
     xrandr --output "$selected_display" --brightness $(awk '{print $1/100}' <<<"$brightness"})
