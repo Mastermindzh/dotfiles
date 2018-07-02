@@ -14,6 +14,8 @@ source ~/.alias
 
 eval $(thefuck --alias)
 
+source ~/.custom
+
 #... :P fancy stuffs
 #screenfetch -t -A "UBUNTU"
 neofetch

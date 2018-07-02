@@ -33,7 +33,8 @@ set $workspace7 "7: "
 set $workspace8 "8: "
 set $workspace9 "9: "
 set $workspace10 "10:  "
-set $workspace11 " Enpass"
+set $workspace11 " Virtualbox" 
+set $workspace12 " Enpass"
 
 ############################################
 #    i3 management keys                    #
@@ -64,7 +65,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+shift+s layout stacking
-bindsym $mod+shift+w layout tabbed
+bindsym $mod+shift+t layout tabbed
 bindsym $mod+shift+e layout toggle split
 
 # toggle tiling / floating
@@ -85,7 +86,7 @@ bindsym $mod+Shift+Delete exec "i3-nagbar -t alert -m 'Do you really want to shu
 bindsym $mod+Shift+BackSpace exec "i3-nagbar -t error -m 'Do you really want to reboot?' -b 'Yes, Reboot' 'reboot'"
 
 # focus on the parent window
-bindsym $mod+shift+p focus parent
+bindsym $mod+shift+alt+p focus parent
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -109,7 +110,6 @@ bindsym $mod+l exec /bin/bash ~/.config/i3/scripts/i3lock.sh
 #    Application Keys                      #
 ############################################
 bindsym $mod+Return exec xfce4-terminal                                 # terminal
-bindsym $mod+w exec chromium                                            # Webbrowser
 bindsym $mod+e exec nautilus                                            # File manager
 bindsym Print exec gnome-screenshot                                     # Fullscreen screenshot
 bindsym $mod+Print exec /bin/bash ~/.config/i3/scripts/screenshot.sh    # Show screenshot window
@@ -151,7 +151,8 @@ bindsym $mod+7 workspace $workspace7
 bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
-bindsym $mod+p workspace $workspace11
+bindsym $mod+w workspace $workspace11
+bindsym $mod+p workspace $workspace12
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
@@ -164,6 +165,9 @@ bindsym $mod+Shift+7 move container to workspace $workspace7
 bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
+bindsym $mod+Shift+w move container to workspace $workspace11
+bindsym $mod+Shift+p move container to workspace $workspace12
+
 
 ############################################
 #    Appearance settings                   #
@@ -212,7 +216,8 @@ for_window [class="Eog"] floating enable
 ############################################
 assign [class="Google Play Music Desktop Player"] $workspace10
 assign [class="Franz"] $workspace9
-assign [class="Enpass-Desktop"] $workspace11
+assign [class="Enpass-Desktop"] $workspace12
+assign [class="VirtualBox Machine"] $workspace11
 
 # database stuff
 assign [class="MongoDB Compass"] $workspace8

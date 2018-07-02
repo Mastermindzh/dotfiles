@@ -48,6 +48,12 @@ function fileToList {
     echo $(cat $1 | sed ':a;N;$!ba;s/\n/ /g')
 }
 
+# create and copy files to directory
+function copyToDir {
+	echo $2 | sed 's%/[^/]*$%/%' | xargs mkdir -p
+	cp $1 $2
+}
+
 # =======================================
 # Installation functions
 # =======================================
@@ -93,6 +99,8 @@ function install_config {
 	sudo ln -sf "$PWD"/config/package-managers/makepkg.conf /etc/makepkg.conf
 	sudo ln -sf "$PWD"/config/ntp.conf /etc/ntp.conf
 
+	# Copy pc specific config files
+	copyToDir "$PWD"/bash/.custom ~/.custom
 }
 
 function install_HiDPI {

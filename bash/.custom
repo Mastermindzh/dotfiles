@@ -1,0 +1,4 @@
+# PC specific stuff goes here 
+
+# example
+# alias vm="export QT_AUTO_SCREEN_SCALE_FACTOR= QT_SCREEN_SCALE_FACTORS= QT_SCALE_FACTOR= QT_DEVICE_PIXEL_RATIO= &&  VBoxManage setextradata Windows10 GUI/HiDPI/UnscaledOutput 1 && sudo VBoxManage startvm Windows10"
