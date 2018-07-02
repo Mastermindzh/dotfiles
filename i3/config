@@ -106,6 +106,9 @@ bindsym $mod+r mode "resize"
 # Lock the computer
 bindsym $mod+l exec /bin/bash ~/.config/i3/scripts/i3lock.sh
 
+# Lock the computer
+bindsym $mod+shift+l exec /bin/bash ~/.config/i3/scripts/suspend.sh
+
 ############################################
 #    Application Keys                      #
 ############################################
