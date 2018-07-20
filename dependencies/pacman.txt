@@ -20,7 +20,6 @@ zenity
 xorg-xrandr
 networkmanager
 eog
-thefuck
 screenfetch
 python
 python-pip
@@ -41,3 +40,4 @@ alsa-utils
 ntp
 xclip
 openssh
+nodejs

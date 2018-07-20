@@ -93,21 +93,15 @@ function install_config {
 	ln -sf "$PWD"/bash/.powerline-shell.json ~/.powerline-shell.json
 	ln -sf "$PWD"/wallpapers/space.jpg ~/Pictures/Wallpapers/wallpaper.jpg
 	ln -sf "$PWD"/config/rofi ~/.config/rofi/config
+	ln -sf "$PWD"/config/.gitconfig ~/.gitconfig
 
 	# link system files
 	sudo ln -sf "$PWD"/config/package-managers/pacman.conf /etc/pacman.conf
 	sudo ln -sf "$PWD"/config/package-managers/makepkg.conf /etc/makepkg.conf
 	sudo ln -sf "$PWD"/config/ntp.conf /etc/ntp.conf
 
-	# Copy pc specific config files
-	copyToDir "$PWD"/bash/.custom ~/.custom
-}
-
-function install_HiDPI {
-	ln -sf "$PWD"/config/hidpi/xorg/xinitrc ~/.xinitrc
-	ln -sf "$PWD"/config/hidpi/xorg/Xresources ~/.Xresources
-	
-	sudo ln -sf "$PWD"/config/hidpi/environment /etc/environment
+	# create empty .custom alias file
+	echo "" > ~/.custom
 }
 
 # Installs the dependencies on Arch Linux
@@ -159,11 +153,30 @@ function intro {
 	echo ""
 }
 
+function computer {
+	echo "         /\	"
+    echo "        /  \         	"
+    echo "       /_ %%==O=%      _____________	"
+    echo "          %  - -%     |        '\\\\\\\\\\"
+    echo "     _____c%   > __   |        ' ____|_	"    
+	echo "    (_|. .  % \` % .'  |   +    '||::::::	"
+    echo "     ||. ___)%%%%_.'  |        '||_____|	"
+    echo "     ||.(  \ ~ / ,)'  \'_______|_____|	"
+    echo "     || /|  \'/  |\   ___/____|___\___	"
+    echo "    _,,,;!___*_____\_|    _    '  <<<:|	"
+    echo "   /     /|          |_________'___o_o| 	"
+    echo "  /_____/ /	"
+    echo "  |:____|/  \"Boy, I LOVE this stuff\".	"
+	echo ""
+	echo ""
+}
+
 
 # =======================================
 # Main loop
 # =======================================
 
+clear
 # Run the intro function
 intro
 
@@ -180,18 +193,33 @@ if ask "Do you want to install the config files?" Y; then
     install_config
 fi
 
-# Ask for HiDPI installation
-if ask "Do you want to install the HiDPI patches?" N; then
-    install_HiDPI
-fi
-
 # Ask for font installation
 if ask "Do you want to install the fonts?" Y; then
     install_fonts
 fi
+
 # ask to enable gdm
 if ask "Do you want to enable GDM?" Y; then
     sudo systemctl enable gdm.service
 fi
 
-echo "Enjoy using my rice! Do not forget to select \"i3\" in GDM :)"
+clear
+computer
+# ask for pc specific install
+prompt=`echo $'\n> ' Please select a specific computer to install or q to finish the install`
+
+PS3="$prompt: "
+select opt in "$PWD/computers"/*; do 
+    if (( REPLY == "q" )) ; then
+        break
+        
+    elif (( REPLY > 0 )) ; then
+        bash "$opt/install.sh"
+        break
+    else
+        echo "Invalid option. Try another one."
+    fi
+done
+clear 
+
+echo "Enjoy using my rice! Do not forget to select i3 in GDM :)"

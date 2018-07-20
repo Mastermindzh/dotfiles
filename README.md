@@ -2,9 +2,11 @@
 
 This repository holds my Linux config files.
 
-## Mandatory unixporn screenshot
+## Mandatory unixporn screenshots
 
 [![dotfiles](dotfiles.png)](https://raw.githubusercontent.com/Mastermindzh/dotfiles/master/dotfiles.png)
+
+[![dotfiles2](dotfiles2.png)](https://raw.githubusercontent.com/Mastermindzh/dotfiles/master/dotfiles2.png)
 
 ## Tools
 
@@ -23,3 +25,10 @@ This repository holds my Linux config files.
 | Music             | Google Play Music Desktop Player     |
 |                   |                                      |
 
+## computer specifc setup
+
+Nowadays I use a few different computers and I'd used to apply the base config and configure each pc on its own.
+I've grown tired of this approach however so I added a "pc specific" setup in the installer.
+
+The pc specific setup bit will read the folder names in computers, offer you a choice, and execute the install.sh inside that folder.
+This allows me to get pc specific settings synced with git and applied easily.

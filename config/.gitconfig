@@ -1,0 +1,5 @@
+[user]
+	email = info@rickvanlieshout.com
+	name = Mastermindzh
+[alias]
+	tree = log --graph --decorate --pretty=format:'%ar [%h] %an <%ae> - %s'

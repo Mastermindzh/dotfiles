@@ -32,6 +32,10 @@ alias status='git status'
 alias push='git push'
 alias add='git add .'
 
+#dotnet core
+alias efupdate="dotnet ef database update"
+alias efmigrate="dotnet ef migrations add"
+
 ##utility
 alias nmapscan='nmap -n -sP'
 alias pia='nohup sh /opt/pia/run.sh &>/dev/null & disown'
