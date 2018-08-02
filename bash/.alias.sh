@@ -26,12 +26,6 @@ alias internalip=$'ip route get 8.8.8.8 | awk \'NR==1 {print $NF}\''
 #show 5 most memory consuming apps
 alias psmem='ps auxf | sort -nr -k 5 | head -n 5'
 
-#git
-alias gitdiff='git diff --name-only --diff-filter=U'
-alias status='git status'
-alias push='git push'
-alias add='git add .'
-
 #dotnet core
 alias efupdate="dotnet ef database update"
 alias efmigrate="dotnet ef migrations add"
