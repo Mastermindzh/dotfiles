@@ -29,6 +29,7 @@ alias psmem='ps auxf | sort -nr -k 5 | head -n 5'
 #dotnet core
 alias efupdate="dotnet ef database update"
 alias efmigrate="dotnet ef migrations add"
+alias dotnetnew="dotnet new webapi -o "
 
 ##utility
 alias nmapscan='nmap -n -sP'

@@ -94,6 +94,7 @@ function install_config {
 	ln -sf "$PWD"/wallpapers/space.jpg ~/Pictures/Wallpapers/wallpaper.jpg
 	ln -sf "$PWD"/config/rofi ~/.config/rofi/config
 	ln -sf "$PWD"/config/.gitconfig ~/.gitconfig
+	ln -sf "$PWD"/config/.npmrc ~/.npmrc
 
 	# link system files
 	sudo ln -sf "$PWD"/config/package-managers/pacman.conf /etc/pacman.conf
