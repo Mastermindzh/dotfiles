@@ -3,3 +3,7 @@
 	name = Mastermindzh
 [alias]
 	tree = log --graph --decorate --pretty=format:'%ar [%h] %an <%ae> - %s'
+	graph = log --graph --pretty=format:'%C(bold)%h%Creset%C(magenta)%d%Creset %s %C(yellow)<%an> %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative
+	stats = !git graph --stat
+	pushall = !git remote | xargs -L1 git push --all
+	diffname = !git diff --name-only
