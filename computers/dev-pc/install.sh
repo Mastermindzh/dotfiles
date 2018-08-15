@@ -1,3 +1,5 @@
 #/bin/bash
 
-# no changes yet.
+MYPATH="$PWD/computers/dev-pc"
+
+ln -sf "$MYPATH/xprofile.sh" ~/.xprofile

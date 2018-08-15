@@ -92,6 +92,7 @@ function install_config {
 	ln -sf "$PWD"/config/nano/.nanorc ~/.nanorc
 	ln -sf "$PWD"/bash/.powerline-shell.json ~/.powerline-shell.json
 	ln -sf "$PWD"/wallpapers/space.jpg ~/Pictures/Wallpapers/wallpaper.jpg
+	mkdir -p ~/.config/rofi
 	ln -sf "$PWD"/config/rofi ~/.config/rofi/config
 	ln -sf "$PWD"/config/.gitconfig ~/.gitconfig
 
@@ -102,6 +103,9 @@ function install_config {
 
 	# create empty .custom alias file
 	echo "" > ~/.custom
+
+	# system fixes
+	echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl --system
 }
 
 # Installs the dependencies on Arch Linux

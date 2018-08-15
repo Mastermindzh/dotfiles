@@ -1,3 +1,6 @@
+xorg-server
+xorg-xinit
+mesa
 i3-gaps
 rsync
 i3lock
@@ -41,3 +44,20 @@ ntp
 xclip
 openssh
 nodejs
+npm
+a52dec
+faac
+faad2
+flac
+jasper
+lame
+libdca
+libdv
+libmad
+libmpeg2
+libtheora
+libvorbis
+libxv
+wavpack
+x264
+xvidcore
