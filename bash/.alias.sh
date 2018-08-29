@@ -65,6 +65,9 @@ alias sudo='sudo '
 # grub
 alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
 
+# git
+alias gitremovelocalbranches='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
+
 ## Functions
 
 # function to cd up a couple of times
