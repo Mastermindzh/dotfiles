@@ -17,7 +17,6 @@ lxappearance
 arc-gtk-theme
 rofi
 i3blocks
-gnome-screenshot
 wmctrl
 zenity
 xorg-xrandr
@@ -61,3 +60,5 @@ libxv
 wavpack
 x264
 xvidcore
+gvfs-smb
+flameshot
