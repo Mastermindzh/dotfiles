@@ -29,6 +29,7 @@ alias psmem='ps auxf | sort -nr -k 5 | head -n 5'
 #dotnet core
 alias efupdate="dotnet ef database update"
 alias efmigrate="dotnet ef migrations add"
+alias efremove="dotnet ef migrations remove"
 alias dotnetnew="dotnet new webapi -o "
 
 ##utility
@@ -57,48 +58,53 @@ alias cmyip='curl -s http://ipecho.net/plain; echo'
 alias mkdir='mkdir -p'
 alias wget='wget -c'
 alias ls='ls --color=auto'
+alias installed='sudo pacman -Qetq'
+alias aurinstalled='sudo pacman -Qmq'
 alias sudo='sudo '
 
 # grub
 alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
+
+# git
+alias gitremovelocalbranches='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 
 ## Functions
 
 # function to cd up a couple of times
 # USAGE: up 3 (goes up 3 directories)
 up(){ 
-	DEEP=$1; 
-	[ -z "${DEEP}" ] && { DEEP=1; }; 
-	for i in $(seq 1 ${DEEP}); do 
-	cd ../; 
-	done; 
+    DEEP=$1; 
+    [ -z "${DEEP}" ] && { DEEP=1; }; 
+    for i in $(seq 1 ${DEEP}); do 
+        cd ../; 
+    done; 
 }
 # function to extract ... well anything really
 extract () {
-   if [ -f $1 ] ; then
-       case $1 in
-           *.tar.bz2)   tar xvjf $1    ;;
-           *.tar.gz)    tar xvzf $1    ;;
-           *.bz2)       bunzip2 $1     ;;
-           *.rar)       unrar x $1     ;;
-           *.gz)        gunzip $1      ;;
-           *.tar)       tar xvf $1     ;;
-           *.tbz2)      tar xvjf $1    ;;
-           *.tgz)       tar xvzf $1    ;;
-           *.zip)       unzip $1       ;;
-           *.Z)         uncompress $1  ;;
-           *.7z)        7z x $1        ;;
-           *)           echo "don't know how to extract '$1'..." ;;
-       esac
-   else
-       echo "'$1' is not a valid file!"
-   fi
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)   tar xvjf $1    ;;
+            *.tar.gz)    tar xvzf $1    ;;
+            *.bz2)       bunzip2 $1     ;;
+            *.rar)       unrar x $1     ;;
+            *.gz)        gunzip $1      ;;
+            *.tar)       tar xvf $1     ;;
+            *.tbz2)      tar xvjf $1    ;;
+            *.tgz)       tar xvzf $1    ;;
+            *.zip)       unzip $1       ;;
+            *.Z)         uncompress $1  ;;
+            *.7z)        7z x $1        ;;
+            *)           echo "don't know how to extract '$1'..." ;;
+        esac
+    else
+        echo "'$1' is not a valid file!"
+    fi
 } 
 
 # function to return uptime in a human readable format
 myuptime () {
-  uptime | awk '{ print "Uptime:", $3, $4, $5 }' | sed 's/,//g'
-  return;
+    uptime | awk '{ print "Uptime:", $3, $4, $5 }' | sed 's/,//g'
+    return;
 }
 
 # function to check whether a specific host is up
@@ -108,12 +114,21 @@ isup(){
 		if [ $? -ne 0 ]; then
 			echo "$1 Seems to be offline";
 		else
-			echo "$1 Seems to be online";
-		fi
-	fi 
+            echo "$1 Seems to be online";
+        fi
+    fi 
 }
 
 # function to print a line across the screen
 printLine(){
-     printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
+    printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
+}
+
+# function to kill a port
+killport () {
+    if [ -z "$1" ] ; then
+        echo "please specify a port to kill"
+    else
+        fuser -k $1/tcp
+    fi
 }

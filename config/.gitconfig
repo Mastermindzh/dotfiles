@@ -7,3 +7,4 @@
 	stats = !git graph --stat
 	pushall = !git remote | xargs -L1 git push --all
 	diffname = !git diff --name-only
+	undocommit = reset --soft HEAD~1
