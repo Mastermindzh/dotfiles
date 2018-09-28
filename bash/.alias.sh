@@ -35,6 +35,7 @@ alias dotnetnew="dotnet new webapi -o "
 ##utility
 alias nmapscan='nmap -n -sP'
 alias pia='nohup sh /opt/pia/run.sh &>/dev/null & disown'
+alias wifimenu='nm-connection-editor'
 
 # show file content without comment lines
 alias nocomment='grep -Ev '\''^(#|$)'\'''

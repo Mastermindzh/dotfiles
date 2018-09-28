@@ -61,4 +61,4 @@ wavpack
 x264
 xvidcore
 gvfs-smb
-flameshot
+gnome-screenshot
