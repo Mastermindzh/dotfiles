@@ -68,6 +68,12 @@ alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
 
 # git
 alias gitremovelocalbranches='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
+alias untangle-line-endings='find ./ -type f -exec dos2unix {} \;'
+
+# development
+alias chromecors='google-chrome-stable --disable-web-security --user-data-dir=".chrome-unsafe"'
+
+
 
 ## Functions
 
