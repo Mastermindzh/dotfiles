@@ -120,6 +120,8 @@ function install_dependencies {
 	fileToList dependencies/aur.txt | xargs trizen --force -S --noconfirm
 
 	fileToList dependencies/pip.txt | xargs sudo pip install
+
+	fileToList dependencies/npm.txt | xargs sudo npm install -g 
 }
 
 
@@ -135,6 +137,7 @@ function list_dependencies {
 	cat dependencies/pacman.txt
 	cat dependencies/aur.txt
 	cat dependencies/pip.txt
+	cat dependencies/npm.txt
 	echo ""
 	echo "=========================="
 	echo ""
