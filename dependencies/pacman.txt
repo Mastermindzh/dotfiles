@@ -62,3 +62,4 @@ x264
 xvidcore
 gvfs-smb
 gnome-screenshot
+bash-completion

@@ -85,7 +85,7 @@ function install_config {
 	linkDir "$PWD"/config/terminal/xfce4-term ~/.config/xfce4/terminal
 	linkDir "$PWD"/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/.config
 	linkDir "$PWD"/templates ~/Templates
-
+	
 	# link user files
 	ln -sf "$PWD"/bash/.bashrc ~/.bashrc
 	ln -sf "$PWD"/bash/.alias.sh ~/.alias
@@ -98,10 +98,11 @@ function install_config {
 	ln -sf "$PWD"/config/.npmrc ~/.npmrc
 	ln -sf "$PWD"/config/user-dirs.dirs ~/.config/user-dirs.dirs
 
-	# link system files
+	# link system files / directories
 	sudo ln -sf "$PWD"/config/package-managers/pacman.conf /etc/pacman.conf
 	sudo ln -sf "$PWD"/config/package-managers/makepkg.conf /etc/makepkg.conf
 	sudo ln -sf "$PWD"/config/ntp.conf /etc/ntp.conf
+	sudo ln -sf "$PWD"/bash/Completion /etc/bash_completion.d
 
 	# create empty .custom alias file
 	echo "" > ~/.custom
