@@ -15,6 +15,7 @@ alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
 ## pacman and trizen
 alias aur='trizen --noconfirm'
 alias update='trizen -Syyu --noconfirm'
+alias updatekeys='sudo pacman-key --refresh-key'
 
 ## systeminfo
 alias meminfo='free -mth'
@@ -22,6 +23,7 @@ alias cpuinfo='lscpu'
 alias hddinfo='df -h'
 alias temp='watch "sensors | grep Core"'
 alias internalip=$'ip route get 8.8.8.8 | awk \'NR==1 {print $NF}\''
+alias preferredapps='exo-preferred-applications'
 
 #show 5 most memory consuming apps
 alias psmem='ps auxf | sort -nr -k 5 | head -n 5'
@@ -62,6 +64,7 @@ alias ls='ls --color=auto'
 alias installed='sudo pacman -Qetq'
 alias aurinstalled='sudo pacman -Qmq'
 alias sudo='sudo '
+alias markdown-toc='markdown-toc --bullets="-" -i'
 
 # grub
 alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
