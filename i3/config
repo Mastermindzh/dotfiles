@@ -14,13 +14,15 @@ floating_modifier $mod
 ############################################
 
 set $urgentTextColour           #101218
-set $primaryBackgroundColour    #1f222d
-set $secondaryBackgroundColour  #252936
-set $textColour                 #7780a1
+set $primaryBackgroundColour    #1e1e1e
+set $secondaryBackgroundColour  #252526
+set $tertiaryBackgroundColour   #333333
+
+set $textColour                 #848484
+set $focusedTextColour          #f6f6f7
 
 set $statusLineColour           #d1d4e0
-set $focusedTextColour          #ffffff
-set $urgentBackground           #ee829f
+set $urgentBackground           #ef5350
 set $indicatorColour            #fcc09e
 
 set $workspace1 "1: "
@@ -119,8 +121,11 @@ bindsym $mod+Print exec /bin/bash ~/.config/i3/scripts/screenshot.sh    # Show s
 bindsym $mod+shift+b exec /bin/bash ~/.config/i3/scripts/brightness.sh
 
 # Rofi
-bindsym $mod+d exec "rofi -color-window '#273238, #273238, #1e2529' -color-normal '#273238, #c1c1c1, #273238, #394249, #ffffff' -color-active '#273238, #80cbc4, #273238, #394249, #80cbc4' -color-urgent '#273238, #ff1844, #273238, #394249, #ff1844' -lines 10 -line-padding 5 -show run"
-bindsym $mod+Tab exec "rofi -color-window '#273238, #273238, #1e2529' -color-normal '#273238, #c1c1c1, #273238, #394249, #ffffff' -color-active '#273238, #80cbc4, #273238, #394249, #80cbc4' -color-urgent '#273238, #ff1844, #273238, #394249, #ff1844' -lines 10 -line-padding 5 -show"
+# window: background border dividerline
+# normal: odd lines - text colour - even lines - hover lines - hover text colour
+# active: background
+bindsym $mod+d exec "rofi -color-window '#1e1e1e, #333333, #333333' -color-normal '#1e1e1e, #848484, #1e1e1e, #333333, #f6f6f7' -lines 10 -line-padding 5 -show run"
+bindsym $mod+Tab exec "rofi -color-window '#1e1e1e, #333333, #333333' -color-normal '#1e1e1e, #848484, #1e1e1e, #333333, #f6f6f7' -color-active '#333333, #ef5350, #0000ff, #333333, #f6f6f7' -lines 10 -line-padding 5 -show"
 
 ############################################
 #    Media keys                            #
@@ -200,7 +205,7 @@ bar {
 new_window 1pixel
 hide_edge_borders both
 
-# Widow Colours
+# Window Colours
 #                       border                     background                  text               indicator
 client.focused          $primaryBackgroundColour   $primaryBackgroundColour    $focusedTextColour $indicatorColour
 client.focused_inactive $secondaryBackgroundColour $secondaryBackgroundColour  $textColour        $indicatorColour
