@@ -4,9 +4,14 @@ This repository holds my Linux config files.
 
 ## Mandatory unixporn screenshots
 
-[![dotfiles](dotfiles.png)](https://raw.githubusercontent.com/Mastermindzh/dotfiles/master/dotfiles.png)
+New version as of dec 2018:
+[![dotfiles](media/dotfiles3.png)](https://raw.githubusercontent.com/Mastermindzh/dotfiles/master/media/dotfiles.png)
 
-[![dotfiles2](dotfiles2.png)](https://raw.githubusercontent.com/Mastermindzh/dotfiles/master/dotfiles2.png)
+Older versions:
+
+- [dotfiles](media/dotfiles.png)
+- [dotfiles2](media/dotfiles2.png)
+
 
 ## Tools
 
