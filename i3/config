@@ -225,6 +225,7 @@ for_window [class="Eog"] floating enable
 assign [class="Google Play Music Desktop Player"] $workspace10
 assign [class="Franz"] $workspace9
 assign [class="Enpass-Desktop"] $workspace12
+assign [class="Enpass"] $workspace12
 assign [class="VirtualBox Machine"] $workspace11
 
 # database stuff
