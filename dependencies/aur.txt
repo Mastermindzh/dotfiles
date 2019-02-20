@@ -9,4 +9,5 @@ awesome-terminal-fonts-git
 otf-droid-sans-mono-powerline-git
 downgrade
 dive
-
+xorg-xev
+spotify
