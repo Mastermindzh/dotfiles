@@ -6,8 +6,6 @@ tmpbg='/tmp/screen.png'
 # detect whether spotify is running
 isPlaying=$(~/.config/i3/scripts/spotify-cli.sh status);
 
-(( $# )) && { icon=$1; }
-
 scrot "$tmpbg"
 convert "$tmpbg" -scale 10% -scale 1000% "$tmpbg"
 convert "$tmpbg" "$icon" -gravity center -composite -matte "$tmpbg"
@@ -15,9 +13,17 @@ convert "$tmpbg" "$icon" -gravity center -composite -matte "$tmpbg"
 # Stop music if playing
 ~/.config/i3/scripts/spotify-cli.sh pause
 
-i3lock -n -f -i "$tmpbg";
+# check whether the lockscreen is being activated because of a suspend
+if [[ $* == *--suspend ]]; then
+    # if it is, simply lock without no-fork
+    i3lock -f -i "$tmpbg";
+else
+    # if it isn't suspended, enable no-fork
+    i3lock -n -f -i "$tmpbg";
 
-# if spotify was playing before we locked, resume.
-if [ $isPlaying == "Playing" ]; then
-    ~/.config/i3/scripts/spotify-cli.sh play
-fi;
+    # if spotify was playing before we locked, resume.
+    if [ $isPlaying == "Playing" ]; then
+        ~/.config/i3/scripts/spotify-cli.sh play
+    fi;
+
+fi
