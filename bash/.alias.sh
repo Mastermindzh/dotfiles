@@ -40,6 +40,8 @@ alias dotnetnew="dotnet new webapi -o "
 alias nmapscan='nmap -n -sP'
 alias pia='nohup sh /opt/pia/run.sh &>/dev/null & disown'
 alias wifimenu='nm-connection-editor'
+alias findcrlf='find . -path node_modules -prune -o -not -type d -exec file "{}" ";" | grep -E "BOM|CRLF"'
+alias fixcrlf='findcrlf > /tmp/crlftolf && cat /tmp/crlftolf | while read line; do CUTLINE=$(echo $line | cut -f1 -d":") && dos2unix $CUTLINE; done'
 alias mountrick='sudo mount -t cifs //192.168.1.2/Rick /mnt/rick/ -o username=mastermindzh,noexec'
 
 # show file content without comment lines
@@ -68,6 +70,7 @@ alias installed='sudo pacman -Qetq'
 alias aurinstalled='sudo pacman -Qmq'
 alias sudo='sudo '
 alias markdown-toc='markdown-toc --bullets="-" -i'
+alias tree='tree --dirsfirst'
 
 # grub
 alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
