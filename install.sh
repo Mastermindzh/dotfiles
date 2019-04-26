@@ -121,6 +121,8 @@ function install_dependencies {
 
 	fileToList dependencies/pip.txt | xargs sudo pip install
 
+	# disable chromium downloads for npm
+	sudo npm config set puppeteer_skip_chromium_download true -g
 	fileToList dependencies/npm.txt | xargs sudo npm install -g 
 }
 
