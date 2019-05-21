@@ -43,6 +43,10 @@ alias wifimenu='nm-connection-editor'
 alias findcrlf='find . -path node_modules -prune -o -not -type d -exec file "{}" ";" | grep -E "BOM|CRLF"'
 alias fixcrlf='findcrlf > /tmp/crlftolf && cat /tmp/crlftolf | while read line; do CUTLINE=$(echo $line | cut -f1 -d":") && dos2unix $CUTLINE; done'
 alias mountrick='sudo mount -t cifs //192.168.1.2/Rick /mnt/rick/ -o username=mastermindzh,noexec'
+alias enable-wifi='sudo ip link set wlp2s0 up'
+alias scan-wifi='sudo iw dev wlp2s0 scan'
+alias pretty-json='python -m json.tool'
+alias addpgpkey='gpg --recv-keys'
 
 # show file content without comment lines
 alias nocomment='grep -Ev '\''^(#|$)'\'''
