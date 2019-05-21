@@ -16,8 +16,9 @@ source ~/.custom
 
 # Fix .netcore paths if dotnet is installed
 if hash dotnet 2>/dev/null; then
-    export PATH="$PATH:~/.dotnet/tools"
-    export DOTNET_ROOT=$(dirname $(realpath $(which dotnet)))
+    export DOTNET_ROOT=/opt/dotnet
+    export MSBuildSDKsPath=$DOTNET_ROOT/sdk/$(${DOTNET_ROOT}/dotnet --version)/Sdks
+    export PATH="${PATH}:${DOTNET_ROOT}:~/.dotnet/tools"
 fi
 
 
