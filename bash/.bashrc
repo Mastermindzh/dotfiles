@@ -13,6 +13,7 @@ source ~/.alias
 [[ $- != *i* ]] && return
 
 source ~/.custom
+source ~/.variables
 
 # Fix .netcore paths if dotnet is installed
 if hash dotnet 2>/dev/null; then

@@ -18,6 +18,7 @@ alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
 alias aur='trizen --noconfirm'
 alias update='trizen -Syyu --noconfirm'
 alias updatekeys='sudo pacman-key --refresh-key'
+alias cleanpacmancache='sudo paccache -rk 1 && sudo paccache -ruk0'
 
 ## systeminfo
 alias meminfo='free -mth'
