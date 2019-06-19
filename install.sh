@@ -106,6 +106,7 @@ function install_config {
 
 	# create empty .custom alias file
 	echo "" > ~/.custom
+	echo "" > ~/.variables
 
 	# system fixes
 	echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl --system
