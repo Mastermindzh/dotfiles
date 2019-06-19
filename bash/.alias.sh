@@ -86,7 +86,7 @@ alias gitremovelocalbranches='git branch --merged | egrep -v "(^\*|master|dev)" 
 alias untangle-line-endings='find ./ -type f -exec dos2unix {} \;'
 
 # development
-alias chromecors='google-chrome-stable --disable-web-security --user-data-dir=".chrome-unsafe"'
+alias chromecors='google-chrome-stable --disable-web-security --user-data-dir="~/.chrome-unsafe"'
 
 
 
