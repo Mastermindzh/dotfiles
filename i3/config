@@ -40,6 +40,7 @@ set $workspace12 " Enpass"
 
 # scripts
 set $spotify ~/.config/i3/scripts/spotify-cli.sh
+set $vpnmanager ~/.config/i3/scripts/vpn-manager.sh
 
 ############################################
 #    i3 management keys                    #
@@ -129,6 +130,7 @@ bindsym $mod+shift+b exec /bin/bash ~/.config/i3/scripts/brightness.sh
 # active: background
 bindsym $mod+d exec "rofi -color-window '#1e1e1e, #333333, #333333' -color-normal '#1e1e1e, #848484, #1e1e1e, #333333, #f6f6f7' -lines 10 -line-padding 5 -show run"
 bindsym $mod+Tab exec "rofi -color-window '#1e1e1e, #333333, #333333' -color-normal '#1e1e1e, #848484, #1e1e1e, #333333, #f6f6f7' -color-active '#333333, #ef5350, #0000ff, #333333, #f6f6f7' -lines 10 -line-padding 5 -show"
+bindsym $mod+n exec $vpnmanager
 
 ############################################
 #    Media keys                            #

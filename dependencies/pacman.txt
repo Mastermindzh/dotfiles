@@ -65,3 +65,5 @@ gnome-screenshot
 bash-completion
 flameshot
 otf-font-awesome
+openvpn
+networkmanager-openvpn
