@@ -85,7 +85,8 @@ function install_config {
 	linkDir "$PWD"/config/terminal/xfce4-term ~/.config/xfce4/terminal
 	linkDir "$PWD"/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/.config
 	linkDir "$PWD"/templates ~/Templates
-	
+	linkDir "$PWD"/config/ranger ~/.config/
+
 	# link user files
 	ln -sf "$PWD"/bash/.bashrc ~/.bashrc
 	ln -sf "$PWD"/bash/.alias.sh ~/.alias
