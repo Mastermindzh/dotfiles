@@ -125,11 +125,8 @@ bindsym $mod+Print exec flameshot gui					# Show screenshot window
 bindsym $mod+shift+b exec /bin/bash ~/.config/i3/scripts/brightness.sh
 
 # Rofi
-# window: background border dividerline
-# normal: odd lines - text colour - even lines - hover lines - hover text colour
-# active: background
-bindsym $mod+d exec "rofi -color-window '#1e1e1e, #333333, #333333' -color-normal '#1e1e1e, #848484, #1e1e1e, #333333, #f6f6f7' -lines 10 -line-padding 5 -show run"
-bindsym $mod+Tab exec "rofi -color-window '#1e1e1e, #333333, #333333' -color-normal '#1e1e1e, #848484, #1e1e1e, #333333, #f6f6f7' -color-active '#333333, #ef5350, #0000ff, #333333, #f6f6f7' -lines 10 -line-padding 5 -show"
+bindsym $mod+d exec "rofi -show run"
+bindsym $mod+Tab exec "rofi -show"
 bindsym $mod+n exec $vpnmanager
 
 ############################################

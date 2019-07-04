@@ -1,8 +1,8 @@
-rofi.color-window: #273238, #273238, #1e2529
-rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
-rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
-rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
+rofi.color-window: #1e1e1e, #333333, #333333
+rofi.color-normal: #1e1e1e, #848484, #1e1e1e, #333333, #f6f6f7
+rofi.color-active: #333333, #ef5350, #0000ff, #333333, #f6f6f7
+rofi.color-urgent: #333333, #ef5350, #0000ff, #333333, #f6f6f7
 
 rofi.lines: 10
-rofi.line-padding: 15
+rofi.line-padding: 5
 rofi.font: monospace 10
