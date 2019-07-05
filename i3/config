@@ -127,6 +127,7 @@ bindsym $mod+shift+b exec /bin/bash ~/.config/i3/scripts/brightness.sh
 # Rofi
 bindsym $mod+d exec "rofi -show run"
 bindsym $mod+Tab exec "rofi -show"
+bindsym $mod+s exec "rofi -show ssh"
 bindsym $mod+n exec $vpnmanager
 
 ############################################

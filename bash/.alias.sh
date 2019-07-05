@@ -49,6 +49,9 @@ alias scan-wifi='sudo iw dev wlp2s0 scan'
 alias pretty-json='python -m json.tool'
 alias addpgpkey='gpg --recv-keys'
 
+# cli tools
+alias crypto='curl -s rate.sx?qF | head -n -2 | tail -n +10'
+
 # show file content without comment lines
 alias nocomment='grep -Ev '\''^(#|$)'\'''
 
