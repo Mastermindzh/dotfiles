@@ -10,3 +10,4 @@
 	undocommit = reset --soft HEAD~1
 [core]
 	autocrlf = input
+	editor = nano

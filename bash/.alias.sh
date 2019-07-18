@@ -7,8 +7,11 @@ alias sqlserver='docker run -d --rm --name sql-server -e "ACCEPT_EULA=Y" -e "SA_
 
 # useful docker commands
 alias stop-dockers='docker stop $(docker ps -aq)'
-alias remove-dockers='docker rm -v $(docker ps -aq -f "status=exited")'
-alias clean-dockers='docker rmi $(docker images -aq -f "dangling=true")'
+alias docker-clean-containers='docker container prune -f --filter "until=48h"'
+alias docker-clean-images='docker image prune -a -f --filter "until=48h"'
+alias docker-clean-volumes='docker volume prune -f --filter "label!=keep"'
+alias docker-clean-networks='docker network prune -f --filter "until=24h"'
+alias docker-clean-all='docker system prune -f --volumes'
 
 #upload text to sprunge.us
 #USAGE cat file.txt | sprunge
