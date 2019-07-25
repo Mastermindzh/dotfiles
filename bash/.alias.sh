@@ -21,7 +21,7 @@ alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
 alias aur='trizen --noconfirm'
 alias update='trizen -Syyu --noconfirm'
 alias updatekeys='sudo pacman-key --refresh-key'
-alias cleanpacmancache='sudo paccache -rk 1 && sudo paccache -ruk0'
+alias clean-pacmancache='sudo paccache -rk 1 && sudo paccache -ruk0'
 
 ## systeminfo
 alias meminfo='free -mth'
@@ -51,6 +51,9 @@ alias enable-wifi='sudo ip link set wlp2s0 up'
 alias scan-wifi='sudo iw dev wlp2s0 scan'
 alias pretty-json='python -m json.tool'
 alias addpgpkey='gpg --recv-keys'
+alias clean-trash='sudo rm -rf ~/.local/share/Trash/*'
+alias clean-journal='sudo journalctl --vacuum-time=2d'
+alias clean-all='clean-trash && clean-journal && clean-pacmancache && docker-clean-all'
 
 # cli tools
 alias crypto='curl -s rate.sx?qF | head -n -2 | tail -n +10'

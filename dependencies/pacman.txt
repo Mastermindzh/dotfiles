@@ -69,3 +69,4 @@ openvpn
 networkmanager-openvpn
 ranger
 w3m
+system-config-printer
