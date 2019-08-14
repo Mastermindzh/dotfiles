@@ -11,3 +11,4 @@ downgrade
 dive
 xorg-xev
 spotify
+networkmanager-l2tp

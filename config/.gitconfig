@@ -8,6 +8,7 @@
 	pushall = !git remote | xargs -L1 git push --all
 	diffname = !git diff --name-only
 	undocommit = reset --soft HEAD~1
+	log-small = log --oneline --no-merges
 [core]
 	autocrlf = input
 	editor = nano

@@ -92,7 +92,7 @@ function install_config {
 	ln -sf "$PWD"/bash/.alias.sh ~/.alias
 	ln -sf "$PWD"/config/nano/.nanorc ~/.nanorc
 	ln -sf "$PWD"/bash/.powerline-shell.json ~/.powerline-shell.json
-	ln -sf "$PWD"/wallpapers/space.jpg ~/Pictures/Wallpapers/wallpaper.jpg
+	ln -sf "$PWD"/wallpapers/butterflies-in-space.jpg ~/Pictures/Wallpapers/wallpaper.jpg
 	mkdir -p ~/.config/rofi
 	ln -sf "$PWD"/config/rofi ~/.config/rofi/config
 	ln -sf "$PWD"/config/.gitconfig ~/.gitconfig
