@@ -225,7 +225,7 @@ alias sp-prev="  sp-dbus Previous"
 SPOTIFY_PID="$(pidof -s spotify)"
 
 if [[ -z "$SPOTIFY_PID" ]]; then
-  echo "Error: Spotify is not running."
+  echo "Spotify is not running."
   exit 1
 fi
 

@@ -22,7 +22,6 @@ zenity
 xorg-xrandr
 networkmanager
 eog
-screenfetch
 python
 python-pip
 gdm

@@ -11,11 +11,22 @@ alias docker-clean-containers='docker container prune -f --filter "until=48h"'
 alias docker-clean-images='docker image prune -a -f --filter "until=48h"'
 alias docker-clean-volumes='docker volume prune -f --filter "label!=keep"'
 alias docker-clean-networks='docker network prune -f --filter "until=24h"'
-alias docker-clean-all='docker system prune -f --volumes'
+alias docker-clean-all='stop-dockers && docker-clean-containers && docker-clean-images && docker-clean-volumes && docker-clean-networks'
 
-#upload text to sprunge.us
-#USAGE cat file.txt | sprunge
-alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
+# Kubernetes commands
+alias mkubectl='microk8s.kubectl'
+alias kubestart='microk8s.start'
+alias kubestop='microk8s.stop'
+
+#dotnet core
+alias efupdate="dotnet ef database update"
+alias efmigrate="dotnet ef migrations add"
+alias efremove="dotnet ef migrations remove"
+alias dotnetnew="dotnet new webapi -o "
+
+# git
+alias gitremovelocalbranches='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
+alias untangle-line-endings='find ./ -type f -exec dos2unix {} \;'
 
 ## pacman and trizen
 alias aur='trizen --noconfirm'
@@ -33,12 +44,6 @@ alias preferredapps='exo-preferred-applications'
 
 #show 5 most memory consuming apps
 alias psmem='ps auxf | sort -nr -k 5 | head -n 5'
-
-#dotnet core
-alias efupdate="dotnet ef database update"
-alias efmigrate="dotnet ef migrations add"
-alias efremove="dotnet ef migrations remove"
-alias dotnetnew="dotnet new webapi -o "
 
 ##utility
 alias nmapscan='nmap -n -sP'
@@ -90,15 +95,6 @@ alias handbrake='ghb'
 # grub
 alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
 
-# git
-alias gitremovelocalbranches='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
-alias untangle-line-endings='find ./ -type f -exec dos2unix {} \;'
-
-# development
-alias chromecors='google-chrome-stable --disable-web-security --user-data-dir="~/.chrome-unsafe"'
-
-
-
 ## Functions
 
 # function to cd up a couple of times
@@ -143,9 +139,9 @@ isup(){
 	if ! [ -z "$1" ]; then
 		ping -c 3 $1 > /dev/null 2>&1
 		if [ $? -ne 0 ]; then
-			echo "$1 Seems to be offline";
+			echo "$1 seems to be offline";
 		else
-            echo "$1 Seems to be online";
+            echo "$1 seems to be online";
         fi
     fi 
 }

@@ -1,17 +1,14 @@
-#
-# ~/.bashrc
-#
-
+# if powerline-shell is available use it.
 function _update_ps1() {
     if hash powerline-shell 2>/dev/null; then
         PS1=$(powerline-shell $?)
     fi
 }
 
-source ~/.alias
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+source ~/.alias
 source ~/.custom
 source ~/.variables
 
@@ -21,7 +18,6 @@ if hash dotnet 2>/dev/null; then
     export MSBuildSDKsPath=$DOTNET_ROOT/sdk/$(${DOTNET_ROOT}/dotnet --version)/Sdks
     export PATH="${PATH}:${DOTNET_ROOT}:~/.dotnet/tools"
 fi
-
 
 #... :P fancy stuffs
 #screenfetch -t -A "UBUNTU"

@@ -3,7 +3,6 @@ notifyconf
 enpass-bin
 insync
 visual-studio-code-insiders
-gpmdp
 ttf-font-awesome-4
 awesome-terminal-fonts-git
 otf-droid-sans-mono-powerline-git
@@ -12,3 +11,5 @@ dive
 xorg-xev
 spotify
 networkmanager-l2tp
+snapd
+i3blocks-contrib
