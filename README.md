@@ -5,30 +5,29 @@ This repository holds my Linux config files.
 ## Mandatory unixporn screenshots
 
 New version as of dec 2018:
-[![dotfiles](media/dotfiles3.png)](https://raw.githubusercontent.com/Mastermindzh/dotfiles/master/media/dotfiles.png)
+[![dotfiles](media/dotfiles3.png)](https://raw.githubusercontent.com/Mastermindzh/dotfiles/master/media/dotfiles3.png)
 
 Older versions:
 
 - [dotfiles](media/dotfiles.png)
 - [dotfiles2](media/dotfiles2.png)
 
-
 ## Tools
 
-| Purpose           | Tool                                 |
-|-------------------|--------------------------------------|
-| WM                | i3 (i3-gaps)                         |
-| App launcher      | rofi                                 |
-| Shell             | Bash                                 |
-| Package managers  | Pacman & Trizen                      |
-| OS                | Arch Linux (or Antergos if I'm lazy) |
-| Terminal          | xfce4-terminal                       |
-| Editor            | nano                                 |
-| Code editor       | vscode / jetbrains stuff             |
-| Browser           | Chromium                             |
-| File manager      | If I have to use one ... Nautilus    |
-| Music             | Google Play Music Desktop Player     |
-|                   |                                      |
+| Purpose          | Tool                                 |
+| ---------------- | ------------------------------------ |
+| WM               | i3 (i3-gaps)                         |
+| App launcher     | rofi                                 |
+| Shell            | Bash                                 |
+| Package managers | Pacman & Trizen                      |
+| OS               | Arch Linux (or Antergos if I'm lazy) |
+| Terminal         | xfce4-terminal                       |
+| Editor           | nano                                 |
+| Code editor      | vscode / jetbrains stuff             |
+| Browser          | Chromium                             |
+| File manager     | If I have to use one ... Nautilus    |
+| Music            | Google Play Music Desktop Player     |
+|                  |                                      |
 
 ## computer specifc setup
 

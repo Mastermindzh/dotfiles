@@ -9,7 +9,6 @@ scrot
 arandr
 chromium
 xfce4-terminal
-nautilus
 sushi
 libconfig
 compton
@@ -69,3 +68,5 @@ networkmanager-openvpn
 ranger
 w3m
 system-config-printer
+thunar
+thunar-archive-plugin
