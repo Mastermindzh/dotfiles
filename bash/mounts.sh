@@ -92,7 +92,7 @@ for MOUNTS in ${!MOUNTS@}; do
       SERVER_LOCATION="$MY_SERVER_LOCATION/${MOUNTS[share]}"
       MOUNT_LOCATION="$MOUNT_PREFIX/${MOUNTS[mount]}"
 
-      mount.cifs "$SERVER_LOCATION" "$MOUNT_LOCATION" -o user=mastermindzh,rw
+      mount.cifs "$SERVER_LOCATION" "$MOUNT_LOCATION" -o user=mastermindzh,noperm,rw
 
       if [ $? -eq 0 ]; then
         echo "Succesfully mounted $MOUNT_LOCATION"
