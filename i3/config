@@ -40,6 +40,7 @@ set $workspace12 " Enpass"
 
 # scripts
 set $spotify ~/.config/i3/scripts/spotify-cli.sh
+set $tidal ~/.config/i3/scripts/tidal-cli.sh
 set $vpnmanager ~/.config/i3/scripts/vpn-manager.sh
 
 ############################################
@@ -147,9 +148,9 @@ bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-bindsym $mod+Next exec $spotify next
-bindsym $mod+End exec $spotify prev
-bindsym $mod+Delete exec $spotify play
+bindsym $mod+Next exec $tidal next
+bindsym $mod+End exec $tidal previous
+bindsym $mod+Delete exec $tidal playpause
 
 ############################################
 #    Workspaces                            #
@@ -309,3 +310,5 @@ exec --no-startup-id nm-applet
 exec_always feh --bg-scale ~/Pictures/Wallpapers/wallpaper.jpg
 exec /usr/bin/compton
 exec /bin/bash ~/.config/i3/scripts/startup.sh
+
+bindsym $mod+Shift+a border normal
