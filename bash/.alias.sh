@@ -31,6 +31,7 @@ alias untangle-line-endings='find ./ -type f -exec dos2unix {} \;'
 ## pacman and trizen
 alias aur='trizen --noconfirm'
 alias update='trizen -Syyu --noconfirm'
+alias remove-orphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias updatekeys='sudo pacman-key --refresh-key'
 alias clean-pacmancache='sudo paccache -rk 1 && sudo paccache -ruk0'
 
@@ -51,7 +52,6 @@ alias pia='nohup sh /opt/pia/run.sh &>/dev/null & disown'
 alias wifimenu='nm-connection-editor'
 alias findcrlf='find . -path node_modules -prune -o -not -type d -exec file "{}" ";" | grep -E "BOM|CRLF"'
 alias fixcrlf='findcrlf > /tmp/crlftolf && cat /tmp/crlftolf | while read line; do CUTLINE=$(echo $line | cut -f1 -d":") && dos2unix $CUTLINE; done'
-alias mountrick='sudo mount -t cifs //192.168.1.2/Rick /mnt/rick/ -o username=mastermindzh,noexec'
 alias enable-wifi='sudo ip link set wlp2s0 up'
 alias scan-wifi='sudo iw dev wlp2s0 scan'
 alias pretty-json='python -m json.tool'
@@ -157,5 +157,23 @@ killport () {
         echo "please specify a port to kill"
     else
         fuser -k $1/tcp
+    fi
+}
+
+# function to switch kubernetes namespace
+kubeswitch () {
+    if [ -z "$1" ] ; then
+        echo "please specify a namespace to switch to"
+    else
+        kubectl config set-context --current --namespace=$1
+    fi
+}
+
+# function to switch to a different azure kubernetes cluster
+azkubeswitch () {
+    if [ -z "$2" ] ; then
+        echo "please execute with the following params: azkubeswitch {resourcegroupname} {clustername}"
+    else
+        az aks get-credentials --resource-group $1 --name $2
     fi
 }
