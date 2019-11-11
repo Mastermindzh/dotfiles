@@ -3,7 +3,7 @@
 icon="$HOME/.config/i3/icons/lock.png"
 tmpbg='/tmp/screen.png'
 
-# detect whether spotify is running
+# detect whether tidal is running
 isPlaying=$(~/.config/i3/scripts/tidal-cli.sh status);
 
 scrot "$tmpbg"
@@ -21,7 +21,7 @@ else
     # if it isn't suspended, enable no-fork
     i3lock -n -f -i "$tmpbg";
 
-    # if spotify was playing before we locked, resume.
+    # if tidal was playing before we locked, resume.
     if [ $isPlaying == "playing" ]; then
         ~/.config/i3/scripts/tidal-cli.sh play
     fi;

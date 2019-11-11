@@ -39,7 +39,6 @@ set $workspace11 " Virtualbox"
 set $workspace12 " Enpass"
 
 # scripts
-set $spotify ~/.config/i3/scripts/spotify-cli.sh
 set $tidal ~/.config/i3/scripts/tidal-cli.sh
 set $vpnmanager ~/.config/i3/scripts/vpn-manager.sh
 
@@ -229,7 +228,6 @@ for_window [class="Eog"] floating enable
 #    Workspace specific tools              #
 #       Use xprop to determine class       #
 ############################################
-assign [class="Google Play Music Desktop Player"] $workspace10
 assign [class="Franz"] $workspace9
 assign [class="Enpass-Desktop"] $workspace12
 assign [class="Enpass"] $workspace12
