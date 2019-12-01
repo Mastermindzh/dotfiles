@@ -224,6 +224,7 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Eog"] floating enable
+for_window [title="Tidal-hifi - settings"] floating enable
 
 ############################################
 #    Workspace specific tools              #
