@@ -9,7 +9,6 @@ otf-droid-sans-mono-powerline-git
 downgrade
 dive
 xorg-xev
-spotify
 networkmanager-l2tp
 snapd
 i3blocks-contrib
