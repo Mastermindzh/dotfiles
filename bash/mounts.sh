@@ -41,6 +41,11 @@ declare -A MOUNTS3=(
   [share]='appdata'
   [mount]='appdata'
 )
+declare -A MOUNTS4=(
+  [server]="$MY_SERVER_LOCATION"
+  [share]='isos'
+  [mount]='isos'
+)
 
 # declare array with "objects"
 declare -n MOUNTS
