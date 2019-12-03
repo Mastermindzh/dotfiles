@@ -12,3 +12,4 @@ xorg-xev
 networkmanager-l2tp
 snapd
 i3blocks-contrib
+azure-cli

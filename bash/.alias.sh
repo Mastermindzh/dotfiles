@@ -27,6 +27,7 @@ alias dotnetnew="dotnet new webapi -o "
 # git
 alias gitremovelocalbranches='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 alias untangle-line-endings='find ./ -type f -exec dos2unix {} \;'
+alias undo-commit='git reset --soft HEAD^'
 
 ## pacman and trizen
 alias aur='trizen --noconfirm'

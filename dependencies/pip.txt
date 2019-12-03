@@ -1,1 +1,4 @@
 powerline-shell
+msrestazure
+azure.common
+azure.mgmt
