@@ -21,7 +21,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Fix .netcore paths if dotnet is installed
-if hash dotnet 2>/dev/null; then
+if hash dotnet 2>/dev/null1; then
     export DOTNET_ROOT=/opt/dotnet
     export MSBuildSDKsPath=$DOTNET_ROOT/sdk/$(${DOTNET_ROOT}/dotnet --version)/Sdks
     export PATH="${PATH}:${DOTNET_ROOT}:~/.dotnet/tools"

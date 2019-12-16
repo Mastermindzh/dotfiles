@@ -1,4 +1,5 @@
-powerline-shell
 msrestazure
 azure.common
 azure.mgmt
+azure.mgmt.containerservice
+azure.graphrbac

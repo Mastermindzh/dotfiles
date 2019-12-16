@@ -7,3 +7,4 @@ alias unmountdata='sudo umount /home/mastermindzh/data && sudo cryptsetup close 
 # useful kubernetes (AZURE) commands
 alias kubernetes-qa='azkubeswitch Inforit.Cloud InforitCluster'
 alias kubernetes-prod='azkubeswitch Inforit.Cloud Production'
+alias kubernetes-dev='azkubeswitch Inforit.Cloud Development'

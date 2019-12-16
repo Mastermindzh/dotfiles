@@ -13,7 +13,7 @@ floating_modifier $mod
 #    Constants                             #
 ############################################
 
-set $urgentTextColour           #101218
+set $urgentTextBackgroundColour           #a6a6a6
 set $primaryBackgroundColour    #1e1e1e
 set $secondaryBackgroundColour  #252526
 set $tertiaryBackgroundColour   #333333
@@ -22,7 +22,7 @@ set $textColour                 #848484
 set $focusedTextColour          #f6f6f7
 
 set $statusLineColour           #d1d4e0
-set $urgentBackground           #ef5350
+set $urgentTextColour           #ef5350
 set $indicatorColour            #fcc09e
 
 set $workspace1 "1: "
@@ -204,7 +204,7 @@ bar {
                 focused_workspace  $primaryBackgroundColour $primaryBackgroundColour    $focusedTextColour
                 active_workspace   $primaryBackgroundColour $secondaryBackgroundColour  $textColour
                 inactive_workspace $primaryBackgroundColour $primaryBackgroundColour    $textColour
-                urgent_workspace   $primaryBackgroundColour $primaryBackgroundColour    $urgentBackground
+                urgent_workspace   $primaryBackgroundColour $primaryBackgroundColour    $urgentTextColour
     }
 }
 
@@ -216,7 +216,7 @@ hide_edge_borders both
 client.focused          $primaryBackgroundColour   $primaryBackgroundColour    $focusedTextColour $indicatorColour
 client.focused_inactive $secondaryBackgroundColour $secondaryBackgroundColour  $textColour        $indicatorColour
 client.unfocused        $secondaryBackgroundColour $secondaryBackgroundColour  $textColour        $indicatorColour
-client.urgent           $secondaryBackgroundColour $urgentBackground           $urgentTextColour  $indicatorColour
+client.urgent           $secondaryBackgroundColour $urgentTextBackgroundColour $urgentTextColour  $indicatorColour
 
 # Floating windows
 for_window [class="Pavucontrol"] floating enable
