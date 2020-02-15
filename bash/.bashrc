@@ -5,13 +5,18 @@ function _update_ps1() {
     fi
 }
 
+# sourceIfExists
+function sourceIfExists () {
+    [[ -f "$1" ]] && source "$1"
+}
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 source ~/.alias
 source ~/.custom
 source ~/.variables
-source ~/lib/azure-cli/az.completion
+sourceIfExists ~/lib/azure-cli/az.completion
 
 # evals
 eval "$(pyenv init -)"

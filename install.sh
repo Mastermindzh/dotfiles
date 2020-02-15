@@ -62,8 +62,8 @@ function copyToDir {
 function install_fonts {
 	mkdir -p ~/.fonts
 	mkdir -p ~/.local/share/fonts
-	yes | cp -rf ./fonts/* ~/.fonts
-	yes | cp -rf ./fonts/* ~/.local/share/fonts
+	cp -rf ./fonts/* ~/.fonts
+	cp -rf ./fonts/* ~/.local/share/fonts
 }
 
 # install trizen, a aur helper
@@ -80,7 +80,7 @@ function install_config {
 
 	# link directories
 	linkDir "$PWD"/wallpapers ~/Pictures/Wallpapers
-	linkDir "$PWD"/i3/ ~/.config/i3
+	linkDir "$PWD"/i3 ~/.config/i3
 	linkDir "$PWD"/config/notify-osd/notify-osd ~/.notify-osd
 	linkDir "$PWD"/config/terminal/xfce4-term ~/.config/xfce4/terminal
 	linkDir "$PWD"/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/.config
@@ -117,7 +117,7 @@ function install_config {
 
 # Installs the dependencies on Arch Linux
 function install_dependencies {
-	fileToList dependencies/pacman.txt | xargs sudo pacman --noconfirm --force -S
+	fileToList dependencies/pacman.txt | xargs sudo pacman --noconfirm -S
 
 	install_trizen
 	fileToList dependencies/aur.txt | xargs trizen --force -S --noconfirm
@@ -131,20 +131,6 @@ function install_dependencies {
 # =======================================
 # User output functions
 # =======================================
-
-# list the dependencies file
-function list_dependencies {
-	echo ""
-	echo "=========================="
-	echo ""
-	cat dependencies/pacman.txt
-	cat dependencies/aur.txt
-	cat dependencies/pip.txt
-	cat dependencies/npm.txt
-	echo ""
-	echo "=========================="
-	echo ""
-}
 
 # Run the intro bit
 function intro {
@@ -197,8 +183,7 @@ intro
 ask "Do you want to continue installing my config and rice?" Y &&
 
 # Ask for dependency installation
-list_dependencies
-if ask "Do you want to install the list of applications above? (might prompt for password)" Y; then
+if ask "Do you want to install the applications listen in ./dependencies? (might prompt for password)" Y; then
     install_dependencies
 fi
 

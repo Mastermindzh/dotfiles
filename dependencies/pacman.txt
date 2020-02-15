@@ -1,3 +1,4 @@
+base-devel
 xorg-server
 xorg-xinit
 mesa
@@ -9,6 +10,7 @@ scrot
 arandr
 chromium
 xfce4-terminal
+ttf-font-awesome
 sushi
 libconfig
 compton
@@ -26,7 +28,6 @@ python-pip
 gdm
 neofetch
 git
-networkmanager
 scrot
 acpi
 imagemagick
@@ -68,5 +69,13 @@ networkmanager-openvpn
 ranger
 w3m
 system-config-printer
-thunar
-thunar-archive-plugin
+nautilus 
+nautilus-share
+geany
+dotnet-host 
+dotnet-runtime
+dotnet-sdk
+dotnet-runtime-2.2
+dotnet-sdk-2.2
+wget
+pyenv
