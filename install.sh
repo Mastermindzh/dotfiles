@@ -88,6 +88,7 @@ function install_config {
 
 	# link user files
 	ln -sf "$PWD"/bash/.bashrc ~/.bashrc
+  	ln -sf "$PWD"/bash/.dotnet-install.sh ~/.dotnet-install.sh
 	ln -sf "$PWD"/bash/.alias.sh ~/.alias
 	ln -sf "$PWD"/config/nano/.nanorc ~/.nanorc
 	ln -sf "$PWD"/bash/.powerline-shell.json ~/.powerline-shell.json

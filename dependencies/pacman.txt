@@ -75,7 +75,7 @@ geany
 dotnet-host 
 dotnet-runtime
 dotnet-sdk
-dotnet-runtime-2.2
-dotnet-sdk-2.2
+aspnet-runtime
 wget
 pyenv
+jq
