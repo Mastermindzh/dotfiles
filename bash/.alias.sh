@@ -60,7 +60,8 @@ alias addpgpkey='gpg --recv-keys'
 alias clean-trash='sudo rm -rf ~/.local/share/Trash/*'
 alias clean-journal='sudo journalctl --vacuum-time=2d'
 alias clean-all='clean-trash && clean-journal && clean-pacmancache && docker-clean-all'
-alias dotnet-install='~/.dotnet-install.sh --install-dir /usr/share/dotnet/ -channel Current -version'
+alias dotnet-install='~/.dotnet-install.sh --install-dir /usr/share/dotnet/ -channel'
+alias mountshares='sudo bash ~/dotfiles/bash/mounts.sh'
 
 # cli tools
 alias crypto='curl -s rate.sx?qF | head -n -2 | tail -n +10'

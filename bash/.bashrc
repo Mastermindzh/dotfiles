@@ -17,6 +17,7 @@ source ~/.alias
 source ~/.custom
 source ~/.variables
 sourceIfExists ~/lib/azure-cli/az.completion
+eval "$(thefuck --alias)"
 
 # evals
 eval "$(pyenv init -)"
@@ -29,7 +30,7 @@ export NVM_DIR="$HOME/.nvm"
 PS1='[\u@\h \W]\$ '
 
 if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-   PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+  PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
 export PATH=$PATH:/home/mastermindzh/bin
