@@ -100,6 +100,7 @@ function install_config {
 	ln -sf "$PWD"/config/user-dirs.dirs ~/.config/user-dirs.dirs
 	mkdir -p ~/.pulse
 	ln -sf "$PWD"/config/pulse/daemon.conf ~/.pulse/daemon.conf
+  ln -sf "$PWD"/config/picom.conf ~/.config/picom.conf
 
 	# link system files / directories
 	sudo ln -sf "$PWD"/config/package-managers/pacman.conf /etc/pacman.conf

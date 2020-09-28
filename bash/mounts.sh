@@ -46,6 +46,16 @@ declare -A MOUNTS4=(
   [share]='isos'
   [mount]='isos'
 )
+declare -A MOUNTS5=(
+  [server]="$MY_SERVER_LOCATION"
+  [share]='books'
+  [mount]='books'
+)
+declare -A MOUNTS6=(
+  [server]="$MY_SERVER_LOCATION"
+  [share]='pictures'
+  [mount]='pictures'
+)
 
 # declare array with "objects"
 declare -n MOUNTS
