@@ -94,6 +94,7 @@ alias sudo='sudo '
 alias markdown-toc='markdown-toc --bullets="-" -i'
 alias tree='tree --dirsfirst'
 alias handbrake='ghb'
+alias cal='cal -mw --color'
 
 # grub
 alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
