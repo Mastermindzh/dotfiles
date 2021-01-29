@@ -34,8 +34,8 @@ set $workspace6 "6: "
 set $workspace7 "7: "
 set $workspace8 "8: "
 set $workspace9 "9: "
-set $workspace10 "10:  "
-set $workspace11 " Virtualbox" 
+set $workspace10 "10: "
+set $workspace11 " VM/Remote" 
 set $workspace12 " Enpass"
 
 # scripts
@@ -187,8 +187,7 @@ bindsym $mod+Shift+p move container to workspace $workspace12
 #    Appearance settings                   #
 ############################################
 # Set the default font
-#font pango:DejaVu Sans Mono 8
-font pango:System San Francisco Display 10
+font pango:Liberation sans 13
 
 # Bar decoration
 bar {
@@ -231,7 +230,6 @@ for_window [title="Tidal-hifi - settings"] floating enable
 ############################################
 assign [class="Franz"] $workspace9
 assign [class="Enpass-Desktop"] $workspace12
-assign [class="Enpass"] $workspace12
 assign [class="VirtualBox Machine"] $workspace11
 
 # database stuff
@@ -304,7 +302,7 @@ mode "$mode_gaps_outer" {
 #    Autorun                               #
 ############################################
 exec --no-startup-id i3-msg 'workspace $workspace2; exec xfce4-terminal' && i3-msg 'workspace $workspace1'
-exec 'enpass'
+exec --no-startup-id i3-msg 'workspace $workspace12; exec enpass'
 exec --no-startup-id nm-applet
 exec_always feh --bg-scale ~/Pictures/Wallpapers/wallpaper.jpg
 exec /usr/bin/compton

@@ -60,6 +60,8 @@ alias addpgpkey='gpg --recv-keys'
 alias clean-trash='sudo rm -rf ~/.local/share/Trash/*'
 alias clean-journal='sudo journalctl --vacuum-time=2d'
 alias clean-all='clean-trash && clean-journal && clean-pacmancache && docker-clean-all'
+alias dotnet-install='~/.dotnet-install.sh --install-dir /usr/share/dotnet/ -channel'
+alias mountshares='sudo bash ~/dotfiles/bash/mounts.sh'
 
 # cli tools
 alias crypto='curl -s rate.sx?qF | head -n -2 | tail -n +10'
@@ -92,6 +94,7 @@ alias sudo='sudo '
 alias markdown-toc='markdown-toc --bullets="-" -i'
 alias tree='tree --dirsfirst'
 alias handbrake='ghb'
+alias cal='cal -mw --color'
 
 # grub
 alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
