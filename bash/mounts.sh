@@ -7,7 +7,7 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # declare variables
-MY_SERVER_LOCATION="//192.168.1.3"
+MY_SERVER_LOCATION="//10.10.1.11"
 MOUNT_PREFIX="/mnt"
 USERNAME="mastermindzh"
 

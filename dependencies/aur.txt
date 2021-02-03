@@ -14,3 +14,4 @@ snapd
 azure-cli
 notify-osd-customizable
 notifyconf
+dotnet-host-bin

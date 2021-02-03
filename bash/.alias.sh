@@ -87,7 +87,7 @@ alias cmyip='curl -s http://ipecho.net/plain; echo'
 ## default command fixes :P
 alias mkdir='mkdir -p'
 alias wget='wget -c'
-alias ls='ls -l --color=auto'
+alias ls='ls -lh --color=auto'
 alias installed='sudo pacman -Qetq'
 alias aurinstalled='sudo pacman -Qmq'
 alias sudo='sudo '
