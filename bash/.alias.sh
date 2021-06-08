@@ -17,6 +17,7 @@ alias docker-clean-all='stop-dockers && docker-clean-containers && docker-clean-
 alias mkubectl='microk8s.kubectl'
 alias kubestart='microk8s.start'
 alias kubestop='microk8s.stop'
+alias kubecontext='kubectl config use-context'
 
 #dotnet core
 alias efupdate="dotnet ef database update"
@@ -60,8 +61,10 @@ alias addpgpkey='gpg --recv-keys'
 alias clean-trash='sudo rm -rf ~/.local/share/Trash/*'
 alias clean-journal='sudo journalctl --vacuum-time=2d'
 alias clean-all='clean-trash && clean-journal && clean-pacmancache && docker-clean-all'
-alias dotnet-install='~/.dotnet-install.sh --install-dir /usr/share/dotnet/ -channel'
+alias dotnet-install='~/.dotnet-install.sh --install-dir /usr/share/dotnet/ -channel Current -version '
 alias mountshares='sudo bash ~/dotfiles/bash/mounts.sh'
+# might be useful in demos...
+alias oopsie='fuck'
 
 # cli tools
 alias crypto='curl -s rate.sx?qF | head -n -2 | tail -n +10'
@@ -95,6 +98,7 @@ alias markdown-toc='markdown-toc --bullets="-" -i'
 alias tree='tree --dirsfirst'
 alias handbrake='ghb'
 alias cal='cal -mw --color'
+alias chrome='google-chrome-stable'
 
 # grub
 alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'

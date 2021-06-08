@@ -36,3 +36,10 @@ I've grown tired of this approach however so I added a "pc specific" setup in th
 
 The pc specific setup bit will read the folder names in computers, offer you a choice, and execute the install.sh inside that folder.
 This allows me to get pc specific settings synced with git and applied easily.
+
+## Getting x info to use in i3
+
+Some things are handled by window class/title or have custom resolutions set, the tools below help obtaining the info required:
+
+- xprop -> displays static xwindow info including Window class
+- xwininfo -> displays xwindow info including current size/position

@@ -123,6 +123,7 @@ bindsym $mod+e exec xfce4-terminal -e ranger                            # File m
 bindsym Print exec  flameshot screen -d 0 -p ~/Pictures/Screenshots     # Fullscreen screenshot
 bindsym $mod+Print exec flameshot gui					# Show screenshot window
 bindsym $mod+shift+b exec /bin/bash ~/.config/i3/scripts/brightness.sh
+bindsym control+shift+Escape exec sysmontask
 
 # Rofi
 bindsym $mod+d exec "rofi -show run"
@@ -223,6 +224,8 @@ for_window [class="Lxappearance"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Eog"] floating enable
 for_window [title="Tidal-hifi - settings"] floating enable
+for_window [class="Sysmontask"] floating enable
+for_window [class="Sysmontask"] resize set 930 665
 
 ############################################
 #    Workspace specific tools              #
