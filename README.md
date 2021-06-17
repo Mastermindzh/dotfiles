@@ -43,3 +43,7 @@ Some things are handled by window class/title or have custom resolutions set, th
 
 - xprop -> displays static xwindow info including Window class
 - xwininfo -> displays xwindow info including current size/position
+
+## getting icons
+
+Copy/paste icons from this url: [https://fontawesome.com/v5/cheatsheet](https://fontawesome.com/v5/cheatsheet)
