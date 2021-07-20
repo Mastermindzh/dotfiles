@@ -32,7 +32,7 @@ alias undo-commit='git reset --soft HEAD^'
 
 ## pacman and trizen
 alias aur='trizen --noconfirm'
-alias update='trizen -Syyu --noconfirm'
+alias update='trizen -Syu --noconfirm'
 alias remove-orphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias updatekeys='sudo pacman-key --refresh-key'
 alias clean-pacmancache='sudo paccache -rk 1 && sudo paccache -ruk0'

@@ -88,12 +88,13 @@ function install_config {
 
 	# link user files
 	ln -sf "$PWD"/bash/.bashrc ~/.bashrc
-  	ln -sf "$PWD"/bash/.dotnet-install.sh ~/.dotnet-install.sh
+  ln -sf "$PWD"/bash/.dotnet-install.sh ~/.dotnet-install.sh
 	ln -sf "$PWD"/bash/.alias.sh ~/.alias
 	ln -sf "$PWD"/config/nano/.nanorc ~/.nanorc
 	ln -sf "$PWD"/bash/.powerline-shell.json ~/.powerline-shell.json
 	ln -sf "$PWD"/wallpapers/butterflies-in-space.jpg ~/Pictures/Wallpapers/wallpaper.jpg
-	mkdir -p ~/.config/rofi
+	ln -sf "$PWD"/config/gtk-3.0/settings.ini ~/.gtkrc-2.0.mine
+  mkdir -p ~/.config/rofi
 	ln -sf "$PWD"/config/rofi ~/.config/rofi/config
 	ln -sf "$PWD"/config/.gitconfig ~/.gitconfig
 	ln -sf "$PWD"/config/.npmrc ~/.npmrc
