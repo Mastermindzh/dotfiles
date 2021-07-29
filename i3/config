@@ -307,7 +307,7 @@ mode "$mode_gaps_outer" {
 exec --no-startup-id i3-msg 'workspace $workspace2; exec xfce4-terminal' && i3-msg 'workspace $workspace1'
 exec --no-startup-id i3-msg 'workspace $workspace12; exec enpass'
 exec --no-startup-id nm-applet
-exec_always feh --bg-scale ~/Pictures/Wallpapers/wallpaper.jpg
+exec_always feh --bg-scale $(find ~/Pictures/wallpapers/ -type f -name "*" | shuf -n 1)
 exec /usr/bin/compton
 exec /bin/bash ~/.config/i3/scripts/startup.sh
 

@@ -79,7 +79,7 @@ function install_trizen {
 function install_config {
 
 	# link directories
-	linkDir "$PWD"/wallpapers ~/Pictures/Wallpapers
+	linkDir "$PWD"/wallpapers/images ~/Pictures/wallpapers
 	linkDir "$PWD"/i3 ~/.config/i3
 	linkDir "$PWD"/config/notify-osd/notify-osd ~/.notify-osd
 	linkDir "$PWD"/config/terminal/xfce4-term ~/.config/xfce4/terminal
@@ -92,7 +92,6 @@ function install_config {
 	ln -sf "$PWD"/bash/.alias.sh ~/.alias
 	ln -sf "$PWD"/config/nano/.nanorc ~/.nanorc
 	ln -sf "$PWD"/bash/.powerline-shell.json ~/.powerline-shell.json
-	ln -sf "$PWD"/wallpapers/butterflies-in-space.jpg ~/Pictures/Wallpapers/wallpaper.jpg
 	ln -sf "$PWD"/config/gtk-3.0/settings.ini ~/.gtkrc-2.0.mine
   mkdir -p ~/.config/rofi
 	ln -sf "$PWD"/config/rofi ~/.config/rofi/config
