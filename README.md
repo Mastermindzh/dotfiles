@@ -6,7 +6,7 @@ This repository holds my Linux config files.
 
 New version as of dec 2021:
 
-[![dotfiles](media/dotfiles4.png)](https://raw.githubusercontent.com/Mastermindzh/dotfiles/master/media/dotfiles4.png)
+[![dotfiles](media/dotfiles4.jpg)](https://raw.githubusercontent.com/Mastermindzh/dotfiles/master/media/dotfiles4.jpg)
 
 Older versions:
 - [dotfiles](media/dotfiles3.png)
