@@ -17,7 +17,7 @@ alias docker-clean-all='stop-dockers && docker-clean-containers && docker-clean-
 alias mkubectl='microk8s.kubectl'
 alias kubestart='microk8s.start'
 alias kubestop='microk8s.stop'
-alias kubecontext='kubectl config use-context'
+alias kubecontexts='kubectl config get-contexts'
 
 #dotnet core
 alias efupdate="dotnet ef database update"
@@ -169,11 +169,21 @@ killport () {
 }
 
 # function to switch kubernetes namespace
-kubeswitch () {
+kubenamespaceswitch () {
     if [ -z "$1" ] ; then
         echo "please specify a namespace to switch to"
     else
         kubectl config set-context --current --namespace=$1
+    fi
+}
+
+# function to switch kubernetes context
+kubecontextswitch () {
+    if [ -z "$1" ] ; then
+        echo "please specify a context to switch to, the following contexts are available:"
+        kubectl config get-contexts
+    else
+        kubectl config use-context "$1"
     fi
 }
 
