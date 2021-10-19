@@ -63,6 +63,8 @@ alias clean-journal='sudo journalctl --vacuum-time=2d'
 alias clean-all='clean-trash && clean-journal && clean-pacmancache && docker-clean-all'
 alias dotnet-install='~/.dotnet-install.sh --install-dir /usr/share/dotnet/ -channel Current -version '
 alias mountshares='sudo bash ~/dotfiles/bash/mounts.sh'
+alias echo-server='npx http-echo-server'
+
 # might be useful in demos...
 alias oopsie='fuck'
 
