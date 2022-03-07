@@ -1,0 +1,76 @@
+[Default Applications]
+
+# browser
+#--------------
+text/html=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
+x-scheme-handler/webcal=google-chrome.desktop
+x-scheme-handler/chrome=google-chrome.desktop
+application/x-extension-htm=google-chrome.desktop
+application/x-extension-html=google-chrome.desktop
+application/x-extension-shtml=google-chrome.desktop
+application/xhtml+xml=google-chrome.desktop
+application/x-extension-xhtml=google-chrome.desktop
+application/x-extension-xht=google-chrome.desktop
+
+# apps
+#--------------
+x-scheme-handler/postman=Postman.desktop
+x-scheme-handler/ssh=ktelnetservice5.desktop
+x-scheme-handler/msteams=teams-insiders.desktop
+x-scheme-handler/discord-478576776990425110=discord-478576776990425110.desktop
+x-scheme-handler/mailspring=Mailspring.desktop
+x-scheme-handler/etcher=balena-etcher-electron.desktop
+
+# files
+#--------------
+inode/director=Nautilus.desktop
+
+[Added Associations]
+# browser-stuff
+#--------------
+x-scheme-handler/http=google-chrome.desktop;
+x-scheme-handler/https=google-chrome.desktop;
+text/html=google-chrome.desktop;
+
+# text
+#--------------
+text/plain=gnome.gedit.desktop;
+application/pdf=mupdf.desktop;google-chrome.desktop;
+text/vnd.qt.linguist=org.gnome.gedit.desktop;
+text/x-nfo=gnome.gedit.desktop;
+text/x-log=code-insiders.desktop;
+
+# images
+#--------------
+image/jpeg=org.gnome.eog.desktop;feh.desktop;
+image/png=org.gnome.eog.desktop;feh.desktop;
+image/svg+xml=org.gnome.eog.desktop;feh.desktop;
+image/gif=org.gnome.eog.desktop;feh.desktop;
+
+# video
+#--------------
+video/mp4=mpv.desktop;
+video/x-matroska=mpv.desktop;
+video/x-msvideo=vlc.desktop;
+
+# code-related
+#--------------
+application/json=code-insiders.desktop;visual-studio-code-insiders.desktop;
+application/x-shellscript=visual-studio-code.desktop;
+application/sql=visual-studio-code.desktop;
+application/xml=visual-studio-code.desktop;
+application/javascript=visual-studio-code-insiders.desktop;
+
+# other
+#--------------
+application/zip=org.gnome.Nautilus.desktop;xarchiver.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=wps-office-wps.desktop;
+application/x-remmina=org.gnome.gedit.desktop;org.kde.krdc.desktop;remmina-file.desktop;org.remmina.Remmina.desktop;
+
+# newly added
+#--------------
+

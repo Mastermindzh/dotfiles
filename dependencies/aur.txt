@@ -16,3 +16,4 @@ notify-osd-customizable
 notifyconf
 dotnet-host-bin
 sysmontask
+keychain

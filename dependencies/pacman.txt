@@ -71,7 +71,6 @@ w3m
 system-config-printer
 nautilus 
 nautilus-share
-geany
 dotnet-host 
 dotnet-runtime
 dotnet-sdk

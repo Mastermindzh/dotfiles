@@ -61,6 +61,16 @@ declare -A MOUNTS7=(
   [share]='nvme1'
   [mount]='nvme1'
 )
+declare -A MOUNTS8=(
+  [server]="$MY_SERVER_LOCATION"
+  [share]="downloads"
+  [mount]="downloads"
+)
+declare -A MOUNTS9=(
+  [server]="$MY_SERVER_LOCATION"
+  [share]="emulation"
+  [mount]="emulation"
+)
 # declare array with "objects"
 declare -n MOUNTS
 

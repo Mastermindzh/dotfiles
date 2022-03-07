@@ -20,6 +20,7 @@ sourceIfExists ~/lib/azure-cli/az.completion
 eval "$(thefuck --alias)"
 
 # evals
+eval $(keychain --eval --quiet ~/.ssh/id_rsa)
 eval "$(pyenv init -)"
 
 export NVM_DIR="$HOME/.nvm"

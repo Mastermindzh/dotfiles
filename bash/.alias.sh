@@ -24,6 +24,7 @@ alias efupdate="dotnet ef database update"
 alias efmigrate="dotnet ef migrations add"
 alias efremove="dotnet ef migrations remove"
 alias dotnetnew="dotnet new webapi -o "
+alias nuget-force-clear-cache="nuget locals all -clear && nuget locals all -list | awk '{split($0,a,\": \"); print a[2];}' | xargs rm -rf"
 
 # git
 alias gitremovelocalbranches='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
@@ -64,6 +65,8 @@ alias clean-all='clean-trash && clean-journal && clean-pacmancache && docker-cle
 alias dotnet-install='~/.dotnet-install.sh --install-dir /usr/share/dotnet/ -channel Current -version '
 alias mountshares='sudo bash ~/dotfiles/bash/mounts.sh'
 alias echo-server='npx http-echo-server'
+alias mountcalibre='sudo mount.cifs //10.10.1.11/books /mnt/calibre -o nobrl,user=mastermindzh,noperm,rw'
+alias xpid="xprop _NET_WM_PID | cut -d' ' -f3"
 
 # might be useful in demos...
 alias oopsie='fuck'
@@ -101,6 +104,7 @@ alias tree='tree --dirsfirst'
 alias handbrake='ghb'
 alias cal='cal -mw --color'
 alias chrome='google-chrome-stable'
+alias teams='teams-insiders --disable-seccomp-filter-sandbox'
 
 # grub
 alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'

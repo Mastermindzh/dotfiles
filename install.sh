@@ -93,6 +93,8 @@ function install_config {
 	ln -sf "$PWD"/config/nano/.nanorc ~/.nanorc
 	ln -sf "$PWD"/bash/.powerline-shell.json ~/.powerline-shell.json
 	ln -sf "$PWD"/config/gtk-3.0/settings.ini ~/.gtkrc-2.0.mine
+	ln -sf "$PWD"/config/mimeapps.list ~/.config/mimeapps.list
+  
   mkdir -p ~/.config/rofi
 	ln -sf "$PWD"/config/rofi ~/.config/rofi/config
 	ln -sf "$PWD"/config/.gitconfig ~/.gitconfig
