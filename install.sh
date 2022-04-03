@@ -22,7 +22,7 @@ ask() {
             default=
         fi
         echo -n "$1 [$prompt] "
-        read reply </dev/tty
+        read -r reply </dev/tty
 
         if [ -z "$reply" ]; then
             reply=$default
@@ -38,20 +38,20 @@ ask() {
 
 # delete target, create dirs if they don't exist yet and finally symlink the dir
 function linkDir {
-	rm -rf $2;
+	rm -rf "$2";
 	mkdir -p "${2%/*}"
-	ln -sf $1 $2
+	ln -sf "$1" "$2"
 }
 
 # replace line endings with a space (for use in package managers)
 function fileToList {
-    echo $(cat $1 | sed ':a;N;$!ba;s/\n/ /g')
+    echo $(cat "$1" | sed ':a;N;$!ba;s/\n/ /g')
 }
 
 # create and copy files to directory
 function copyToDir {
-	echo $2 | sed 's%/[^/]*$%/%' | xargs mkdir -p
-	cp $1 $2
+	echo "$2" | sed 's%/[^/]*$%/%' | xargs mkdir -p
+	cp "$1" "$2"
 }
 
 # =======================================
@@ -69,9 +69,9 @@ function install_fonts {
 # install trizen, a aur helper
 function install_trizen {
     git clone https://aur.archlinux.org/trizen.git
-    pushd trizen
+    pushd trizen || return
     makepkg -si
-    popd
+    popd || return
     sudo rm -dRf trizen/
 }
 
@@ -96,7 +96,9 @@ function install_config {
 	ln -sf "$PWD"/config/mimeapps.list ~/.config/mimeapps.list
   
   mkdir -p ~/.config/rofi
-	ln -sf "$PWD"/config/rofi ~/.config/rofi/config
+	ln -sf "$PWD"/config/rofi/rofi.rasi ~/.config/rofi/config.rasi
+	ln -sf "$PWD"/config/rofi/mytheme.rasi ~/.config/rofi/mytheme.rasi
+
 	ln -sf "$PWD"/config/.gitconfig ~/.gitconfig
 	ln -sf "$PWD"/config/.npmrc ~/.npmrc
 	ln -sf "$PWD"/config/user-dirs.dirs ~/.config/user-dirs.dirs
@@ -209,7 +211,7 @@ fi
 clear
 computer
 # ask for pc specific install
-prompt=`echo $'\n> ' Please select a specific computer to install or q to finish the install`
+prompt=$(echo $'\n> ' "Please select a specific computer to install or q to finish the install")
 
 PS3="$prompt: "
 select opt in "$PWD/computers"/*; do 

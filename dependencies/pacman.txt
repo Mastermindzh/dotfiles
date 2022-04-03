@@ -8,7 +8,6 @@ i3lock
 feh
 scrot
 arandr
-chromium
 xfce4-terminal
 ttf-font-awesome
 sushi
@@ -71,10 +70,11 @@ w3m
 system-config-printer
 nautilus 
 nautilus-share
+wget
+pyenv
+jq
+firefox
 dotnet-host 
 dotnet-runtime
 dotnet-sdk
 aspnet-runtime
-wget
-pyenv
-jq
