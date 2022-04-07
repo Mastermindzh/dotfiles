@@ -78,3 +78,5 @@ dotnet-host
 dotnet-runtime
 dotnet-sdk
 aspnet-runtime
+clamav
+clamtk

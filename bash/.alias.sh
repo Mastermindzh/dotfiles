@@ -61,12 +61,13 @@ alias pretty-json='python -m json.tool'
 alias addpgpkey='gpg --recv-keys'
 alias clean-trash='sudo rm -rf ~/.local/share/Trash/*'
 alias clean-journal='sudo journalctl --vacuum-time=2d'
-alias clean-all='clean-trash && clean-journal && clean-pacmancache && docker-clean-all'
+alias clean-all='clean-trash && clean-journal && clean-pacmancache && docker-clean-all && clean-node-modules'
 alias dotnet-install='~/.dotnet-install.sh --install-dir /usr/share/dotnet/ -channel Current -version '
 alias mountshares='sudo bash ~/dotfiles/bash/mounts.sh'
 alias echo-server='npx http-echo-server'
 alias mountcalibre='sudo mount.cifs //10.10.1.11/books /mnt/calibre -o nobrl,user=mastermindzh,noperm,rw'
 alias xpid="xprop _NET_WM_PID | cut -d' ' -f3"
+alias clean-node-modules='find . -name "node_modules" -type d -print0 |xargs -0 rm -r --'
 
 # might be useful in demos...
 alias oopsie='fuck'
