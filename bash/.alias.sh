@@ -68,6 +68,9 @@ alias echo-server='npx http-echo-server'
 alias mountcalibre='sudo mount.cifs //10.10.1.11/books /mnt/calibre -o nobrl,user=mastermindzh,noperm,rw'
 alias xpid="xprop _NET_WM_PID | cut -d' ' -f3"
 alias clean-node-modules='find . -name "node_modules" -type d -print0 |xargs -0 rm -r --'
+alias nomachine='/usr/NX/bin/nxplayer'
+alias unlockuser='faillock --reset --user'
+alias npm-list-links='npm ls -g --depth=0 --link=true'
 
 # might be useful in demos...
 alias oopsie='fuck'

@@ -1,4 +1,4 @@
-visual-studio-code-insiders
+visual-studio-code-bin
 i3blocks-contrib
 enpass-bin
 insync
@@ -17,3 +17,4 @@ notifyconf
 dotnet-host-bin
 sysmontask
 keychain
+nomachine

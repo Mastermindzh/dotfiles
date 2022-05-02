@@ -80,3 +80,10 @@ dotnet-sdk
 aspnet-runtime
 clamav
 clamtk
+keychain
+thefuck
+peek
+blueman
+pulseaudio-bluetooth
+bluez
+bluez-libs
