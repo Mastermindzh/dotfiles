@@ -1,3 +1,4 @@
+#!/bin/bash
 # if powerline-shell is available use it.
 function _update_ps1() {
     if hash powerline-rs 2>/dev/null; then
@@ -19,8 +20,14 @@ source ~/.variables
 sourceIfExists ~/lib/azure-cli/az.completion
 eval "$(thefuck --alias)"
 
-# evals
-eval $(keychain --eval --quiet ~/.ssh/id_rsa)
+# load keychain with private key
+if test -f "$HOME/.ssh/id_ed25519"; then
+    eval "$(keychain --eval --quiet ~/.ssh/id_ed25519)"
+else
+    # fallback to older rsa
+    eval "$(keychain --eval --quiet ~/.ssh/id_rsa)"
+fi
+
 eval "$(pyenv init -)"
 
 export NVM_DIR="$HOME/.nvm"
@@ -36,7 +43,7 @@ fi
 PS1='[\u@\h \W]\$ '
 
 if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-  PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
 export PATH=$PATH:/home/mastermindzh/bin
