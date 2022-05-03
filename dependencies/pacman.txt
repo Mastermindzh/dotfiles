@@ -24,7 +24,6 @@ networkmanager
 eog
 python
 python-pip
-gdm
 neofetch
 git
 scrot
@@ -87,3 +86,4 @@ blueman
 pulseaudio-bluetooth
 bluez
 bluez-libs
+sddm
