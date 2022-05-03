@@ -35,7 +35,7 @@ set $workspace7 "7: "
 set $workspace8 "8: "
 set $workspace9 "9: "
 set $workspace10 "10: "
-set $workspace11 " VM/Remote" 
+set $workspace11 " VM/Remote"
 set $workspace12 " Enpass"
 
 # scripts
@@ -96,15 +96,15 @@ bindsym $mod+shift+alt+p focus parent
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up   resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    # These bindings trigger as soon as you enter the resize mode
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up   resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+    
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -130,7 +130,6 @@ bindsym $mod+d exec "rofi -show run"
 bindsym $mod+Tab exec "rofi -show"
 bindsym $mod+s exec "rofi -show ssh"
 bindsym $mod+n exec $vpnmanager
-bindsym $mod+shift+v exec "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
 
 ############################################
 #    Media keys                            #
@@ -193,19 +192,19 @@ font pango:Liberation sans 13
 
 # Bar decoration
 bar {
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	position top
-        strip_workspace_numbers no
-	tray_output primary
-        colors {
-                separator $textColour
-                background $primaryBackgroundColour
-                statusline $statusLineColour
-                #                  border                   background                  text
-                focused_workspace  $primaryBackgroundColour $primaryBackgroundColour    $focusedTextColour
-                active_workspace   $primaryBackgroundColour $secondaryBackgroundColour  $textColour
-                inactive_workspace $primaryBackgroundColour $primaryBackgroundColour    $textColour
-                urgent_workspace   $primaryBackgroundColour $primaryBackgroundColour    $urgentTextColour
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+    position top
+    strip_workspace_numbers no
+    tray_output primary
+    colors {
+        separator $textColour
+        background $primaryBackgroundColour
+        statusline $statusLineColour
+        #                  border                   background                  text
+        focused_workspace  $primaryBackgroundColour $primaryBackgroundColour    $focusedTextColour
+        active_workspace   $primaryBackgroundColour $secondaryBackgroundColour  $textColour
+        inactive_workspace $primaryBackgroundColour $primaryBackgroundColour    $textColour
+        urgent_workspace   $primaryBackgroundColour $primaryBackgroundColour    $urgentTextColour
     }
 }
 
@@ -232,7 +231,6 @@ for_window [class="Sysmontask"] resize set 930 665
 #    Workspace specific tools              #
 #       Use xprop to determine class       #
 ############################################
-assign [class="Franz"] $workspace9
 assign [class="Enpass-Desktop"] $workspace12
 assign [class="VirtualBox Machine"] $workspace11
 
@@ -240,7 +238,8 @@ assign [class="VirtualBox Machine"] $workspace11
 assign [class="MongoDB Compass"] $workspace8
 assign [class="robo3t"] $workspace8
 assign [class="Mysql-workbench-bin"] $workspace8
-assign [class="sqlops"] $workspace8
+assign [class="azuredatastudio"] $workspace8
+assign [class="beekeeper"] $workspace8
 
 ############################################
 #    i3-gaps                               #
@@ -255,15 +254,16 @@ gaps inner 10
 bindsym $mod+Shift+plus gaps inner all plus 5
 bindsym $mod+Shift+minus gaps inner all minus 5
 bindsym $mod+Shift+Home gaps inner all set 10
+bindsym $mod+Shift+a border normal
 
-# Smart borders (draw borders around container only if it is not the only container on this workspace) 
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
 smart_borders on
 
 # Smart gaps (gaps used if only more than one container on the workspace)
 smart_gaps on
 
-# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. 
-# Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). 
+# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps.
+# Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace).
 # If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -271,35 +271,35 @@ set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
 bindsym $mod+Shift+g mode "$mode_gaps"
 
 mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym o      mode "$mode_gaps_outer"
+    bindsym i      mode "$mode_gaps_inner"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
-
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym plus  gaps inner current plus 5
+    bindsym minus gaps inner current minus 5
+    bindsym 0     gaps inner current set 0
+    
+    bindsym Shift+plus  gaps inner all plus 5
+    bindsym Shift+minus gaps inner all minus 5
+    bindsym Shift+0     gaps inner all set 0
+    
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
-
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym plus  gaps outer current plus 5
+    bindsym minus gaps outer current minus 5
+    bindsym 0     gaps outer current set 0
+    
+    bindsym Shift+plus  gaps outer all plus 5
+    bindsym Shift+minus gaps outer all minus 5
+    bindsym Shift+0     gaps outer all set 0
+    
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 ############################################
@@ -307,10 +307,8 @@ mode "$mode_gaps_outer" {
 ############################################
 exec --no-startup-id i3-msg 'workspace $workspace2; exec xfce4-terminal' && i3-msg 'workspace $workspace1'
 exec --no-startup-id i3-msg 'workspace $workspace12; exec enpass'
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
 exec_always feh --bg-scale $(find ~/Pictures/wallpapers/ -type f -name "*" | shuf -n 1)
 exec /usr/bin/compton
 exec /bin/bash ~/.config/i3/scripts/startup.sh
-exec --no-startup-id greenclip daemon
-
-bindsym $mod+Shift+a border normal

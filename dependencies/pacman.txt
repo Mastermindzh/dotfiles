@@ -86,3 +86,4 @@ pulseaudio-bluetooth
 bluez
 bluez-libs
 sddm
+polkit-gnome

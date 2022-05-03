@@ -109,7 +109,7 @@ function install_config {
   sudo ln -sf "$PWD"/config/package-managers/pacman.conf /etc/pacman.conf
   sudo ln -sf "$PWD"/config/package-managers/makepkg.conf /etc/makepkg.conf
   sudo ln -sf "$PWD"/config/ntp.conf /etc/ntp.conf
-  sudo ln -sf "$PWD"/bash/Completion /etc/bash_completion.d
+  sudo ln -sf "$PWD"/bash/Completion/ /etc/bash_completion.d
 
   # create empty .custom alias file
   echo "" >~/.custom
@@ -204,6 +204,9 @@ fi
 if ask "Do you want to enable sddm?" Y; then
   sudo systemctl set-default graphical.target
   sudo systemctl enable sddm.service
+  sudo mkdir -p "/etc/sddm.conf.d/"
+  curl "http://gravatar.com/avatar/$(echo -n "info@rickvanlieshout.com" | md5sum - | cut -d' ' -f1)?s=1024" | sudo tee /usr/share/sddm/faces/mastermindzh.face.icon >/dev/null
+  sudo ln -sf "$PWD"/config/sddm/default.conf /etc/sddm.conf.d/
 fi
 
 clear

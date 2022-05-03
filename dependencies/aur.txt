@@ -18,3 +18,4 @@ dotnet-host-bin
 sysmontask
 keychain
 nomachine
+chili-sddm-theme
