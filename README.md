@@ -9,6 +9,7 @@ New version as of dec 2021:
 [![dotfiles](media/dotfiles4.jpg)](https://raw.githubusercontent.com/Mastermindzh/dotfiles/master/media/dotfiles4.jpg)
 
 Older versions:
+
 - [dotfiles](media/dotfiles3.png)
 - [dotfiles](media/dotfiles.png)
 - [dotfiles2](media/dotfiles2.png)
@@ -25,7 +26,7 @@ Older versions:
 | Terminal         | xfce4-terminal                                                         |
 | Editor           | nano                                                                   |
 | Code editor      | vscode / jetbrains stuff                                               |
-| Browser          | Chromium                                                               |
+| Browser          | Firefox                                                                |
 | File manager     | If I have to use one ... Nautilus                                      |
 | Music            | Tidal through [Tidal-hifi](https://github.com/Mastermindzh/tidal-hifi) |
 |                  |                                                                        |
