@@ -87,3 +87,6 @@ bluez
 bluez-libs
 sddm
 polkit-gnome
+gnome-keyring
+libsecret
+seahorse
