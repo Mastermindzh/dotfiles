@@ -83,7 +83,6 @@ function install_config {
   linkDir "$PWD"/i3 ~/.config/i3
   linkDir "$PWD"/config/notify-osd/notify-osd ~/.notify-osd
   linkDir "$PWD"/config/terminal/xfce4-term ~/.config/xfce4/terminal
-  linkDir "$PWD"/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/.config
 
   # link user files
   ln -sf "$PWD"/bash/.bashrc ~/.bashrc
@@ -92,6 +91,7 @@ function install_config {
   ln -sf "$PWD"/config/nano/.nanorc ~/.nanorc
   ln -sf "$PWD"/bash/.powerline-shell.json ~/.powerline-shell.json
   ln -sf "$PWD"/config/gtk-3.0/settings.ini ~/.gtkrc-2.0.mine
+  ln -sf "$PWD"/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
   ln -sf "$PWD"/config/mimeapps.list ~/.config/mimeapps.list
 
   mkdir -p ~/.config/rofi

@@ -14,7 +14,6 @@ sushi
 libconfig
 compton
 lxappearance
-arc-gtk-theme
 rofi
 i3blocks
 wmctrl
@@ -91,3 +90,4 @@ gnome-keyring
 libsecret
 seahorse
 mpv
+gnome-themes-extra
