@@ -3,7 +3,7 @@ alias phpserver='docker run --rm -p 2000:80 -v "$PWD":/var/www/html mastermindzh
 alias nodeserver='docker run --rm -p 3000:3000 -v "$PWD":/app mastermindzh/generic_node'
 alias reactserver='docker run --rm -p 8080:8080 -v "$PWD":/app mastermindzh/generic_node'
 alias mongoserver='docker run -d --rm -p 27017:27017 --name mongo-server -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=123 -v ~/.db/mongo:/data/db mongo'
-alias sqlserver='docker run -d --rm --name sql-server -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Your_Password123" -p 1433:1433 -v ~/.db/mssql:/var/opt/mssql microsoft/mssql-server-linux'
+alias sqlserver='docker run --rm --name sql-server -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Your_Password123" -p 1433:1433 -v ~/.db/mssql:/var/opt/mssql mcr.microsoft.com/mssql/server'
 
 # useful docker commands
 alias stop-dockers='docker stop $(docker ps -aq)'
@@ -85,10 +85,10 @@ alias nocomment='grep -Ev '\''^(#|$)'\'''
 alias list='find ./ -maxdepth 1 -printf "%f\n"'
 
 #show directories
-alias dirs='ls -FlA | grep :*/' 
+alias dirs='ls -FlA | grep :*/'
 
 #show executables
-alias execx='ls -FlA | grep -v \*' 
+alias execx='ls -FlA | grep -v \*'
 
 #ls -al
 alias la='ls -al'
@@ -108,7 +108,7 @@ alias tree='tree --dirsfirst'
 alias handbrake='ghb'
 alias cal='cal -mw --color'
 alias chrome='google-chrome-stable'
-alias teams='teams-insiders --disable-seccomp-filter-sandbox'
+alias teams='teams-nativefier'
 
 # grub
 alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
@@ -117,91 +117,91 @@ alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
 
 # function to cd up a couple of times
 # USAGE: up 3 (goes up 3 directories)
-up(){ 
-    DEEP=$1; 
-    [ -z "${DEEP}" ] && { DEEP=1; }; 
-    for i in $(seq 1 ${DEEP}); do 
-        cd ../; 
-    done; 
+up() {
+  DEEP=$1
+  [ -z "${DEEP}" ] && { DEEP=1; }
+  for i in $(seq 1 ${DEEP}); do
+    cd ../
+  done
 }
 # function to extract ... well anything really
-extract () {
-    if [ -f $1 ] ; then
-        case $1 in
-            *.tar.bz2)   tar xvjf $1    ;;
-            *.tar.gz)    tar xvzf $1    ;;
-            *.bz2)       bunzip2 $1     ;;
-            *.rar)       unrar x $1     ;;
-            *.gz)        gunzip $1      ;;
-            *.tar)       tar xvf $1     ;;
-            *.tbz2)      tar xvjf $1    ;;
-            *.tgz)       tar xvzf $1    ;;
-            *.zip)       unzip $1       ;;
-            *.Z)         uncompress $1  ;;
-            *.7z)        7z x $1        ;;
-            *)           echo "don't know how to extract '$1'..." ;;
-        esac
-    else
-        echo "'$1' is not a valid file!"
-    fi
-} 
+extract() {
+  if [ -f $1 ]; then
+    case $1 in
+    *.tar.bz2) tar xvjf $1 ;;
+    *.tar.gz) tar xvzf $1 ;;
+    *.bz2) bunzip2 $1 ;;
+    *.rar) unrar x $1 ;;
+    *.gz) gunzip $1 ;;
+    *.tar) tar xvf $1 ;;
+    *.tbz2) tar xvjf $1 ;;
+    *.tgz) tar xvzf $1 ;;
+    *.zip) unzip $1 ;;
+    *.Z) uncompress $1 ;;
+    *.7z) 7z x $1 ;;
+    *) echo "don't know how to extract '$1'..." ;;
+    esac
+  else
+    echo "'$1' is not a valid file!"
+  fi
+}
 
 # function to return uptime in a human readable format
-myuptime () {
-    uptime | awk '{ print "Uptime:", $3, $4, $5 }' | sed 's/,//g'
-    return;
+myuptime() {
+  uptime | awk '{ print "Uptime:", $3, $4, $5 }' | sed 's/,//g'
+  return
 }
 
 # function to check whether a specific host is up
-isup(){
-	if ! [ -z "$1" ]; then
-		ping -c 3 $1 > /dev/null 2>&1
-		if [ $? -ne 0 ]; then
-			echo "$1 seems to be offline";
-		else
-            echo "$1 seems to be online";
-        fi
-    fi 
+isup() {
+  if ! [ -z "$1" ]; then
+    ping -c 3 $1 >/dev/null 2>&1
+    if [ $? -ne 0 ]; then
+      echo "$1 seems to be offline"
+    else
+      echo "$1 seems to be online"
+    fi
+  fi
 }
 
 # function to print a line across the screen
-printLine(){
-    printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
+printLine() {
+  printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 }
 
 # function to kill a port
-killport () {
-    if [ -z "$1" ] ; then
-        echo "please specify a port to kill"
-    else
-        fuser -k $1/tcp
-    fi
+killport() {
+  if [ -z "$1" ]; then
+    echo "please specify a port to kill"
+  else
+    fuser -k $1/tcp
+  fi
 }
 
 # function to switch kubernetes namespace
-kubenamespaceswitch () {
-    if [ -z "$1" ] ; then
-        echo "please specify a namespace to switch to"
-    else
-        kubectl config set-context --current --namespace=$1
-    fi
+kubenamespaceswitch() {
+  if [ -z "$1" ]; then
+    echo "please specify a namespace to switch to"
+  else
+    kubectl config set-context --current --namespace=$1
+  fi
 }
 
 # function to switch kubernetes context
-kubecontextswitch () {
-    if [ -z "$1" ] ; then
-        echo "please specify a context to switch to, the following contexts are available:"
-        kubectl config get-contexts
-    else
-        kubectl config use-context "$1"
-    fi
+kubecontextswitch() {
+  if [ -z "$1" ]; then
+    echo "please specify a context to switch to, the following contexts are available:"
+    kubectl config get-contexts
+  else
+    kubectl config use-context "$1"
+  fi
 }
 
 # function to switch to a different azure kubernetes cluster
-azkubeswitch () {
-    if [ -z "$2" ] ; then
-        echo "please execute with the following params: azkubeswitch {resourcegroupname} {clustername}"
-    else
-        az aks get-credentials --resource-group $1 --name $2
-    fi
+azkubeswitch() {
+  if [ -z "$2" ]; then
+    echo "please execute with the following params: azkubeswitch {resourcegroupname} {clustername}"
+  else
+    az aks get-credentials --resource-group $1 --name $2
+  fi
 }

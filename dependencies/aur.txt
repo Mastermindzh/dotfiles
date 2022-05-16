@@ -19,3 +19,5 @@ sysmontask
 keychain
 nomachine
 chili-sddm-theme
+robo3t-bin
+dive

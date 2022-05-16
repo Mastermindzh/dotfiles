@@ -90,3 +90,4 @@ polkit-gnome
 gnome-keyring
 libsecret
 seahorse
+mpv
