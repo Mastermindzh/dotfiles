@@ -13,7 +13,7 @@ floating_modifier $mod
 #    Constants                             #
 ############################################
 
-set $urgentTextBackgroundColour           #a6a6a6
+set $urgentTextBackgroundColour #a6a6a6
 set $primaryBackgroundColour    #1e1e1e
 set $secondaryBackgroundColour  #252526
 set $tertiaryBackgroundColour   #333333
@@ -121,7 +121,8 @@ bindsym $mod+shift+l exec /bin/bash ~/.config/i3/scripts/suspend.sh
 bindsym $mod+Return exec xfce4-terminal                                 # terminal
 bindsym $mod+e exec nautilus                                            # File manager
 bindsym Print exec  flameshot screen -d 0 -p ~/Pictures/Screenshots     # Fullscreen screenshot
-bindsym $mod+Print exec flameshot gui					# Show screenshot window
+bindsym $mod+Print exec flameshot gui					                          # Show screenshot window
+bindsym $mod+shift+Print exec flameshot launcher					              # Show settings window (delay) then show screenshot window
 bindsym $mod+shift+b exec /bin/bash ~/.config/i3/scripts/brightness.sh
 bindsym control+shift+Escape exec sysmontask
 
@@ -231,7 +232,7 @@ for_window [class="Sysmontask"] resize set 930 665
 #    Workspace specific tools              #
 #       Use xprop to determine class       #
 ############################################
-assign [class="Enpass-Desktop"] $workspace12
+assign [class="Enpass"] $workspace12
 assign [class="VirtualBox Machine"] $workspace11
 
 # database stuff
