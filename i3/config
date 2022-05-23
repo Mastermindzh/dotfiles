@@ -232,7 +232,7 @@ for_window [class="Sysmontask"] resize set 930 665
 #    Workspace specific tools              #
 #       Use xprop to determine class       #
 ############################################
-assign [class="Enpass"] $workspace12
+# assign [class="Enpass"] $workspace12 # moves all windows... including the browser popup
 assign [class="VirtualBox Machine"] $workspace11
 
 # database stuff

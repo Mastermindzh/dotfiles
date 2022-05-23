@@ -71,7 +71,7 @@ alias clean-node-modules='find . -name "node_modules" -type d -print0 |xargs -0 
 alias nomachine='/usr/NX/bin/nxplayer'
 alias unlockuser='faillock --reset --user'
 alias npm-list-links='npm ls -g --depth=0 --link=true'
-
+alias suspend='sudo bash ~/.config/i3/scripts/suspend.sh'
 # might be useful in demos...
 alias oopsie='fuck'
 
