@@ -91,3 +91,5 @@ libsecret
 seahorse
 mpv
 gnome-themes-extra
+cups
+system-config-printer
