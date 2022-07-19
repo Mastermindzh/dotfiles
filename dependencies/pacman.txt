@@ -19,7 +19,6 @@ i3blocks
 wmctrl
 zenity
 xorg-xrandr
-networkmanager
 eog
 python
 python-pip
@@ -62,7 +61,10 @@ bash-completion
 flameshot
 otf-font-awesome
 openvpn
+networkmanager
 networkmanager-openvpn
+networkmanager-l2tp
+strongswan
 w3m
 system-config-printer
 nautilus 
@@ -93,3 +95,4 @@ mpv
 gnome-themes-extra
 cups
 system-config-printer
+duf

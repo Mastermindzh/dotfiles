@@ -110,6 +110,11 @@ alias cal='cal -mw --color'
 alias chrome='google-chrome-stable'
 alias teams='teams-insiders'
 
+## command overrides
+df() {
+  duf
+}
+
 # grub
 alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
 
