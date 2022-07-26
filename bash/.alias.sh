@@ -72,6 +72,7 @@ alias nomachine='/usr/NX/bin/nxplayer'
 alias unlockuser='faillock --reset --user'
 alias npm-list-links='npm ls -g --depth=0 --link=true'
 alias suspend='sudo bash ~/.config/i3/scripts/suspend.sh'
+alias clean-all='sudo pacman -R $(pacman -Qtdq) && sudo paccache -rk 1 && sudo paccache -ruk0 && sudo journalctl --vacuum-time=2d && docker-clean-all && rm -rf ~/.local/share/Trash/'
 # might be useful in demos...
 alias oopsie='fuck'
 
