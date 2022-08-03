@@ -131,6 +131,7 @@ bindsym $mod+d exec "rofi -show run"
 bindsym $mod+Tab exec "rofi -show"
 bindsym $mod+s exec "rofi -show ssh"
 bindsym $mod+n exec $vpnmanager
+bindsym $mod+shift+v exec "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
 
 ############################################
 #    Media keys                            #
@@ -313,3 +314,4 @@ exec --no-startup-id nm-applet
 exec_always feh --bg-scale $(find ~/Pictures/wallpapers/ -type f -name "*" | shuf -n 1)
 exec /usr/bin/compton
 exec /bin/bash ~/.config/i3/scripts/startup.sh
+exec --no-startup-id greenclip daemon

@@ -93,6 +93,7 @@ function install_config {
   ln -sf "$PWD"/config/gtk-3.0/settings.ini ~/.gtkrc-2.0.mine
   ln -sf "$PWD"/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
   ln -sf "$PWD"/config/mimeapps.list ~/.config/mimeapps.list
+  ln -sf "$PWD"/config/greenclip.toml ~/.config/greenclip.toml
 
   mkdir -p ~/.config/rofi
   ln -sf "$PWD"/config/rofi/rofi.rasi ~/.config/rofi/config.rasi

@@ -9,6 +9,7 @@ and this project adheres to date versioning.
 
 - Fixed i3lock re-using the last image
 - Set up /etc/environment sharing
+- Added in greenclip again
 
 ## [2022-07-26]
 
