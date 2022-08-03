@@ -117,6 +117,9 @@ function install_config {
   echo "" >~/.custom
   echo "" >~/.variables
 
+  # files to be copied once
+  cp "$PWD"/config/code/syncLocalSettings.json ~/.config/Code/User/
+
   # system fixes
   echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl --system
   mkdir -p ~/Pictures/Screenshots

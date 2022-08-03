@@ -25,7 +25,7 @@ Older versions:
 | OS               | Arch Linux                                                             |
 | Terminal         | xfce4-terminal                                                         |
 | Editor           | nano                                                                   |
-| Code editor      | vscode / jetbrains stuff                                               |
+| Code editor      | vscode                                                                 |
 | Browser          | Firefox                                                                |
 | File manager     | If I have to use one ... Nautilus                                      |
 | Music            | Tidal through [Tidal-hifi](https://github.com/Mastermindzh/tidal-hifi) |
@@ -49,3 +49,7 @@ Some things are handled by window class/title or have custom resolutions set, th
 ## getting icons
 
 Copy/paste icons from this url: [https://fontawesome.com/v5/cheatsheet](https://fontawesome.com/v5/cheatsheet)
+
+## after-install
+
+After install read [./docs/afterinstall.md](./docs/afterinstall.md)
