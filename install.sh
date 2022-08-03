@@ -110,6 +110,7 @@ function install_config {
   sudo ln -sf "$PWD"/config/package-managers/makepkg.conf /etc/makepkg.conf
   sudo ln -sf "$PWD"/config/ntp.conf /etc/ntp.conf
   sudo ln -sf "$PWD"/bash/Completion/ /etc/bash_completion.d
+  sudo ln -sf "$PWD"/config/environment /etc/environment
 
   # create empty .custom alias file
   echo "" >~/.custom
