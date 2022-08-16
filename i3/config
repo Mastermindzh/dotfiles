@@ -35,8 +35,9 @@ set $workspace7 "7: "
 set $workspace8 "8: "
 set $workspace9 "9: "
 set $workspace10 "10: "
-set $workspace11 " VM/Remote"
-set $workspace12 " Enpass"
+set $workspace11 "11: "
+set $workspace12 "12: "
+set $workspace13 "13: "
 
 # scripts
 set $tidal ~/.config/i3/scripts/tidal-cli.sh
@@ -169,6 +170,7 @@ bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
 bindsym $mod+w workspace $workspace11
 bindsym $mod+p workspace $workspace12
+bindsym $mod+g workspace $workspace13
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
@@ -183,6 +185,7 @@ bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 bindsym $mod+Shift+w move container to workspace $workspace11
 bindsym $mod+Shift+p move container to workspace $workspace12
+bindsym $mod+Shift+g move container to workspace $workspace13
 
 
 ############################################
@@ -269,7 +272,7 @@ smart_gaps on
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
+bindsym $mod+Shift+End mode "$mode_gaps"
 
 mode "$mode_gaps" {
     bindsym o      mode "$mode_gaps_outer"

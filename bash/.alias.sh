@@ -37,6 +37,7 @@ alias update='trizen -Syu --noconfirm'
 alias remove-orphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias updatekeys='sudo pacman-key --refresh-key'
 alias clean-pacmancache='sudo paccache -rk 1 && sudo paccache -ruk0'
+alias clean-all='sudo pacman -R $(pacman -Qtdq) && sudo paccache -rk 1 && sudo paccache -ruk0 && sudo journalctl --vacuum-time=2d && docker-clean-all && rm -rf ~/.local/share/Trash/'
 
 ## systeminfo
 alias meminfo='free -mth'
@@ -109,7 +110,7 @@ alias tree='tree --dirsfirst'
 alias handbrake='ghb'
 alias cal='cal -mw --color'
 alias chrome='google-chrome-stable'
-alias teams='teams-insiders'
+alias teams='teams-insiders --disable-seccomp-filter-sandbox'
 
 ## command overrides
 df() {
