@@ -93,6 +93,7 @@ function install_config {
   ln -sf "$PWD"/config/gtk-3.0/settings.ini ~/.gtkrc-2.0.mine
   ln -sf "$PWD"/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
   ln -sf "$PWD"/config/mimeapps.list ~/.config/mimeapps.list
+  ln -sf "$PWD"/config/greenclip.toml ~/.config/greenclip.toml
 
   mkdir -p ~/.config/rofi
   ln -sf "$PWD"/config/rofi/rofi.rasi ~/.config/rofi/config.rasi
@@ -110,10 +111,14 @@ function install_config {
   sudo ln -sf "$PWD"/config/package-managers/makepkg.conf /etc/makepkg.conf
   sudo ln -sf "$PWD"/config/ntp.conf /etc/ntp.conf
   sudo ln -sf "$PWD"/bash/Completion/ /etc/bash_completion.d
+  sudo ln -sf "$PWD"/config/environment /etc/environment
 
   # create empty .custom alias file
   echo "" >~/.custom
   echo "" >~/.variables
+
+  # files to be copied once
+  cp "$PWD"/config/code/syncLocalSettings.json ~/.config/Code/User/
 
   # system fixes
   echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl --system
