@@ -310,6 +310,7 @@ mode "$mode_gaps_outer" {
 ############################################
 #    Autorun                               #
 ############################################
+exec_always --no-startup-id picom -b
 exec --no-startup-id i3-msg 'workspace $workspace2; exec xfce4-terminal' && i3-msg 'workspace $workspace1'
 exec --no-startup-id i3-msg 'workspace $workspace12; exec enpass'
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

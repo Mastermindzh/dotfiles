@@ -96,3 +96,4 @@ gnome-themes-extra
 cups
 system-config-printer
 duf
+picom
