@@ -17,6 +17,7 @@
     foreground-normal:           @foreground;
     urgent:                      #333333;
     active-fg:                   #ef5350;
+    red:                         #ff0000;
 
     /* background */
     normal-background:           @background;
