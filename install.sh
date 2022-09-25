@@ -91,6 +91,7 @@ function install_config {
   ln -sf "$PWD"/config/nano/.nanorc ~/.nanorc
   ln -sf "$PWD"/bash/.powerline-shell.json ~/.powerline-shell.json
   ln -sf "$PWD"/config/gtk-3.0/settings.ini ~/.gtkrc-2.0.mine
+  mkdir -p "$HOME/.config/gtk-3.0"
   ln -sf "$PWD"/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
   ln -sf "$PWD"/config/mimeapps.list ~/.config/mimeapps.list
   ln -sf "$PWD"/config/greenclip.toml ~/.config/greenclip.toml
@@ -118,6 +119,7 @@ function install_config {
   echo "" >~/.variables
 
   # files to be copied once
+  mkdir -p "$HOME/.config/Code/User"
   cp "$PWD"/config/code/syncLocalSettings.json ~/.config/Code/User/
 
   # system fixes
@@ -130,7 +132,7 @@ function install_dependencies {
   fileToList dependencies/pacman.txt | xargs sudo pacman --noconfirm -S
 
   install_trizen
-  fileToList dependencies/aur.txt | xargs trizen --force -S --noconfirm
+  fileToList dependencies/aur.txt | xargs trizen -S --noconfirm
 
   fileToList dependencies/pip.txt | xargs sudo pip install
 
