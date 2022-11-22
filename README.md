@@ -4,15 +4,20 @@ This repository holds my Linux config files.
 
 ## Mandatory unixporn screenshots
 
-New version as of dec 2021:
+New version as of Nov 2022:
 
-[![dotfiles](media/dotfiles4.jpg)](https://raw.githubusercontent.com/Mastermindzh/dotfiles/master/media/dotfiles4.jpg)
+[![dotfiles](media/dotfiles5.png)](https://raw.githubusercontent.com/Mastermindzh/dotfiles/master/media/dotfiles5.png)
+
+I changed the terminal out for gnome-terminal, full-screen it has the same color-hue as the i3bar:
+
+<img src = "media/dotfiles-small-5.png" width="200">
 
 Older versions:
 
-- [dotfiles](media/dotfiles3.png)
-- [dotfiles](media/dotfiles.png)
+- [dotfiles4](https://raw.githubusercontent.com/Mastermindzh/dotfiles/master/media/dotfiles4.jpg)
+- [dotfiles3](media/dotfiles3.png)
 - [dotfiles2](media/dotfiles2.png)
+- [dotfiles](media/dotfiles.png)
 
 ## Tools
 
@@ -23,7 +28,7 @@ Older versions:
 | Shell            | Bash                                                                   |
 | Package managers | Pacman & Trizen                                                        |
 | OS               | Arch Linux                                                             |
-| Terminal         | xfce4-terminal                                                         |
+| Terminal         | gnome-terminal                                                         |
 | Editor           | nano                                                                   |
 | Code editor      | vscode                                                                 |
 | Browser          | Firefox                                                                |

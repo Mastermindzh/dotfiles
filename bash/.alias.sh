@@ -33,7 +33,7 @@ alias undo-commit='git reset --soft HEAD^'
 
 ## pacman and trizen
 alias aur='trizen --noconfirm'
-alias update='trizen -Syu --noconfirm'
+alias update='trizen --sudo_remove_timestamp=0 --sudo_autorepeat=1 --sudo_autorepeat_at_runtime=1 -Syu --noconfirm'
 alias remove-orphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias updatekeys='sudo pacman-key --refresh-key'
 alias clean-pacmancache='sudo paccache -rk 1 && sudo paccache -ruk0'
@@ -52,7 +52,6 @@ alias psmem='ps auxf | sort -nr -k 5 | head -n 5'
 
 ##utility
 alias nmapscan='nmap -n -sP'
-alias pia='nohup sh /opt/pia/run.sh &>/dev/null & disown'
 alias wifimenu='nm-connection-editor'
 alias findcrlf='find . -path node_modules -prune -o -not -type d -exec file "{}" ";" | grep -E "BOM|CRLF"'
 alias fixcrlf='findcrlf > /tmp/crlftolf && cat /tmp/crlftolf | while read line; do CUTLINE=$(echo $line | cut -f1 -d":") && dos2unix $CUTLINE; done'
@@ -74,6 +73,7 @@ alias unlockuser='faillock --reset --user'
 alias npm-list-links='npm ls -g --depth=0 --link=true'
 alias suspend='sudo bash ~/.config/i3/scripts/suspend.sh'
 alias clean-all='sudo pacman -R $(pacman -Qtdq) && sudo paccache -rk 1 && sudo paccache -ruk0 && sudo journalctl --vacuum-time=2d && docker-clean-all && rm -rf ~/.local/share/Trash/'
+alias delete-empty='find . -type d -empty -delete'
 # might be useful in demos...
 alias oopsie='fuck'
 

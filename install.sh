@@ -75,6 +75,13 @@ function install_trizen {
   sudo rm -dRf trizen/
 }
 
+# Sets up time and date related stuff
+function setDateTimeConfig {
+  systemctl enable ntpd
+  timedatectl set-ntp true
+  sudo ln -sf "$PWD"/config/networkmanager/09-timezone /etc/NetworkManager/dispatcher.d/09-timezone
+}
+
 # install other configs
 function install_config {
 
@@ -125,6 +132,8 @@ function install_config {
   # system fixes
   echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl --system
   mkdir -p ~/Pictures/Screenshots
+
+  setDateTimeConfig
 }
 
 # Installs the dependencies on Arch Linux

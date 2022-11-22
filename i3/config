@@ -119,7 +119,7 @@ bindsym $mod+shift+l exec /bin/bash ~/.config/i3/scripts/suspend.sh
 ############################################
 #    Application Keys                      #
 ############################################
-bindsym $mod+Return exec xfce4-terminal                                 # terminal
+bindsym $mod+Return exec gnome-terminal                                 # terminal
 bindsym $mod+e exec nautilus                                            # File manager
 bindsym Print exec  flameshot screen -d 0 -p ~/Pictures/Screenshots     # Fullscreen screenshot
 bindsym $mod+Print exec flameshot gui					                          # Show screenshot window
@@ -193,8 +193,7 @@ bindsym $mod+Shift+g move container to workspace $workspace13
 #    Appearance settings                   #
 ############################################
 # Set the default font
-font pango:Liberation sans 13
-
+font pango:Ubuntu regular 12
 # Bar decoration
 bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
@@ -310,8 +309,8 @@ mode "$mode_gaps_outer" {
 ############################################
 #    Autorun                               #
 ############################################
-exec_always --no-startup-id picom -b
-exec --no-startup-id i3-msg 'workspace $workspace2; exec xfce4-terminal' && i3-msg 'workspace $workspace1'
+# exec_always --no-startup-id picom -b
+exec --no-startup-id i3-msg 'workspace $workspace2; exec gnome-terminal' && i3-msg 'workspace $workspace1'
 exec --no-startup-id i3-msg 'workspace $workspace12; exec enpass'
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
