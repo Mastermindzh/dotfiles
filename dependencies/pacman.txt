@@ -97,5 +97,5 @@ cups
 system-config-printer
 duf
 picom
-gnome-terminal
 ttf-ubuntu-font-family
+xorg-xkill

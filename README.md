@@ -28,7 +28,7 @@ Older versions:
 | Shell            | Bash                                                                   |
 | Package managers | Pacman & Trizen                                                        |
 | OS               | Arch Linux                                                             |
-| Terminal         | gnome-terminal                                                         |
+| Terminal         | xfce4-terminal                                                         |
 | Editor           | nano                                                                   |
 | Code editor      | vscode                                                                 |
 | Browser          | Firefox                                                                |
