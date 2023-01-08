@@ -10,7 +10,6 @@ scrot
 arandr
 xfce4-terminal
 ttf-font-awesome
-sushi
 libconfig
 compton
 lxappearance
@@ -56,13 +55,10 @@ wavpack
 x264
 xvidcore
 gvfs-smb
-gnome-screenshot
 bash-completion
 flameshot
 otf-font-awesome
-openvpn
 networkmanager
-networkmanager-openvpn
 networkmanager-l2tp
 strongswan
 w3m
@@ -99,3 +95,6 @@ duf
 picom
 ttf-ubuntu-font-family
 xorg-xkill
+thunar
+thunar-archive-plugin
+engrampa

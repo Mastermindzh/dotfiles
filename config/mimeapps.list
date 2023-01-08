@@ -28,7 +28,7 @@ x-scheme-handler/tidal=tidal-hifi.desktop
 
 # files
 #--------------
-inode/director=Nautilus.desktop
+inode/director=thunar.desktop
 
 [Added Associations]
 # browser-stuff
@@ -68,7 +68,7 @@ application/javascript=visual-studio-code-insiders.desktop;
 
 # other
 #--------------
-application/zip=org.gnome.Nautilus.desktop;xarchiver.desktop;
+application/zip=thunar,org.gnome.Nautilus.desktop;xarchiver.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=wps-office-wps.desktop;
 application/x-remmina=org.gnome.gedit.desktop;org.kde.krdc.desktop;remmina-file.desktop;org.remmina.Remmina.desktop;
 
