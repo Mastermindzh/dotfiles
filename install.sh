@@ -102,6 +102,7 @@ function install_config {
   ln -sf "$PWD"/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
   ln -sf "$PWD"/config/mimeapps.list ~/.config/mimeapps.list
   ln -sf "$PWD"/config/greenclip.toml ~/.config/greenclip.toml
+  ln -sf "$PWD"/config/terminalrc ~/.config/xfce4/terminal/terminalrc
 
   mkdir -p ~/.config/rofi
   ln -sf "$PWD"/config/rofi/rofi.rasi ~/.config/rofi/config.rasi
@@ -120,6 +121,7 @@ function install_config {
   sudo ln -sf "$PWD"/config/ntp.conf /etc/ntp.conf
   sudo ln -sf "$PWD"/bash/Completion/ /etc/bash_completion.d
   sudo ln -sf "$PWD"/config/environment /etc/environment
+  sudo ln -sf "$PWD"/config/.bash_profile ~/.bash_profile
 
   # create empty .custom alias file
   echo "" >~/.custom

@@ -113,6 +113,7 @@ alias handbrake='ghb'
 alias cal='cal -mw --color'
 alias chrome='google-chrome-stable'
 alias teams='teams-insiders --disable-seccomp-filter-sandbox'
+alias cat='bat'
 
 ## command overrides
 df() {

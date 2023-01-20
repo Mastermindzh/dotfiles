@@ -98,3 +98,5 @@ xorg-xkill
 thunar
 thunar-archive-plugin
 engrampa
+bat
+ctop
