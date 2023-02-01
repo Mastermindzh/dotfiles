@@ -8,7 +8,6 @@ include /usr/share/nano/css.nanorc
 include /usr/share/nano/default.nanorc
 include /usr/share/nano/elisp.nanorc
 include /usr/share/nano/email.nanorc
-include /usr/share/nano/extra
 include /usr/share/nano/go.nanorc
 include /usr/share/nano/groff.nanorc
 include /usr/share/nano/guile.nanorc

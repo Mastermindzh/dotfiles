@@ -1,3 +1,16 @@
 {
-  "segments": ["virtual_env", "ssh", "cwd", "git", "jobs", "root"]
+  "segments": [
+    "virtual_env",
+    "ssh",
+    "cwd",
+    "git",
+    "jobs",
+    "root"
+  ],
+  "cwd": {
+    "max_depth": 5
+  },
+  "vcs": {
+    "show_symbol": "true"
+  }
 }
