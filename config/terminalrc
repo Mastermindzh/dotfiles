@@ -19,7 +19,7 @@ MiscTabPosition=GTK_POS_TOP
 MiscHighlightUrls=TRUE
 MiscMiddleClickOpensUri=FALSE
 MiscCopyOnSelect=FALSE
-MiscShowRelaunchDialog=TRUE
+MiscShowRelaunchDialog=FALSE
 MiscRewrapOnResize=TRUE
 MiscUseShiftArrowsToScroll=FALSE
 MiscSlimTabs=FALSE
@@ -34,3 +34,4 @@ ScrollingBar=TERMINAL_SCROLLBAR_NONE
 ColorBackground=#1e1e1e1e1e1e
 TitleInitial=
 FontName=Ubuntu Mono 13
+

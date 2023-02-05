@@ -8,7 +8,7 @@ New version as of Nov 2022:
 
 [![dotfiles](media/dotfiles5.png)](https://raw.githubusercontent.com/Mastermindzh/dotfiles/master/media/dotfiles5.png)
 
-I changed the terminal out for gnome-terminal, full-screen it has the same color-hue as the i3bar:
+I changed color of the terminal to match the i3bar:
 
 <img src = "media/dotfiles-small-5.png" width="200">
 
@@ -32,7 +32,7 @@ Older versions:
 | Editor           | nano                                                                   |
 | Code editor      | vscode                                                                 |
 | Browser          | Firefox                                                                |
-| File manager     | If I have to use one ... Nautilus                                      |
+| File manager     | If I have to use one ... Thunar                                      |
 | Music            | Tidal through [Tidal-hifi](https://github.com/Mastermindzh/tidal-hifi) |
 |                  |                                                                        |
 

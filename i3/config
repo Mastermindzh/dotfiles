@@ -88,9 +88,21 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+Escape exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+Delete exec "i3-nagbar -t alert -m 'Do you really want to shut down?' -b 'Yes, Shutdown' 'shutdown -h now'"
-bindsym $mod+Shift+BackSpace exec "i3-nagbar -t error -m 'Do you really want to reboot?' -b 'Yes, Reboot' 'reboot'"
+set $mode_power "Exit (L)ogout, (R)eboot, (S)hutdown"
+
+mode $mode_power {
+        bindsym $mod+r exec systemctl reboot
+        bindsym $mod+l exit
+        bindsym $mod+s exec systemctl poweroff
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+Delete mode $mode_power
+bindsym $mod+Shift+Escape mode $mode_power
+bindsym $mod+Shift+Backspace mode $mode_power
 
 # focus on the parent window
 bindsym $mod+shift+alt+p focus parent
@@ -120,7 +132,8 @@ bindsym $mod+shift+l exec /bin/bash ~/.config/i3/scripts/suspend.sh
 #    Application Keys                      #
 ############################################
 bindsym $mod+Return exec xfce4-terminal                                 # terminal
-bindsym $mod+e exec nautilus                                            # File manager
+bindsym $mod+shift+Return exec xfce4-terminal  --drop-down                                # terminal
+bindsym $mod+e exec thunar                                            # File manager
 bindsym Print exec  flameshot screen -d 0 -p ~/Pictures/Screenshots     # Fullscreen screenshot
 bindsym $mod+Print exec flameshot gui					                          # Show screenshot window
 bindsym $mod+shift+Print exec flameshot launcher					              # Show settings window (delay) then show screenshot window

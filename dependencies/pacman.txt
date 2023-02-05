@@ -63,8 +63,6 @@ networkmanager-l2tp
 strongswan
 w3m
 system-config-printer
-nautilus 
-nautilus-share
 wget
 pyenv
 jq

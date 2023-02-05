@@ -1,0 +1,9 @@
+#!/bin/bash
+# startup stuffs
+
+#/bin/bash
+displays=($(xrandr | awk '/ connected /{print $1}'))
+selected_display="${displays[0]}"
+xrandr --output "$selected_display" --brightness 0.75
+
+# power savings
