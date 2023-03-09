@@ -98,3 +98,7 @@ thunar-archive-plugin
 engrampa
 bat
 ctop
+polybar
+noto-fonts-emoji
+autorandr
+papirus-icon-theme

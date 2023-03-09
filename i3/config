@@ -141,7 +141,7 @@ bindsym $mod+shift+b exec /bin/bash ~/.config/i3/scripts/brightness.sh
 bindsym control+shift+Escape exec sysmontask
 
 # Rofi
-bindsym $mod+d exec "rofi -show run"
+bindsym $mod+d exec "rofi -show run -show-icons"
 bindsym $mod+Tab exec "rofi -show"
 bindsym $mod+s exec "rofi -show ssh"
 bindsym $mod+n exec $vpnmanager
@@ -207,24 +207,6 @@ bindsym $mod+Shift+g move container to workspace $workspace13
 ############################################
 # Set the default font
 font pango:Ubuntu regular 12
-# Bar decoration
-bar {
-    status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    position top
-    strip_workspace_numbers no
-    tray_output primary
-    colors {
-        separator $textColour
-        background $primaryBackgroundColour
-        statusline $statusLineColour
-        #                  border                   background                  text
-        focused_workspace  $primaryBackgroundColour $primaryBackgroundColour    $focusedTextColour
-        active_workspace   $primaryBackgroundColour $secondaryBackgroundColour  $textColour
-        inactive_workspace $primaryBackgroundColour $primaryBackgroundColour    $textColour
-        urgent_workspace   $primaryBackgroundColour $primaryBackgroundColour    $urgentTextColour
-    }
-}
-
 new_window 1pixel
 hide_edge_borders both
 
@@ -234,6 +216,24 @@ client.focused          $primaryBackgroundColour   $primaryBackgroundColour    $
 client.focused_inactive $secondaryBackgroundColour $secondaryBackgroundColour  $textColour        $indicatorColour
 client.unfocused        $secondaryBackgroundColour $secondaryBackgroundColour  $textColour        $indicatorColour
 client.urgent           $secondaryBackgroundColour $urgentTextBackgroundColour $urgentTextColour  $indicatorColour
+
+# Bar decoration (currently using polybar)
+# bar {
+#     status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#     position top
+#     strip_workspace_numbers no
+#     tray_output primary
+#     colors {
+#         separator $textColour
+#         background $primaryBackgroundColour
+#         statusline $statusLineColour
+#         #                  border                   background                  text
+#         focused_workspace  $primaryBackgroundColour $primaryBackgroundColour    $focusedTextColour
+#         active_workspace   $primaryBackgroundColour $secondaryBackgroundColour  $textColour
+#         inactive_workspace $primaryBackgroundColour $primaryBackgroundColour    $textColour
+#         urgent_workspace   $primaryBackgroundColour $primaryBackgroundColour    $urgentTextColour
+#     }
+# }
 
 # Floating windows
 for_window [class="Pavucontrol"] floating enable
@@ -254,6 +254,7 @@ assign [class="VirtualBox Machine"] $workspace11
 # database stuff
 assign [class="MongoDB Compass"] $workspace8
 assign [class="robo3t"] $workspace8
+assign [class="Brave-browser"] $workspace7
 assign [class="Mysql-workbench-bin"] $workspace8
 assign [class="azuredatastudio"] $workspace8
 assign [class="beekeeper"] $workspace8
@@ -323,12 +324,14 @@ mode "$mode_gaps_outer" {
 #    Autorun                               #
 ############################################
 # exec_always --no-startup-id picom -b
+exec_always feh --bg-scale $(find ~/Pictures/wallpapers/ -type f -name "*" | shuf -n 1)
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id "autorandr --change"
 exec --no-startup-id i3-msg 'workspace $workspace2; exec xfce4-terminal' && i3-msg 'workspace $workspace1'
 exec --no-startup-id i3-msg 'workspace $workspace12; exec enpass'
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-exec_always feh --bg-scale $(find ~/Pictures/wallpapers/ -type f -name "*" | shuf -n 1)
 exec /usr/bin/compton
 exec /bin/bash ~/.config/i3/scripts/startup.sh
 exec --no-startup-id greenclip daemon

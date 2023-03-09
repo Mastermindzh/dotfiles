@@ -24,3 +24,4 @@ dive
 gnome-text-editor
 greenclip
 kind
+pulseaudio-ctl

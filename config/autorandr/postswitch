@@ -1,0 +1,35 @@
+#!/bin/bash -x
+
+move_workspace() {
+  workspace="$1"
+  output="$2"
+
+  i3-msg "[workspace=\"$workspace\"]" move workspace to output "$output"
+}
+export -f move_workspace
+
+# get primary
+primary=$(xrandr | awk '/ primary / {print $1}')
+
+declare -a movers=(
+  "1: "
+  "2: "
+  "3: "
+  "4: "
+  "5: "
+  "6: "
+  "7: "
+  "8: "
+  "9: "
+  "10: "
+  #   "11:  "
+  "12: "
+  "13: "
+)
+
+for workspace in "${movers[@]}"; do
+  move_workspace "$workspace" "$primary" &
+done
+
+# restart i3.
+i3-msg restart
