@@ -1,6 +1,5 @@
 visual-studio-code-bin
 i3blocks-contrib
-enpass-bin
 insync
 ttf-font-awesome-4
 awesome-terminal-fonts-git
@@ -24,3 +23,4 @@ dive
 gnome-text-editor
 greenclip
 kind
+pulseaudio-ctl

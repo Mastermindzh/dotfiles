@@ -90,6 +90,7 @@ function install_config {
   linkDir "$PWD"/i3 ~/.config/i3
   linkDir "$PWD"/config/notify-osd/notify-osd ~/.notify-osd
   linkDir "$PWD"/config/terminal/xfce4-term ~/.config/xfce4/terminal
+  linkDir "$PWD"/config/polybar ~/.config/polybar
 
   # link user files
   ln -sf "$PWD"/bash/.bashrc ~/.bashrc
@@ -114,6 +115,10 @@ function install_config {
   mkdir -p ~/.pulse
   ln -sf "$PWD"/config/pulse/daemon.conf ~/.pulse/daemon.conf
   ln -sf "$PWD"/config/picom.conf ~/.config/picom.conf
+
+  # link autorandr files
+  mkdir -p "$HOME/.config/autorandr"
+  ln -sf "$PWD"/config/autorandr/postswitch ~/.config/autorandr/postswitch
 
   # link system files / directories
   sudo ln -sf "$PWD"/config/package-managers/pacman.conf /etc/pacman.conf
