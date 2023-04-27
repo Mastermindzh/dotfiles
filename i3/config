@@ -248,7 +248,7 @@ for_window [class="Sysmontask"] resize set 930 665
 #    Workspace specific tools              #
 #       Use xprop to determine class       #
 ############################################
-# assign [class="Enpass"] $workspace12 # moves all windows... including the browser popup
+assign [class="Bitwarden"] $workspace12 # moves all windows... including the browser popup
 assign [class="VirtualBox Machine"] $workspace11
 
 # database stuff
@@ -328,7 +328,7 @@ exec_always feh --bg-scale $(find ~/Pictures/wallpapers/ -type f -name "*" | shu
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id "autorandr --change"
 exec --no-startup-id i3-msg 'workspace $workspace2; exec xfce4-terminal' && i3-msg 'workspace $workspace1'
-exec --no-startup-id i3-msg 'workspace $workspace12; exec enpass'
+exec --no-startup-id i3-msg 'workspace $workspace12; exec bitwarden-desktop'
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
