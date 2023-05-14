@@ -29,7 +29,7 @@ case $1 in
 "info")
   JSON=$(httpGet current)
   TITLE=$(echo "$JSON" | jq -r '.title')
-  ARTISTS=$(echo "$JSON" | jq -r '.artist')
+  ARTISTS=$(echo "$JSON" | jq -r '.artists')
   INFO=$(echo "$TITLE - $ARTISTS")
   if [ ${#INFO} -le 3 ]; then
     echo "No music info available"
