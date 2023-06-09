@@ -103,3 +103,4 @@ noto-fonts-emoji
 autorandr
 papirus-icon-theme
 bitwarden
+poppler

@@ -216,3 +216,12 @@ azkubeswitch() {
     az aks get-credentials --resource-group $1 --name $2
   fi
 }
+
+# merges all pdfs in current directory into a new pdf
+mergepdf() {
+  if [ -z "$1" ]; then
+    echo "please provide an output name for your pdf file: mergepdf out.pdf"
+  else
+    pdfunite ./*.pdf "$1"
+  fi
+}
