@@ -45,7 +45,7 @@ function linkDir {
 
 # replace line endings with a space (for use in package managers)
 function fileToList {
-  echo $(cat "$1" | sed ':a;N;$!ba;s/\n/ /g')
+  echo $(cat "$1" | sed '/^\s*#\([^!]\|$\)/d' | sed ':a;N;$!ba;s/\n/ /g')
 }
 
 # create and copy files to directory
@@ -91,6 +91,7 @@ function install_config {
   linkDir "$PWD"/config/notify-osd/notify-osd ~/.notify-osd
   linkDir "$PWD"/config/terminal/xfce4-term ~/.config/xfce4/terminal
   linkDir "$PWD"/config/polybar ~/.config/polybar
+  linkDir "$PWD"/bash/.aliases ~/
 
   # link user files
   ln -sf "$PWD"/bash/.bashrc ~/.bashrc

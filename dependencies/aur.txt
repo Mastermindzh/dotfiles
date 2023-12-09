@@ -24,3 +24,5 @@ gnome-text-editor
 greenclip
 kind
 pulseaudio-ctl
+seafile
+seafile-client

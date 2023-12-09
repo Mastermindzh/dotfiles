@@ -1,23 +1,6 @@
-# useful dockers
-alias phpserver='docker run --rm -p 2000:80 -v "$PWD":/var/www/html mastermindzh/php-xdebug'
-alias nodeserver='docker run --rm -p 3000:3000 -v "$PWD":/app mastermindzh/generic_node'
-alias reactserver='docker run --rm -p 8080:8080 -v "$PWD":/app mastermindzh/generic_node'
-alias mongoserver='docker run -d --rm -p 27017:27017 --name mongo-server -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=123 -v ~/.db/mongo:/data/db mongo'
-alias sqlserver='docker run --rm --name sql-server -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Your_Password123" -p 1433:1433 -v ~/.db/mssql:/var/opt/mssql mcr.microsoft.com/mssql/server'
-
-# useful docker commands
-alias stop-dockers='docker stop $(docker ps -aq)'
-alias docker-clean-containers='docker container prune -f --filter "until=48h"'
-alias docker-clean-images='docker image prune -a -f --filter "until=48h"'
-alias docker-clean-volumes='docker volume prune -f --filter "label!=keep"'
-alias docker-clean-networks='docker network prune -f --filter "until=24h"'
-alias docker-clean-all='stop-dockers && docker-clean-containers && docker-clean-images && docker-clean-volumes && docker-clean-networks'
-
-# Kubernetes commands
-alias mkubectl='microk8s.kubectl'
-alias kubestart='microk8s.start'
-alias kubestop='microk8s.stop'
-alias kubecontexts='kubectl config get-contexts'
+#!/bin/bash
+# source program-specific aliases:
+for f in ~/.aliases/*; do source "$f"; done
 
 #dotnet core
 alias efupdate="dotnet ef database update"
@@ -37,7 +20,12 @@ alias update='trizen --sudo_remove_timestamp=0 --sudo_autorepeat=1 --sudo_autore
 alias remove-orphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias updatekeys='sudo pacman-key --refresh-key'
 alias clean-pacmancache='sudo paccache -rk 1 && sudo paccache -ruk0'
-alias clean-all='sudo pacman -R $(pacman -Qtdq) && sudo paccache -rk 1 && sudo paccache -ruk0 && sudo journalctl --vacuum-time=2d && docker-clean-all && rm -rf ~/.local/share/Trash/'
+alias clean-trizen-cache='sudo clean-trizen-cache'
+alias clean-trash='sudo rm -rf ~/.local/share/Trash/*'
+alias clean-journal='sudo journalctl --vacuum-time=2d'
+alias clean-pacman-unused='sudo pacman -R $(pacman -Qtdq)'
+
+alias clean-all='clean-pacman-unused && clean-pacmancache && clean-trizen-cache && docker-clean-all && clean-node_modules && clean-journal && clean-trash'
 
 ## systeminfo
 alias meminfo='free -mth'
@@ -59,15 +47,12 @@ alias enable-wifi='sudo ip link set wlp2s0 up'
 alias scan-wifi='sudo iw dev wlp2s0 scan'
 alias pretty-json='python -m json.tool'
 alias addpgpkey='gpg --recv-keys'
-alias clean-trash='sudo rm -rf ~/.local/share/Trash/*'
-alias clean-journal='sudo journalctl --vacuum-time=2d'
-alias clean-all='clean-trash && clean-journal && clean-pacmancache && docker-clean-all && clean-node-modules'
 alias dotnet-install='~/.dotnet-install.sh --install-dir /usr/share/dotnet/ -channel Current -version '
 alias mountshares='sudo bash ~/dotfiles/bash/mounts.sh'
 alias echo-server='npx http-echo-server'
 alias mountcalibre='sudo mount.cifs //10.10.1.11/books /mnt/calibre -o nobrl,user=mastermindzh,noperm,rw'
 alias xpid="xprop _NET_WM_PID | cut -d' ' -f3"
-alias clean-node-modules='find . -name "node_modules" -type d -print0 |xargs -0 rm -r --'
+alias clean-obj-bin='sudo find . -name "bin" -o -name "obj" -exec rm -rf {} \;'
 alias nomachine='/usr/NX/bin/nxplayer'
 alias unlockuser='faillock --reset --user'
 alias npm-list-links='npm ls -g --depth=0 --link=true'
@@ -137,19 +122,19 @@ up() {
 }
 # function to extract ... well anything really
 extract() {
-  if [ -f $1 ]; then
-    case $1 in
-    *.tar.bz2) tar xvjf $1 ;;
-    *.tar.gz) tar xvzf $1 ;;
-    *.bz2) bunzip2 $1 ;;
-    *.rar) unrar x $1 ;;
-    *.gz) gunzip $1 ;;
-    *.tar) tar xvf $1 ;;
-    *.tbz2) tar xvjf $1 ;;
-    *.tgz) tar xvzf $1 ;;
-    *.zip) unzip $1 ;;
-    *.Z) uncompress $1 ;;
-    *.7z) 7z x $1 ;;
+  if [ -f "$1" ]; then
+    case "$1" in
+    *.tar.bz2) tar xvjf "$1" ;;
+    *.tar.gz) tar xvzf "$1" ;;
+    *.bz2) bunzip2 "$1" ;;
+    *.rar) unrar x "$1" ;;
+    *.gz) gunzip "$1" ;;
+    *.tar) tar xvf "$1" ;;
+    *.tbz2) tar xvjf "$1" ;;
+    *.tgz) tar xvzf "$1" ;;
+    *.zip) unzip "$1" ;;
+    *.Z) uncompress "$1" ;;
+    *.7z) 7z x "$1" ;;
     *) echo "don't know how to extract '$1'..." ;;
     esac
   else
@@ -185,35 +170,7 @@ killport() {
   if [ -z "$1" ]; then
     echo "please specify a port to kill"
   else
-    fuser -k $1/tcp
-  fi
-}
-
-# function to switch kubernetes namespace
-kubenamespaceswitch() {
-  if [ -z "$1" ]; then
-    echo "please specify a namespace to switch to"
-  else
-    kubectl config set-context --current --namespace=$1
-  fi
-}
-
-# function to switch kubernetes context
-kubecontextswitch() {
-  if [ -z "$1" ]; then
-    echo "please specify a context to switch to, the following contexts are available:"
-    kubectl config get-contexts
-  else
-    kubectl config use-context "$1"
-  fi
-}
-
-# function to switch to a different azure kubernetes cluster
-azkubeswitch() {
-  if [ -z "$2" ]; then
-    echo "please execute with the following params: azkubeswitch {resourcegroupname} {clustername}"
-  else
-    az aks get-credentials --resource-group $1 --name $2
+    fuser -k "$1/tcp"
   fi
 }
 
@@ -225,3 +182,15 @@ mergepdf() {
     pdfunite ./*.pdf "$1"
   fi
 }
+
+# sign a file using the signing key
+signfile() {
+  if [ -z "$1" ]; then
+    echo "please provide a file to sign: signfile file-to-sign.pdf"
+  else
+    ssh-keygen -Y sign -f ~/.ssh/signing-key.pub -n file "$1"
+  fi
+}
+
+alias "set-timezone-romania"='timedatectl set-timezone Europe/Bucharest'
+alias "set-timezone-netherlands"=' timedatectl set-timezone Europe/Amsterdam'
