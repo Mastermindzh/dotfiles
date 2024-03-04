@@ -76,6 +76,16 @@ declare -A MOUNTS10=(
   [share]="audiobooks"
   [mount]="audiobooks"
 )
+declare -A MOUNTS11=(
+  [server]="$MY_SERVER_LOCATION"
+  [share]="games"
+  [mount]="games"
+)
+declare -A MOUNTS12=(
+  [server]="$MY_SERVER_LOCATION"
+  [share]="data"
+  [mount]="data"
+)
 # declare array with "objects"
 declare -n MOUNTS
 

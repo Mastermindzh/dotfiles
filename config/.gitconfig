@@ -1,6 +1,6 @@
 [user]
 	email = info@rickvanlieshout.com
-	name = Mastermindzh
+	name = Rick van Lieshout
 [alias]
 	tree = log --graph --decorate --pretty=format:'%ar [%h] %an <%ae> - %s'
 	graph = log --graph --pretty=format:'%C(bold)%h%Creset%C(magenta)%d%Creset %s %C(yellow)<%an> %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative
@@ -16,3 +16,8 @@
 	rebase = false
 [init]
 	defaultBranch = master
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
