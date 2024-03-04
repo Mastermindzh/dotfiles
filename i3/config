@@ -61,6 +61,11 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# move focused workspace
+
+bindsym $mod+Ctrl+Right move workspace to output right
+bindsym $mod+Ctrl+Left move workspace to output left
+
 # split in horizontal orientation
 bindsym $mod+h split h
 
@@ -255,7 +260,7 @@ assign [class="VirtualBox Machine"] $workspace11
 # database stuff
 assign [class="MongoDB Compass"] $workspace8
 assign [class="robo3t"] $workspace8
-assign [class="Brave-browser"] $workspace7
+assign [class="Brave-browser"] $workspace9
 assign [class="obsidian"] $workspace7
 assign [class="Mysql-workbench-bin"] $workspace8
 assign [class="azuredatastudio"] $workspace8

@@ -19,6 +19,7 @@ alias aur='trizen --noconfirm'
 alias update='trizen --sudo_remove_timestamp=0 --sudo_autorepeat=1 --sudo_autorepeat_at_runtime=1 -Syu --noconfirm'
 alias remove-orphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias updatekeys='sudo pacman-key --refresh-key'
+alias updatemirrors='sudo reflector --latest 20 --protocol http,https --sort rate --save /etc/pacman.d/mirrorlist'
 alias clean-pacmancache='sudo paccache -rk 1 && sudo paccache -ruk0'
 alias clean-trizen-cache='sudo clean-trizen-cache'
 alias clean-trash='sudo rm -rf ~/.local/share/Trash/*'
@@ -38,7 +39,7 @@ alias preferredapps='exo-preferred-applications'
 #show 5 most memory consuming apps
 alias psmem='ps auxf | sort -nr -k 5 | head -n 5'
 
-##utility
+# utility
 alias nmapscan='nmap -n -sP'
 alias wifimenu='nm-connection-editor'
 alias findcrlf='find . -path node_modules -prune -o -not -type d -exec file "{}" ";" | grep -E "BOM|CRLF"'
@@ -84,6 +85,10 @@ alias la='ls -al'
 
 # show external ip
 alias cmyip='curl -s http://ipecho.net/plain; echo'
+
+# File merging
+alias pngtopdf="convert *.png"
+alias jpgtopdf="convert *.jpg"
 
 ## default command fixes :P
 alias mkdir='mkdir -p'
