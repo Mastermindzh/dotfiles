@@ -3,14 +3,9 @@
 #
 base-devel
 git
-xorg-server
-xorg-xinit
-mesa
+wget
 libconfig
-compton
 wmctrl
-zenity
-xorg-xrandr
 acpi
 ntp
 openssh
@@ -18,10 +13,26 @@ gvfs-smb
 sddm
 polkit-gnome
 gnome-keyring
+libgnome-keyring
+python-keyring
 libsecret
 seahorse
+reflector
+
+#
+# i3wm
+#
 i3-gaps
 i3lock
+xorg-xrandr
+
+#
+# Xorg stuff
+#
+xorg-server
+xorg-xinit
+mesa
+zenity
 
 #
 # Programming
@@ -93,9 +104,7 @@ neofetch
 network-manager-applet
 networkmanager
 networkmanager-l2tp
-noto-fonts-emoji
 obsidian
-otf-font-awesome
 papirus-icon-theme
 pavucontrol
 peek
@@ -114,10 +123,16 @@ system-config-printer
 thefuck
 thunar
 thunar-archive-plugin
-ttf-font-awesome
-ttf-ubuntu-font-family
+
 w3m
-wget
+
 xclip
 xfce4-terminal
 xorg-xkill
+
+# fonts
+fontconfig
+noto-fonts-emoji
+otf-font-awesome
+ttf-font-awesome
+ttf-ubuntu-font-family

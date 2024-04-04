@@ -1,6 +1,13 @@
 #!/bin/bash
 
 # =======================================
+# Script setup
+# =======================================
+
+set -e
+set -o pipefail
+
+# =======================================
 # Helper functions
 # =======================================
 
@@ -45,7 +52,7 @@ function linkDir {
 
 # replace line endings with a space (for use in package managers)
 function fileToList {
-  echo $(cat "$1" | sed '/^\s*#\([^!]\|$\)/d' | sed ':a;N;$!ba;s/\n/ /g')
+  echo $(cat "$1" | sed '/^\s*#\([^!]\|$\)/d' | tr +'\n' ' ' | tr -s ' ')
 }
 
 # create and copy files to directory
@@ -91,9 +98,9 @@ function install_config {
   linkDir "$PWD"/config/notify-osd/notify-osd ~/.notify-osd
   linkDir "$PWD"/config/terminal/xfce4-term ~/.config/xfce4/terminal
   linkDir "$PWD"/config/polybar ~/.config/polybar
-  linkDir "$PWD"/bash/.aliases ~/
 
   # link user files
+  ln -sf "$PWD"/bash/.aliases ~/
   ln -sf "$PWD"/bash/.bashrc ~/.bashrc
   ln -sf "$PWD"/bash/.dotnet-install.sh ~/.dotnet-install.sh
   ln -sf "$PWD"/bash/.alias.sh ~/.alias
@@ -105,6 +112,8 @@ function install_config {
   ln -sf "$PWD"/config/mimeapps.list ~/.config/mimeapps.list
   ln -sf "$PWD"/config/greenclip.toml ~/.config/greenclip.toml
   ln -sf "$PWD"/config/terminalrc ~/.config/xfce4/terminal/terminalrc
+  mkdir -p ~/.config/Code/User/globalStorage/zokugun.sync-settings
+  ln -sf "$PWD"/config/git/settings.yml ~/.config/Code/User/globalStorage/zokugun.sync-settings/settings.yml
 
   mkdir -p ~/.config/rofi
   ln -sf "$PWD"/config/rofi/rofi.rasi ~/.config/rofi/config.rasi
@@ -150,10 +159,13 @@ function install_dependencies {
 
   install_trizen
   fileToList dependencies/aur.txt | xargs trizen -S --noconfirm
-
-  fileToList dependencies/pip.txt | xargs sudo pip install
-
   fileToList dependencies/npm.txt | xargs sudo npm install -g
+}
+
+# set up a new ssh key
+function create_ssh_key {
+  ssh-keygen -t ed25519 -C "info@rickvanlieshout.com"
+  eval "$(ssh-agent -s)"
 }
 
 # =======================================
@@ -213,6 +225,11 @@ ask "Do you want to continue installing my config and rice?" Y &&
   if ask "Do you want to install the applications listen in ./dependencies? (might prompt for password)" Y; then
     install_dependencies
   fi
+
+# Ask for SSH generation
+if ask "Do you want to generate a new SSH key?" Y; then
+  create_ssh_key
+fi
 
 # Ask for config installation
 if ask "Do you want to install the config files?" Y; then
