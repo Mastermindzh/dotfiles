@@ -223,24 +223,6 @@ client.focused_inactive $secondaryBackgroundColour $secondaryBackgroundColour  $
 client.unfocused        $secondaryBackgroundColour $secondaryBackgroundColour  $textColour        $indicatorColour
 client.urgent           $secondaryBackgroundColour $urgentTextBackgroundColour $urgentTextColour  $indicatorColour
 
-# Bar decoration (currently using polybar)
-# bar {
-#     status_command i3blocks -c ~/.config/i3/i3blocks.conf
-#     position top
-#     strip_workspace_numbers no
-#     tray_output primary
-#     colors {
-#         separator $textColour
-#         background $primaryBackgroundColour
-#         statusline $statusLineColour
-#         #                  border                   background                  text
-#         focused_workspace  $primaryBackgroundColour $primaryBackgroundColour    $focusedTextColour
-#         active_workspace   $primaryBackgroundColour $secondaryBackgroundColour  $textColour
-#         inactive_workspace $primaryBackgroundColour $primaryBackgroundColour    $textColour
-#         urgent_workspace   $primaryBackgroundColour $primaryBackgroundColour    $urgentTextColour
-#     }
-# }
-
 # Floating windows
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Lxappearance"] floating enable
@@ -249,6 +231,7 @@ for_window [class="Eog"] floating enable
 for_window [title="Tidal-hifi - settings"] floating enable
 for_window [class="Sysmontask"] floating enable
 for_window [class="Sysmontask"] resize set 930 665
+for_window [instance="Godot_Engine"] floating enable
 
 ############################################
 #    Workspace specific tools              #
@@ -270,7 +253,7 @@ assign [class="beekeeper"] $workspace8
 #    i3-gaps                               #
 ############################################
 # Disable window titlebars entirely
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
 
 # Set inner/outer gaps
 gaps inner 10
