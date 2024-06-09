@@ -1,14 +1,18 @@
 configuration {
-        modi: "window,run,ssh,combi";
-        font: "monospace 10";
-        terminal: "xfce4-terminal";
-        ssh-client: "ssh";
-        ssh-command: "{terminal} -e "{ssh-client} {host}"";
-        
-/* ! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
-        lines: 10;
-        line-padding: 5;
-        */
+  modi: "window,run,ssh,combi,emoji,calc,drun";
+  font: "Ubuntu mono 16";
+  terminal: "xfce4-terminal";
+  ssh-client: "ssh";
+  ssh-command: "{terminal} -e "{ssh-client} {host}"";
+
+  show-icons: true;
+  display-drun: "";
+  display-run: "";
+  display-ssh: "";
+  display-filebrowser: "";
+  display-window: "";
+  drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+  window-format: "{w} · {c} · {t}";
 }
 
 @theme "~/.config/rofi/mytheme.rasi"

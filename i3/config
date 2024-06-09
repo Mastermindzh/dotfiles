@@ -147,10 +147,12 @@ bindsym control+shift+Escape exec sysmontask                            # system
 bindsym $mod+BackSpace exec autorandr --change undocked					# reset to laptop view 
 
 # Rofi
-bindsym $mod+d exec "rofi -show run -show-icons"
-bindsym $mod+Tab exec "rofi -show"
+bindsym $mod+d exec "rofi -show drun"
+bindsym $mod+Tab exec "rofi -show window"
 bindsym $mod+s exec "rofi -show ssh"
+bindsym $mod+c exec "rofi -show calc"
 bindsym $mod+n exec $vpnmanager
+bindsym $mod+colon exec "rofi -show emoji"
 bindsym $mod+shift+v exec "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
 
 ############################################
@@ -270,7 +272,7 @@ smart_borders on
 # Smart gaps (gaps used if only more than one container on the workspace)
 smart_gaps on
 
-# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps.
+# Press $mod+Shift+end to enter the gap mode. Choose o or i for modifying outer/inner gaps.
 # Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace).
 # If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner

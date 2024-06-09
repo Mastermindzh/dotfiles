@@ -69,8 +69,10 @@ function copyToDir {
 function install_fonts {
   mkdir -p ~/.fonts
   mkdir -p ~/.local/share/fonts
+  mkdir -p /usr/local/share/fonts
   cp -rf ./fonts/* ~/.fonts
   cp -rf ./fonts/* ~/.local/share/fonts
+  cp -rf ./fonts/* /usr/local/share/fonts
 }
 
 # install trizen, a aur helper

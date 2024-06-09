@@ -114,6 +114,9 @@ poppler
 powertop
 pulseaudio-bluetooth
 rofi
+rofi-emoji
+rofi-calc
+xdotool
 rsync
 scrot
 scrot
