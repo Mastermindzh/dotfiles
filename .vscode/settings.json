@@ -1,3 +1,11 @@
 {
-  "cSpell.words": ["autohint", "hintstyle", "rgba"]
+  "cSpell.words": [
+    "autohint",
+    "hintstyle",
+    "rgba"
+  ],
+  "sonarlint.connectedMode.project": {
+    "connectionId": "public-sonarcloud",
+    "projectKey": "Mastermindzh_dotfiles"
+  }
 }

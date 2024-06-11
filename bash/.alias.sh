@@ -61,6 +61,7 @@ alias suspend='sudo bash ~/.config/i3/scripts/suspend.sh'
 alias clean-all='sudo pacman -R $(pacman -Qtdq) && sudo paccache -rk 1 && sudo paccache -ruk0 && sudo journalctl --vacuum-time=2d && docker-clean-all && rm -rf ~/.local/share/Trash/'
 alias delete-empty='find . -type d -empty -delete'
 alias addwireguard='sudo nmcli connection import type wireguard file '
+alias defaultfonts='for family in serif sans-serif monospace Arial Helvetica Verdana "Times New Roman" "Courier New"; do echo -e "\033[1m$family: \033[0m" && fc-match "$family" && echo ""; done'
 
 # might be useful in demos...
 alias oopsie='fuck'

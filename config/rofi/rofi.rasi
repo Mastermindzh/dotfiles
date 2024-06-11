@@ -6,11 +6,14 @@ configuration {
   ssh-command: "{terminal} -e "{ssh-client} {host}"";
 
   show-icons: true;
-  display-drun: "";
-  display-run: "";
-  display-ssh: "";
-  display-filebrowser: "";
-  display-window: "";
+  display-drun: " ";
+  display-run: " ";
+  display-ssh: " ";
+  display-clipboard: " ";
+  display-emoji: " ";
+  display-calc: " ";
+  display-filebrowser: " ";
+  display-window: " ";
   drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
   window-format: "{w} · {c} · {t}";
 }

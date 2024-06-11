@@ -1,6 +1,6 @@
 #!/bin/bash
 # useful docker commands
-alias stop-dockers='docker stop $(docker ps -aq)'
+alias stop-dockers='if [ $(docker ps -aq | wc -l) != 0 ]; then docker stop $(docker ps -aq); fi'
 alias docker-clean-containers='docker container prune -f --filter "until=48h"'
 alias docker-clean-images='docker image prune -a -f --filter "until=48h"'
 alias docker-clean-volumes='docker volume prune -f --filter "label!=keep"'

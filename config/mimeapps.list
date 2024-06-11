@@ -29,6 +29,7 @@ x-scheme-handler/tidal=tidal-hifi.desktop
 # files
 #--------------
 inode/director=thunar.desktop
+x-scheme-handler/ftb=ftb-app.desktop
 
 [Added Associations]
 # browser-stuff

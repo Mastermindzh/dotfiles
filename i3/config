@@ -62,7 +62,6 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # move focused workspace
-
 bindsym $mod+Ctrl+Right move workspace to output right
 bindsym $mod+Ctrl+Left move workspace to output left
 
@@ -234,6 +233,7 @@ for_window [title="Tidal-hifi - settings"] floating enable
 for_window [class="Sysmontask"] floating enable
 for_window [class="Sysmontask"] resize set 930 665
 for_window [instance="Godot_Engine"] floating enable
+for_window [class="Alert"] floating enable
 
 ############################################
 #    Workspace specific tools              #
@@ -322,8 +322,8 @@ exec --no-startup-id i3-msg 'workspace $workspace2; exec xfce4-terminal' && i3-m
 exec --no-startup-id i3-msg 'workspace $workspace12; exec bitwarden-desktop'
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
-exec /usr/bin/compton
-exec /bin/bash ~/.config/i3/scripts/startup.sh
 exec --no-startup-id greenclip daemon
 exec --no-startup-id seafile-applet
 exec --no-startup-id obsidian
+exec /usr/bin/compton
+exec /bin/bash ~/.config/i3/scripts/startup.sh

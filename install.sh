@@ -91,8 +91,20 @@ function setDateTimeConfig {
   sudo ln -sf "$PWD"/config/networkmanager/09-timezone /etc/NetworkManager/dispatcher.d/09-timezone
 }
 
+function install_gtk {
+  mkdir -p ~/.config/xdg-desktop-portal
+  mkdir -p "$HOME/.config/gtk-3.0"
+  mkdir -p "$HOME/.config/gtk-4.0"
+  ln -sf "$PWD"/config/gtk/portals.conf ~/.config/xdg-desktop-portal/portals.conf
+  ln -sf "$PWD"/config/gtk/settings.ini ~/.gtkrc-2.0.mine
+  ln -sf "$PWD"/config/gtk/settings.ini ~/.config/gtk-3.0/settings.ini
+  ln -sf "$PWD"/config/gtk/settings.ini ~/.config/gtk-4.0/settings.ini
+}
+
 # install other configs
 function install_config {
+
+  install_gtk
 
   # link directories
   linkDir "$PWD"/wallpapers/images ~/Pictures/wallpapers
@@ -100,6 +112,7 @@ function install_config {
   linkDir "$PWD"/config/notify-osd/notify-osd ~/.notify-osd
   linkDir "$PWD"/config/terminal/xfce4-term ~/.config/xfce4/terminal
   linkDir "$PWD"/config/polybar ~/.config/polybar
+  linkDir "$PWD"/config/poshthemes ~/.config/poshthemes
 
   # link user files
   ln -sf "$PWD"/bash/.aliases ~/
@@ -108,9 +121,7 @@ function install_config {
   ln -sf "$PWD"/bash/.alias.sh ~/.alias
   ln -sf "$PWD"/config/nano/.nanorc ~/.nanorc
   ln -sf "$PWD"/bash/.powerline-shell.json ~/.powerline-shell.json
-  ln -sf "$PWD"/config/gtk-3.0/settings.ini ~/.gtkrc-2.0.mine
-  mkdir -p "$HOME/.config/gtk-3.0"
-  ln -sf "$PWD"/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
+
   ln -sf "$PWD"/config/mimeapps.list ~/.config/mimeapps.list
   ln -sf "$PWD"/config/greenclip.toml ~/.config/greenclip.toml
   ln -sf "$PWD"/config/terminalrc ~/.config/xfce4/terminal/terminalrc

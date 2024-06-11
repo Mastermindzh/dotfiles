@@ -1,10 +1,4 @@
 #!/bin/bash
-# if powerline-shell is available use it.
-function _update_ps1() {
-  if hash powerline-rs 2>/dev/null; then
-    PS1="$(powerline-rs --shell bash $?)"
-  fi
-}
 
 # sourceIfExists
 function sourceIfExists() {
@@ -19,6 +13,7 @@ source ~/.custom
 source ~/.variables
 sourceIfExists ~/lib/azure-cli/az.completion
 eval "$(thefuck --alias)"
+eval "$(oh-my-posh init bash --config ~/.config/poshthemes/mastermindzh.yaml)"
 
 # load keychain with private key
 if test -f "$HOME/.ssh/id_ed25519"; then
@@ -38,12 +33,6 @@ if hash dotnet 2>/dev/null; then
   export DOTNET_ROOT=/usr/share/dotnet
   export MSBuildSDKsPath=$DOTNET_ROOT/sdk/$(${DOTNET_ROOT}/dotnet --version)/Sdks
   export PATH="${PATH}:${DOTNET_ROOT}:~/.dotnet/tools"
-fi
-
-PS1='[\u@\h \W]\$ '
-
-if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-  PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
 export PATH=$PATH:/home/mastermindzh/bin

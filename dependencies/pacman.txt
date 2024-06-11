@@ -92,6 +92,8 @@ eog
 feh
 firefox
 flameshot
+gtk-engine-murrine
+gnome-themes-standard
 gnome-themes-extra
 htop
 i3blocks
