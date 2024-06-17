@@ -13,18 +13,6 @@ floating_modifier $mod
 #    Constants                             #
 ############################################
 
-set $urgentTextBackgroundColour #a6a6a6
-set $primaryBackgroundColour    #1e1e1e
-set $secondaryBackgroundColour  #252526
-set $tertiaryBackgroundColour   #333333
-
-set $textColour                 #848484
-set $focusedTextColour          #f6f6f7
-
-set $statusLineColour           #d1d4e0
-set $urgentTextColour           #ef5350
-set $indicatorColour            #fcc09e
-
 set $workspace1 "1: "
 set $workspace2 "2: "
 set $workspace3 "3: "
@@ -208,7 +196,6 @@ bindsym $mod+Shift+w move container to workspace $workspace11
 bindsym $mod+Shift+p move container to workspace $workspace12
 bindsym $mod+Shift+g move container to workspace $workspace13
 
-
 ############################################
 #    Appearance settings                   #
 ############################################
@@ -218,11 +205,18 @@ new_window 1pixel
 hide_edge_borders both
 
 # Window Colours
-#                       border                     background                  text               indicator
-client.focused          $primaryBackgroundColour   $primaryBackgroundColour    $focusedTextColour $indicatorColour
-client.focused_inactive $secondaryBackgroundColour $secondaryBackgroundColour  $textColour        $indicatorColour
-client.unfocused        $secondaryBackgroundColour $secondaryBackgroundColour  $textColour        $indicatorColour
-client.urgent           $secondaryBackgroundColour $urgentTextBackgroundColour $urgentTextColour  $indicatorColour
+# class                 border  bground text    indicator child_border
+# dark
+# client.focused          #1e1e1e #1e1e1e #f6f6f7 #fcc09e
+# client.focused_inactive #252526 #252526 #848484 #fcc09e
+# client.unfocused        #252526 #252526 #848484 #fcc09e
+# client.urgent           #252526 #a6a6a6 #ef5350 #fcc09e
+# dracula
+client.focused          #BD93F9 #BD93F9 #F8F8F2 #BD93F9 #BD93F9
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36 #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555 #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36 #282A36
 
 # Floating windows
 for_window [class="Pavucontrol"] floating enable
@@ -241,8 +235,6 @@ for_window [class="Alert"] floating enable
 ############################################
 assign [class="Bitwarden"] $workspace12 # moves all windows... including the browser popup
 assign [class="VirtualBox Machine"] $workspace11
-
-# database stuff
 assign [class="MongoDB Compass"] $workspace8
 assign [class="robo3t"] $workspace8
 assign [class="Brave-browser"] $workspace9

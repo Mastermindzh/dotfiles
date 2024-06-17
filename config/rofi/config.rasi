@@ -18,4 +18,11 @@ configuration {
   window-format: "{w} · {c} · {t}";
 }
 
-@theme "~/.config/rofi/mytheme.rasi"
+
+/*---- import color theme here  ----*/
+/*@import "~/.config/rofi/themes/dark.rasi"*/
+@import "~/.config/rofi/themes/dracula.rasi"
+
+/*---- import theme here ----*/
+@import "~/.config/rofi/themes/base.rasi"
+

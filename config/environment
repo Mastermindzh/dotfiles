@@ -5,4 +5,4 @@
 #
 XCURSOR_THEME="Adwaita"
 EDITOR="nano"
-GTK_THEME=Adwaita-dark
+#GTK_THEME=Adwaita-dark

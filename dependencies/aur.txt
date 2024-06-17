@@ -25,3 +25,4 @@ awf-gtk4
 azure-cli
 sysmontask
 kind
+dracula-gtk-theme-full

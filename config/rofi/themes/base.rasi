@@ -1,38 +1,4 @@
-* {
-     background: #1e1e1e;
-     background-alt: #282B31FF;
-     background-color: @background;
-     foreground: #FFFFFFFF;
-     foreground-normal: @foreground;
-     selected: #61AFEFFF;
-     active: #98C379FF;
-     urgent: #E06C75FF;
-}
- * {
-     border-colour: var(selected);
-     handle-colour: var(selected);
-     background-colour: var(background);
-     foreground-colour: var(foreground);
-     alternate-background: var(background-alt);
-     normal-background: var(background);
-     normal-foreground: var(foreground);
-     urgent-background: var(urgent);
-     urgent-foreground: var(background);
-     active-background: var(active);
-     active-foreground: var(background);
-     selected-normal-background: var(selected);
-     selected-normal-foreground: var(background);
-     selected-urgent-background: var(active);
-     selected-urgent-foreground: var(background);
-     selected-active-background: var(urgent);
-     selected-active-foreground: var(background);
-     alternate-normal-background: var(background);
-     alternate-normal-foreground: var(foreground);
-     alternate-urgent-background: var(urgent);
-     alternate-urgent-foreground: var(background);
-     alternate-active-background: var(active);
-     alternate-active-foreground: var(background);
-}
+
 /*----Main Window */
  window {
     /* properties for window widget */

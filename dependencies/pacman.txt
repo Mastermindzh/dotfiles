@@ -141,3 +141,5 @@ noto-fonts-emoji
 otf-font-awesome
 ttf-font-awesome
 ttf-ubuntu-font-family
+fzf
+

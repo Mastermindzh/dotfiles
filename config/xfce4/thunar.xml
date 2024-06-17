@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="thunar" version="1.0">
+  <property name="last-view" type="string" value="ThunarIconView"/>
+  <property name="last-icon-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_100_PERCENT"/>
+  <property name="last-window-width" type="int" value="2560"/>
+  <property name="last-window-height" type="int" value="1392"/>
+  <property name="last-window-maximized" type="bool" value="true"/>
+  <property name="last-separator-position" type="int" value="229"/>
+  <property name="misc-single-click" type="bool" value="false"/>
+  <property name="misc-thumbnail-mode" type="string" value="THUNAR_THUMBNAIL_MODE_ALWAYS"/>
+  <property name="misc-thumbnail-draw-frames" type="bool" value="false"/>
+  <property name="misc-file-size-binary" type="bool" value="false"/>
+  <property name="misc-text-beside-icons" type="bool" value="false"/>
+  <property name="misc-change-window-icon" type="bool" value="true"/>
+  <property name="shortcuts-icon-emblems" type="bool" value="true"/>
+  <property name="tree-icon-emblems" type="bool" value="true"/>
+  <property name="misc-show-delete-action" type="bool" value="true"/>
+  <property name="last-show-hidden" type="bool" value="false"/>
+  <property name="misc-parallel-copy-mode" type="string" value="THUNAR_PARALLEL_COPY_MODE_ALWAYS"/>
+  <property name="last-splitview-separator-position" type="int" value="589"/>
+  <property name="last-side-pane" type="string" value="ThunarTreePane"/>
+  <property name="last-location-bar" type="string" value="ThunarLocationButtons"/>
+  <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_38_PERCENT"/>
+  <property name="last-details-view-column-widths" type="string" value="50,50,140,50,50,50,50,50,1316,50,50,78,50,152"/>
+  <property name="last-sort-column" type="string" value="THUNAR_COLUMN_TYPE"/>
+  <property name="last-sort-order" type="string" value="GTK_SORT_ASCENDING"/>
+  <property name="misc-directory-specific-settings" type="bool" value="true"/>
+</channel>

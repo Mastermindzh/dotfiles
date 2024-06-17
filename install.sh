@@ -92,10 +92,8 @@ function setDateTimeConfig {
 }
 
 function install_gtk {
-  mkdir -p ~/.config/xdg-desktop-portal
   mkdir -p "$HOME/.config/gtk-3.0"
   mkdir -p "$HOME/.config/gtk-4.0"
-  ln -sf "$PWD"/config/gtk/portals.conf ~/.config/xdg-desktop-portal/portals.conf
   ln -sf "$PWD"/config/gtk/settings.ini ~/.gtkrc-2.0.mine
   ln -sf "$PWD"/config/gtk/settings.ini ~/.config/gtk-3.0/settings.ini
   ln -sf "$PWD"/config/gtk/settings.ini ~/.config/gtk-4.0/settings.ini
@@ -113,6 +111,8 @@ function install_config {
   linkDir "$PWD"/config/terminal/xfce4-term ~/.config/xfce4/terminal
   linkDir "$PWD"/config/polybar ~/.config/polybar
   linkDir "$PWD"/config/poshthemes ~/.config/poshthemes
+  linkDir "$PWD"/config/xfce4 ~/.config/xfce4/xfconf/xfce-perchannel-xml
+  linkdir "$PWD"/config/rofi ~/.config/rofi
 
   # link user files
   ln -sf "$PWD"/bash/.aliases ~/
@@ -127,10 +127,6 @@ function install_config {
   ln -sf "$PWD"/config/terminalrc ~/.config/xfce4/terminal/terminalrc
   mkdir -p ~/.config/Code/User/globalStorage/zokugun.sync-settings
   ln -sf "$PWD"/config/git/settings.yml ~/.config/Code/User/globalStorage/zokugun.sync-settings/settings.yml
-
-  mkdir -p ~/.config/rofi
-  ln -sf "$PWD"/config/rofi/rofi.rasi ~/.config/rofi/config.rasi
-  ln -sf "$PWD"/config/rofi/mytheme.rasi ~/.config/rofi/mytheme.rasi
 
   ln -sf "$PWD"/config/.gitconfig ~/.gitconfig
   ln -sf "$PWD"/config/.npmrc ~/.npmrc
