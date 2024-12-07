@@ -75,15 +75,15 @@ function install_fonts {
   cp -rf ./fonts/* /usr/local/share/fonts
 }
 
-# install trizen, a aur helper
+# install trizen, an aur helper
 function install_trizen {
-  git clone https://aur.archlinux.org/trizen.git
-  pushd trizen || return
+  mkdir /tmp/trizen-install
+  git clone https://aur.archlinux.org/trizen.git /tmp/trizen-install
+  pushd /tmp/trizen-install || return
   makepkg -si
   popd || return
-  sudo rm -dRf trizen/
+  sudo rm -dRf /tmp/trizen-install
 }
-
 # Sets up time and date related stuff
 function setDateTimeConfig {
   systemctl enable ntpd
@@ -112,7 +112,7 @@ function install_config {
   linkDir "$PWD"/config/polybar ~/.config/polybar
   linkDir "$PWD"/config/poshthemes ~/.config/poshthemes
   linkDir "$PWD"/config/xfce4 ~/.config/xfce4/xfconf/xfce-perchannel-xml
-  linkdir "$PWD"/config/rofi ~/.config/rofi
+  linkDir "$PWD"/config/rofi ~/.config/rofi
 
   # link user files
   ln -sf "$PWD"/bash/.aliases ~/
@@ -167,7 +167,10 @@ function install_dependencies {
   fileToList dependencies/pacman.txt | xargs sudo pacman --noconfirm -S
 
   install_trizen
+  set +e
   fileToList dependencies/aur.txt | xargs trizen -S --noconfirm
+  set -e
+
   fileToList dependencies/npm.txt | xargs sudo npm install -g
 }
 

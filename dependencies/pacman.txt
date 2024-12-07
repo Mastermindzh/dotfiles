@@ -88,7 +88,7 @@ docker
 docker-compose
 duf
 engrampa
-eog
+loupe
 feh
 firefox
 flameshot

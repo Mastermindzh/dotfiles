@@ -9,7 +9,6 @@ fi
 # declare variables
 MY_SERVER_LOCATION="//10.10.1.11"
 MOUNT_PREFIX="/mnt"
-USERNAME="mastermindzh"
 
 # check whether array contains a key
 containsElement() {
@@ -86,6 +85,11 @@ declare -A MOUNTS12=(
   [share]="data"
   [mount]="data"
 )
+declare -A MOUNTS13=(
+  [server]="$MY_SERVER_LOCATION"
+  [share]="vault"
+  [mount]="vault"
+)
 # declare array with "objects"
 declare -n MOUNTS
 
@@ -139,7 +143,7 @@ for MOUNTS in ${!MOUNTS@}; do
       mount.cifs "$SERVER_LOCATION" "$MOUNT_LOCATION" -o user=mastermindzh,noperm,rw,vers=2.0
 
       if [ $? -eq 0 ]; then
-        echo "Succesfully mounted $MOUNT_LOCATION"
+        echo "Successfully mounted $MOUNT_LOCATION"
       else
         echo "Failed mounting $SERVER_LOCATION on $MOUNT_LOCATION"
       fi

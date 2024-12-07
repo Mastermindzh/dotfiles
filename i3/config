@@ -201,7 +201,7 @@ bindsym $mod+Shift+g move container to workspace $workspace13
 ############################################
 # Set the default font
 font pango:Ubuntu regular 12
-new_window 1pixel
+#new_window 1pixel
 hide_edge_borders both
 
 # Window Colours
@@ -319,3 +319,6 @@ exec --no-startup-id seafile-applet
 exec --no-startup-id obsidian
 exec /usr/bin/compton
 exec /bin/bash ~/.config/i3/scripts/startup.sh
+
+# don't blank the screen please :)
+exec --no-startup-id xset s off && xset -dpms && xset s noblank

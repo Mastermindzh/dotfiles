@@ -1,61 +1,49 @@
-version: 2
+# yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
 blocks:
-  # prompt on the right
-  - type: rprompt
-    overflow: hidden
-    segments:
-      - background: transparent
-        foreground: yellow
-        style: plain
-        template: "{{ .FormattedMs }}"
-        type: executiontime
-        properties:
-          threshold: 1
-
-  # prompt segment
-  - type: prompt
-    alignment: left
-    newline: true
-    segments:
-      - foreground: "#77E4F7"
-        template: "{{ .Path }} "
-        type: path
-        properties:
-          home_icon: " "
-          style: agnoster_short
-
-      # git segment
-      - type: git
-        foreground: "#C678DD"
-        properties:
-          fetch_status: true
-        style: plain
-        # template:
-        #   "<#ffffff>on</> {{ .HEAD }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed)
-        #   (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String
-        #   }}{{ end }}"
-        template: "<#ffffff>on</> {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}  {{end}} "
-
-      # current language info
-      - type: node
-        foreground: "#98C379"
-        properties:
-          fetch_version: true
-        style: plain
-        template: "  {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }} {{ .Full }} "
-
-  - alignment: left
-    segments:
-      - foreground: "#63F08C"
-        style: plain
-        template: "➜  "
-        type: text
-    type: prompt
-# bash won't play along :)
-# transient_prompt:
-#   background: transparent
-#   foreground_templates:
-#     - "{{if gt .Code 0}}red{{end}}"
-#     - "{{if eq .Code 0}}magenta{{end}}"
-#       template: "❯ "
-
+- type: rprompt
+  overflow: hidden
+  segments:
+  - properties:
+      cache_duration: none
+      threshold: 1
+    template: "{{ .FormattedMs }}"
+    foreground: yellow
+    background: transparent
+    type: executiontime
+    style: plain
+- type: prompt
+  alignment: left
+  segments:
+  - properties:
+      cache_duration: none
+      home_icon: "\uf015 "
+      style: agnoster_short
+    template: "{{ .Path }} "
+    foreground: "#77E4F7"
+    type: path
+  - properties:
+      cache_duration: none
+      fetch_status: true
+    template: "<#ffffff>on</> {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }} \uf044 {{end}} "
+    foreground: "#C678DD"
+    type: git
+    style: plain
+  - properties:
+      cache_duration: none
+      fetch_version: true
+    template: " \uf3d3 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }} {{ .Full }} "
+    foreground: "#98C379"
+    type: node
+    style: plain
+  newline: true
+- type: prompt
+  alignment: left
+  segments:
+  - properties:
+      cache_duration: none
+    template: "➜  "
+    foreground: "#63F08C"
+    type: text
+    style: plain
+version: 3
