@@ -8,10 +8,8 @@ oh-my-posh
 dive
 gnome-text-editor
 chili-sddm-theme
-greenclip
-seafile
-seafile-client
 awf-gtk4
+seafile
 networkmanager-l2tp
 xorg-xev
 notify-osd-customizable
@@ -20,6 +18,8 @@ dotnet-host-bin
 keychain
 nomachine
 pulseaudio-ctl
-sysmontask
 otf-droid-sans-mono-powerline-git
+seafile-client
+sysmontask
 azure-cli
+greenclip

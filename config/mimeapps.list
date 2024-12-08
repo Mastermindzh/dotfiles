@@ -20,7 +20,7 @@ application/x-extension-xht=firefox.desktop
 #--------------
 x-scheme-handler/postman=Postman.desktop
 x-scheme-handler/ssh=ktelnetservice5.desktop
-x-scheme-handler/msteams=teams-insiders.desktop
+x-scheme-handler/msteams=teams.desktop
 x-scheme-handler/discord-478576776990425110=discord-478576776990425110.desktop
 x-scheme-handler/mailspring=Mailspring.desktop
 x-scheme-handler/etcher=balena-etcher-electron.desktop

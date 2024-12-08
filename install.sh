@@ -99,6 +99,13 @@ function install_gtk {
   ln -sf "$PWD"/config/gtk/settings.ini ~/.config/gtk-4.0/settings.ini
 }
 
+function install_docker {
+  systemctl enable docker
+  groupadd docker
+  usermod -aG docker $USER
+  newgrp docker
+}
+
 # install other configs
 function install_config {
 
@@ -251,6 +258,11 @@ fi
 # Ask for font installation
 if ask "Do you want to install the fonts?" Y; then
   install_fonts
+fi
+
+# Autostart docker and add user
+if ask "Do you want to set up docker for this user?" Y; then
+  install_docker
 fi
 
 # ask to enable the display manager
