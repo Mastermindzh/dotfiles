@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to date versioning.
 
+## [2024-12-12]
+
+- Switched `notify-osd` for `dunst`
+- Switched `pulseaudio` for `pipewire`
+  - **note** had to turn master volume on with `alsamixer` and use `sudo alsactl store` to keep the changes
+- Included default Xresources file
+- updated list with several new packages and removed some old ones
+
 ## [2022-08-03]
 
 - Fixed i3lock re-using the last image

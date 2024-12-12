@@ -1,8 +1,22 @@
 {
   "cSpell.words": [
     "autohint",
+    "dunst",
+    "dunstrc",
+    "greenclip",
     "hintstyle",
-    "rgba"
+    "mimeapps",
+    "nanorc",
+    "pacman",
+    "polkit",
+    "polybar",
+    "poshthemes",
+    "powerline",
+    "rgba",
+    "rofi",
+    "seafile",
+    "terminalrc",
+    "Xresources"
   ],
   "sonarlint.connectedMode.project": {
     "connectionId": "public-sonarcloud",

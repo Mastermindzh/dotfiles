@@ -2,19 +2,12 @@
 
 <!-- toc -->
 
-- [Set up vscode settings sync + globalstorage](#set-up-vscode-settings-sync--globalstorage)
+- [after install](#after-install)
+  - [Set up vscode settings sync](#set-up-vscode-settings-sync)
 
 <!-- tocstop -->
 
-## Set up vscode settings sync + globalstorage
+## Set up vscode settings sync
 
-After setting up settings sync make sure that the "ignoreUploadFolders" in [~/.config/Code/User/syncLocalSettings.json](~/.config/Code/User/syncLocalSettings.json) includes "globalstorages":
-
-```sh
-  "ignoreUploadFolders": [
-    "workspaceStorage",
-    "History",
-    "globalStorage",
-    "GlobalStorage"
-  ],
-```
+Simply install [zokugun's setting sync](https://github.com/zokugun/vscode-sync-settings).
+The config file [config/code/sync-settings.yml](./../config/code/sync-settings.yml) will already point to the correct repo

@@ -28,6 +28,7 @@ Older versions:
 | bar              | polybar                                                                |
 | App launcher     | rofi                                                                   |
 | Shell            | Bash                                                                   |
+| Notifications            | Dunst                                                                   |
 | Package managers | Pacman & Trizen                                                        |
 | OS               | Arch Linux                                                             |
 | Terminal         | xfce4-terminal                                                         |

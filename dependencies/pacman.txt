@@ -18,6 +18,8 @@ python-keyring
 libsecret
 seahorse
 reflector
+gtk-engines
+kubectl
 
 #
 # i3wm
@@ -114,7 +116,6 @@ picom
 polybar
 poppler
 powertop
-pulseaudio-bluetooth
 rofi
 rofi-emoji
 rofi-calc
@@ -128,12 +129,18 @@ system-config-printer
 thefuck
 thunar
 thunar-archive-plugin
+dunst
 
+ufw
+gufw
 w3m
-
+blueberry
 xclip
 xfce4-terminal
 xorg-xkill
+
+pass
+evince
 
 # fonts
 fontconfig

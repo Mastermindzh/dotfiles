@@ -2,7 +2,7 @@ visual-studio-code-bin
 i3blocks-contrib
 insync
 awesome-terminal-fonts-git
-dracula-gtk-theme-full
+
 downgrade
 oh-my-posh
 dive
@@ -12,14 +12,26 @@ awf-gtk4
 seafile
 networkmanager-l2tp
 xorg-xev
-notify-osd-customizable
-notifyconf
+
 dotnet-host-bin
 keychain
 nomachine
-pulseaudio-ctl
 otf-droid-sans-mono-powerline-git
-seafile-client
 sysmontask
-azure-cli
 greenclip
+
+# audio
+pipewire-pulse
+pipewire-alsa
+pipewire-jack
+tidal-hifi
+
+# theme
+dracula-gtk-theme-full
+dracula-cursors-git
+dracula-icons-theme
+dracula-xresources-git
+
+# slow stuff
+azure-cli
+seafile-client

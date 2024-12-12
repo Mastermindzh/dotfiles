@@ -3,7 +3,7 @@
 <channel name="xfce4-terminal" version="1.0">
   <property name="background-darkness" type="double" value="0.90000000000000002"/>
   <property name="color-background" type="string" value="#1e1e1e1e1e1e"/>
-  <property name="font-name" type="string" value="Ubuntu Mono 18"/>
+  <property name="font-name" type="string" value="Ubuntu Mono 14"/>
   <property name="misc-always-show-tabs" type="bool" value="false"/>
   <property name="misc-bell" type="bool" value="false"/>
   <property name="misc-bell-urgent" type="bool" value="false"/>

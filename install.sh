@@ -69,10 +69,10 @@ function copyToDir {
 function install_fonts {
   mkdir -p ~/.fonts
   mkdir -p ~/.local/share/fonts
-  mkdir -p /usr/local/share/fonts
+  sudo mkdir -p /usr/local/share/fonts
   cp -rf ./fonts/* ~/.fonts
   cp -rf ./fonts/* ~/.local/share/fonts
-  cp -rf ./fonts/* /usr/local/share/fonts
+  sudo cp -rf ./fonts/* /usr/local/share/fonts
 }
 
 # install trizen, an aur helper
@@ -100,10 +100,9 @@ function install_gtk {
 }
 
 function install_docker {
-  systemctl enable docker
-  groupadd docker
-  usermod -aG docker $USER
-  newgrp docker
+  sudo systemctl enable docker
+  sudo usermod -aG docker $USER
+
 }
 
 # install other configs
@@ -114,7 +113,6 @@ function install_config {
   # link directories
   linkDir "$PWD"/wallpapers/images ~/Pictures/wallpapers
   linkDir "$PWD"/i3 ~/.config/i3
-  linkDir "$PWD"/config/notify-osd/notify-osd ~/.notify-osd
   linkDir "$PWD"/config/terminal/xfce4-term ~/.config/xfce4/terminal
   linkDir "$PWD"/config/polybar ~/.config/polybar
   linkDir "$PWD"/config/poshthemes ~/.config/poshthemes
@@ -127,13 +125,14 @@ function install_config {
   ln -sf "$PWD"/bash/.dotnet-install.sh ~/.dotnet-install.sh
   ln -sf "$PWD"/bash/.alias.sh ~/.alias
   ln -sf "$PWD"/config/nano/.nanorc ~/.nanorc
+  ln -sf "$PWD"/config/.Xresources ~/.Xresources
   ln -sf "$PWD"/bash/.powerline-shell.json ~/.powerline-shell.json
+  mkdir -p ~/.config/dunst
+  ln -sf "$PWD"/config/dunstrc ~/.config/dunst/dunstrc
 
   ln -sf "$PWD"/config/mimeapps.list ~/.config/mimeapps.list
   ln -sf "$PWD"/config/greenclip.toml ~/.config/greenclip.toml
   ln -sf "$PWD"/config/terminalrc ~/.config/xfce4/terminal/terminalrc
-  mkdir -p ~/.config/Code/User/globalStorage/zokugun.sync-settings
-  ln -sf "$PWD"/config/git/settings.yml ~/.config/Code/User/globalStorage/zokugun.sync-settings/settings.yml
 
   ln -sf "$PWD"/config/.gitconfig ~/.gitconfig
   ln -sf "$PWD"/config/.npmrc ~/.npmrc
@@ -162,6 +161,9 @@ function install_config {
   mkdir -p "$HOME/.config/Code/User"
   cp "$PWD"/config/code/syncLocalSettings.json ~/.config/Code/User/
 
+  mkdir -p ~/.config/Code/User/globalStorage/zokugun.sync-settings
+  ln -sf "$PWD"/config/code/sync-settings.yml ~/.config/Code/User/globalStorage/zokugun.sync-settings/settings.yml
+
   # system fixes
   echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl --system
   mkdir -p ~/Pictures/Screenshots
@@ -185,6 +187,11 @@ function install_dependencies {
 function create_ssh_key {
   ssh-keygen -t ed25519 -C "info@rickvanlieshout.com"
   eval "$(ssh-agent -s)"
+}
+
+# set up pass
+function setup_pass {
+  pass init info@rickvanlieshout.com
 }
 
 # =======================================
@@ -263,6 +270,11 @@ fi
 # Autostart docker and add user
 if ask "Do you want to set up docker for this user?" Y; then
   install_docker
+fi
+
+# Autostart docker and add user
+if ask "Do you want to set up a password manager for your keychain?" Y; then
+  setup_pass
 fi
 
 # ask to enable the display manager
