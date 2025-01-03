@@ -11,6 +11,7 @@ function sourceIfExists() {
 source ~/.alias
 source ~/.custom
 source ~/.variables
+sourceIfExists /usr/share/nvm/init-nvm.sh
 sourceIfExists ~/lib/azure-cli/az.completion
 eval "$(thefuck --alias)"
 eval "$(oh-my-posh init bash --config ~/.config/poshthemes/mastermindzh.yaml)"
@@ -24,10 +25,6 @@ else
 fi
 
 eval "$(pyenv init -)"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 if hash dotnet 2>/dev/null; then
   export DOTNET_ROOT=/usr/share/dotnet

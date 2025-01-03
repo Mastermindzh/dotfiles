@@ -130,7 +130,7 @@ thefuck
 thunar
 thunar-archive-plugin
 dunst
-
+yq
 ufw
 gufw
 w3m
@@ -138,9 +138,9 @@ blueberry
 xclip
 xfce4-terminal
 xorg-xkill
-
 pass
 evince
+tlp
 
 # fonts
 fontconfig
@@ -149,4 +149,3 @@ otf-font-awesome
 ttf-font-awesome
 ttf-ubuntu-font-family
 fzf
-

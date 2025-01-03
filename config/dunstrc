@@ -23,8 +23,8 @@
     ### Geometry ###
 
     # dynamic (0, 300) or fixed 300
-    width = (0, 300)
-    height = (0, 200)
+    width = (0, 400)
+    height = (0, 300)
     origin = top-right
     offset = 10x50
     scale = 0

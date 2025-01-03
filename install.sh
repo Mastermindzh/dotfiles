@@ -181,6 +181,9 @@ function install_dependencies {
   set -e
 
   fileToList dependencies/npm.txt | xargs sudo npm install -g
+
+  # enable services
+  sudo systemctl enable tlp
 }
 
 # set up a new ssh key

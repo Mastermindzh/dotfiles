@@ -12,6 +12,7 @@ awf-gtk4
 seafile
 networkmanager-l2tp
 xorg-xev
+nvm
 
 dotnet-host-bin
 keychain
