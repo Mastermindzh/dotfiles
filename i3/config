@@ -310,6 +310,7 @@ mode "$mode_gaps_outer" {
 # exec_always --no-startup-id picom -b
 exec_always feh --bg-fill $(find ~/Pictures/wallpapers/ -type f -name "*" | shuf -n 1)
 exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec --no-startup-id systemctl --user start xsettingsd
 exec --no-startup-id i3-msg 'workspace $workspace2; exec xfce4-terminal' && i3-msg 'workspace $workspace1'
 exec --no-startup-id i3-msg 'workspace $workspace12; exec bitwarden-desktop'
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

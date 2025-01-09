@@ -19,7 +19,7 @@ keychain
 nomachine
 otf-droid-sans-mono-powerline-git
 sysmontask
-greenclip
+rofi-greenclip
 
 # audio
 pipewire-pulse
