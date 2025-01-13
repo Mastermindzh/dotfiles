@@ -1,3 +1,5 @@
 #!/bin/bash
 MY_PATH=$PWD/computers/archfw
-ln -sf "$MY_PATH/.Xresources" ~/.Xresources
+
+# custom (laptop specific) bashrc thingies :)
+ln -sf "$MY_PATH/.bashrc" ~/.custom
