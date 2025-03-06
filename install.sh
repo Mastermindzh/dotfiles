@@ -101,7 +101,7 @@ function install_gtk {
 
 function install_docker {
   sudo systemctl enable docker
-  sudo usermod -aG docker $USER
+  sudo usermod -aG docker "$USER"
 
 }
 
@@ -169,6 +169,7 @@ function install_config {
   mkdir -p ~/Pictures/Screenshots
 
   setDateTimeConfig
+  setup_groups mastermindzh
 }
 
 # Installs the dependencies on Arch Linux
@@ -195,6 +196,12 @@ function create_ssh_key {
 # set up pass
 function setup_pass {
   pass init info@rickvanlieshout.com
+}
+
+# set up groups for specific user
+function setup_groups {
+  local user=${1:-mastermindzh}
+  sudo usermod -a -G video "$user"
 }
 
 # =======================================

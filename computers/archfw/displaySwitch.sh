@@ -9,9 +9,10 @@ declare -A undocked_settings=(
   ["Xft.hinting"]="true"
   ["Xft.rgba"]="rgba"
   ["Xft.hintstyle"]="hintslight"
-  ["Xcursor.size"]="20"
-  ["Xft.dpi"]="150"
-  ["rofi.dpi"]="150"
+  ["Xcursor.size"]="50"
+  ["Xft.dpi"]="160"
+  ["rofi.dpi"]="160"
+  ["dpi"]="150"
 )
 
 declare -A docked_settings=(
@@ -19,9 +20,10 @@ declare -A docked_settings=(
   ["Xft.hinting"]="true"
   ["Xft.rgba"]="rgba"
   ["Xft.hintstyle"]="hintslight"
-  ["Xcursor.size"]="20"
-  ["Xft.dpi"]="120"
-  ["rofi.dpi"]="120"
+  ["Xcursor.size"]="25"
+  ["Xft.dpi"]="110"
+  ["rofi.dpi"]="110"
+  ["dpi"]="110"
 )
 
 function updateXSettings() {
@@ -37,12 +39,12 @@ function applyLayout() {
   "undocked")
     xrandr --output eDP --primary --mode 2880x1920 --pos 0x0 --rotate normal --output DisplayPort-0 --off --output DisplayPort-1 --off --output DisplayPort-2 --off --output DisplayPort-3 --off --output DisplayPort-4 --off --output DisplayPort-5 --off --output DisplayPort-6 --off --output DisplayPort-7 --off
     updateXResources undocked_settings
-    updateXSettings 150
+    updateXSettings ${undocked_settings["dpi"]}
     ;;
   "docked")
     xrandr --output eDP --off --output DisplayPort-0 --off --output DisplayPort-1 --off --output DisplayPort-2 --off --output DisplayPort-3 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DisplayPort-4 --off --output DisplayPort-5 --off --output DisplayPort-6 --off --output DisplayPort-7 --off
     updateXResources docked_settings
-    updateXSettings 120
+    updateXSettings ${docked_settings["dpi"]}
     ;;
   *)
     echo "Unknown layout: $layout"

@@ -1,13 +1,21 @@
 {
   "cSpell.words": [
     "autohint",
+    "autorandr",
     "dunst",
     "dunstrc",
     "greenclip",
+    "gtkrc",
     "hintstyle",
+    "inotify",
+    "keygen",
+    "makepkg",
     "mimeapps",
     "nanorc",
+    "networkmanager",
+    "noconfirm",
     "pacman",
+    "picom",
     "polkit",
     "polybar",
     "poshthemes",
@@ -16,7 +24,13 @@
     "rofi",
     "seafile",
     "terminalrc",
-    "Xresources"
+    "timedatectl",
+    "trizen",
+    "usermod",
+    "xbacklight",
+    "xfconf",
+    "Xresources",
+    "zokugun"
   ],
   "sonarlint.connectedMode.project": {
     "connectionId": "public-sonarcloud",

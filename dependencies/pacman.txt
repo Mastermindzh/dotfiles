@@ -21,6 +21,8 @@ reflector
 gtk-engines
 kubectl
 less
+smartmontools 
+ethtool
 
 #
 # i3wm
