@@ -11,6 +11,8 @@ function sourceIfExists() {
 source ~/.alias
 source ~/.custom
 source ~/.variables
+
+sourceIfExists ~/.env
 sourceIfExists /usr/share/nvm/init-nvm.sh
 sourceIfExists ~/lib/azure-cli/az.completion
 eval "$(thefuck --alias)"
@@ -28,7 +30,8 @@ eval "$(pyenv init -)"
 
 if hash dotnet 2>/dev/null; then
   export DOTNET_ROOT=/usr/share/dotnet
-  export MSBuildSDKsPath=$DOTNET_ROOT/sdk/$(${DOTNET_ROOT}/dotnet --version)/Sdks
+  MSBuildSDKsPathVersion=$(${DOTNET_ROOT}/dotnet --version)
+  export MSBuildSDKsPath=$DOTNET_ROOT/sdk/$MSBuildSDKsPathVersion/Sdks
   export PATH="${PATH}:${DOTNET_ROOT}:~/.dotnet/tools"
 fi
 
