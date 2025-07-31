@@ -51,7 +51,7 @@ pyenv
 dotnet-host 
 dotnet-runtime
 dotnet-sdk
-
+aspnet-runtime
 
 #
 # Codecs
@@ -78,7 +78,6 @@ xvidcore
 #
 alsa-utils
 arandr
-aspnet-runtime
 autorandr
 bash-completion
 bat

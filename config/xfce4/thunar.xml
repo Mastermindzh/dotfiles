@@ -3,7 +3,7 @@
 <channel name="thunar" version="1.0">
   <property name="last-view" type="string" value="ThunarIconView"/>
   <property name="last-icon-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_100_PERCENT"/>
-  <property name="last-window-width" type="int" value="839"/>
+  <property name="last-window-width" type="int" value="1415"/>
   <property name="last-window-height" type="int" value="1846"/>
   <property name="last-window-maximized" type="bool" value="false"/>
   <property name="last-separator-position" type="int" value="376"/>
@@ -19,11 +19,14 @@
   <property name="last-show-hidden" type="bool" value="false"/>
   <property name="misc-parallel-copy-mode" type="string" value="THUNAR_PARALLEL_COPY_MODE_ALWAYS"/>
   <property name="last-splitview-separator-position" type="int" value="589"/>
-  <property name="last-side-pane" type="string" value="ThunarTreePane"/>
+  <property name="last-side-pane" type="string" value="THUNAR_SIDEPANE_TYPE_TREE"/>
   <property name="last-location-bar" type="string" value="ThunarLocationButtons"/>
   <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_38_PERCENT"/>
-  <property name="last-details-view-column-widths" type="string" value="50,50,140,50,50,50,50,50,1316,50,50,78,50,152"/>
+  <property name="last-details-view-column-widths" type="string" value="50,50,177,50,50,50,50,50,634,50,50,104,50,173"/>
   <property name="last-sort-column" type="string" value="THUNAR_COLUMN_TYPE"/>
   <property name="last-sort-order" type="string" value="GTK_SORT_ASCENDING"/>
   <property name="misc-directory-specific-settings" type="bool" value="true"/>
+  <property name="last-renamer-dialog-width" type="int" value="942"/>
+  <property name="last-renamer-dialog-height" type="int" value="520"/>
+  <property name="last-renamer-dialog-maximized" type="bool" value="false"/>
 </channel>

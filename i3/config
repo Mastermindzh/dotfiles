@@ -120,6 +120,9 @@ bindsym $mod+l exec /bin/bash ~/.config/i3/scripts/lock.sh
 # Suspend the computer
 bindsym $mod+shift+l exec /bin/bash ~/.config/i3/scripts/suspend.sh
 
+# Workspace info popup
+bindsym $mod+shift+Tab exec /bin/bash ~/dotfiles/i3/scripts/visibleWorkspaces.sh
+
 ############################################
 #    Application Keys                      #
 ############################################

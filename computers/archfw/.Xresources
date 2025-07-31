@@ -1,8 +1,8 @@
 Xft.hinting: true
-rofi.dpi: 110
-dpi: 110
-Xcursor.size: 25
+rofi.dpi: 160
+dpi: 150
+Xcursor.size: 50
 Xft.hintstyle: hintslight
 Xft.rgba: rgba
 Xft.antialias: true
-Xft.dpi: 110
+Xft.dpi: 160
