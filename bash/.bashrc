@@ -36,3 +36,4 @@ if hash dotnet 2>/dev/null; then
 fi
 
 export PATH=$PATH:/home/mastermindzh/bin
+

@@ -97,6 +97,9 @@ function install_gtk {
   ln -sf "$PWD"/config/gtk/settings.ini ~/.gtkrc-2.0.mine
   ln -sf "$PWD"/config/gtk/settings.ini ~/.config/gtk-3.0/settings.ini
   ln -sf "$PWD"/config/gtk/settings.ini ~/.config/gtk-4.0/settings.ini
+
+  gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+  gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 }
 
 function install_docker {
@@ -203,6 +206,7 @@ function setup_groups {
   local user=${1:-mastermindzh}
   sudo usermod -a -G video "$user"
 }
+
 
 # =======================================
 # User output functions

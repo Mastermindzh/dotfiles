@@ -16,7 +16,8 @@ alias undo-commit='git reset --soft HEAD^'
 
 ## pacman and trizen
 alias aur='trizen --noconfirm'
-alias update='trizen --sudo_remove_timestamp=0 --sudo_autorepeat=1 --sudo_autorepeat_at_runtime=1 -Syu --noconfirm'
+alias update='trizen --sudo_remove_timestamp=0 --sudo_autorepeat=1 --sudo_autorepeat_at_runtime=1 -Syu --noconfirm && update-av'
+alias update-av='sudo freshclam || exit 0'
 alias remove-orphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias updatekeys='sudo pacman-key --refresh-key'
 alias updatemirrors='sudo reflector --latest 20 --protocol http,https --sort rate --save /etc/pacman.d/mirrorlist'
@@ -62,6 +63,8 @@ alias clean-all='sudo pacman -R $(pacman -Qtdq) && sudo paccache -rk 1 && sudo p
 alias delete-empty='find . -type d -empty -delete'
 alias addwireguard='sudo nmcli connection import type wireguard file '
 alias defaultfonts='for family in serif sans-serif monospace Arial Helvetica Verdana "Times New Roman" "Courier New"; do echo -e "\033[1m$family: \033[0m" && fc-match "$family" && echo ""; done'
+alias syncthinggui="xdg-open http://localhost:8384/"
+alias disableHistory="set +o history"
 
 # might be useful in demos...
 alias oopsie='fuck'
