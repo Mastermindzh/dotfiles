@@ -2,12 +2,8 @@
 # source program-specific aliases:
 for f in ~/.aliases/*; do source "$f"; done
 
-#dotnet core
-alias efupdate="dotnet ef database update"
-alias efmigrate="dotnet ef migrations add"
-alias efremove="dotnet ef migrations remove"
-alias dotnetnew="dotnet new webapi -o "
-alias nuget-force-clear-cache="nuget locals all -clear && nuget locals all -list | awk '{split($0,a,\": \"); print a[2];}' | xargs rm -rf"
+# optionally source .NET / C# development aliases (only present on machines set up for .NET)
+[[ -f ~/.dotnet-aliases ]] && source ~/.dotnet-aliases
 
 # git
 alias gitremovelocalbranches='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
@@ -17,7 +13,7 @@ alias undo-commit='git reset --soft HEAD^'
 ## pacman and trizen
 alias aur='trizen --noconfirm'
 alias update='trizen --sudo_remove_timestamp=0 --sudo_autorepeat=1 --sudo_autorepeat_at_runtime=1 -Syu --noconfirm && update-av'
-alias update-av='sudo freshclam || exit 0'
+alias update-av='sudo freshclam'
 alias remove-orphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias updatekeys='sudo pacman-key --refresh-key'
 alias updatemirrors='sudo reflector --latest 20 --protocol http,https --sort rate --save /etc/pacman.d/mirrorlist'
@@ -49,12 +45,10 @@ alias enable-wifi='sudo ip link set wlp2s0 up'
 alias scan-wifi='sudo iw dev wlp2s0 scan'
 alias pretty-json='python -m json.tool'
 alias addpgpkey='gpg --recv-keys'
-alias dotnet-install='~/.dotnet-install.sh --install-dir /usr/share/dotnet/ -channel Current -version '
 alias mountshares='sudo bash ~/dotfiles/bash/mounts.sh'
 alias echo-server='npx http-echo-server'
 alias mountcalibre='sudo mount.cifs //10.10.1.11/books /mnt/calibre -o nobrl,user=mastermindzh,noperm,rw'
 alias xpid="xprop _NET_WM_PID | cut -d' ' -f3"
-alias clean-obj-bin='sudo find . -name "bin" -o -name "obj" -exec rm -rf {} \;'
 alias nomachine='/usr/NX/bin/nxplayer'
 alias unlockuser='faillock --reset --user'
 alias npm-list-links='npm ls -g --depth=0 --link=true'
@@ -65,6 +59,13 @@ alias addwireguard='sudo nmcli connection import type wireguard file '
 alias defaultfonts='for family in serif sans-serif monospace Arial Helvetica Verdana "Times New Roman" "Courier New"; do echo -e "\033[1m$family: \033[0m" && fc-match "$family" && echo ""; done'
 alias syncthinggui="xdg-open http://localhost:8384/"
 alias disableHistory="set +o history"
+wav2mp3() {
+  if [ -z "$1" ]; then
+    echo "Usage: wav2mp3 input.wav [output.mp3]"
+    return 1
+  fi
+  ffmpeg -hide_banner -i "$1" -codec:a libmp3lame -qscale:a 2 "${2:-${1%.*}.mp3}"
+}
 
 # might be useful in demos...
 alias oopsie='fuck'

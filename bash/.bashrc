@@ -28,12 +28,5 @@ fi
 
 eval "$(pyenv init -)"
 
-if hash dotnet 2>/dev/null; then
-  export DOTNET_ROOT=/usr/share/dotnet
-  MSBuildSDKsPathVersion=$(${DOTNET_ROOT}/dotnet --version)
-  export MSBuildSDKsPath=$DOTNET_ROOT/sdk/$MSBuildSDKsPathVersion/Sdks
-  export PATH="${PATH}:${DOTNET_ROOT}:~/.dotnet/tools"
-fi
-
 export PATH=$PATH:/home/mastermindzh/bin
 

@@ -1,25 +1,19 @@
 visual-studio-code-bin
 i3blocks-contrib
 insync
-awesome-terminal-fonts-git
+mission-center
 
 downgrade
-oh-my-posh
 dive
-gnome-text-editor
 chili-sddm-theme
 awf-gtk4
-seafile
 networkmanager-l2tp
 xorg-xev
 nvm
-hadolint-bin
 
-dotnet-host-bin
 keychain
 nomachine
 otf-droid-sans-mono-powerline-git
-sysmontask
 rofi-greenclip
 
 # audio
@@ -33,7 +27,3 @@ dracula-gtk-theme-full
 dracula-cursors-git
 dracula-icons-theme
 dracula-xresources-git
-
-# slow stuff
-azure-cli
-seafile-client

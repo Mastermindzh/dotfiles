@@ -108,6 +108,20 @@ function install_docker {
 
 }
 
+# install .NET / C# development tooling and aliases (opt-in, not used on all machines)
+function install_dotnet {
+  set +e
+  fileToList dependencies/dotnet.txt | xargs trizen -S --noconfirm
+  set -e
+
+  # link the dotnet aliases / environment so ~/.alias sources them
+  ln -sf "$PWD"/bash/dotnet.sh ~/.dotnet-aliases
+
+  # generate and trust the ASP.NET Core HTTPS development certificate
+  source "$PWD"/bash/dotnet.sh
+  dotnet-trust-dev-cert
+}
+
 # install other configs
 function install_config {
 
@@ -125,7 +139,6 @@ function install_config {
   # link user files
   ln -sf "$PWD"/bash/.aliases ~/
   ln -sf "$PWD"/bash/.bashrc ~/.bashrc
-  ln -sf "$PWD"/bash/.dotnet-install.sh ~/.dotnet-install.sh
   ln -sf "$PWD"/bash/.alias.sh ~/.alias
   ln -sf "$PWD"/config/nano/.nanorc ~/.nanorc
   ln -sf "$PWD"/config/.Xresources ~/.Xresources
@@ -284,6 +297,11 @@ fi
 # Autostart docker and add user
 if ask "Do you want to set up docker for this user?" Y; then
   install_docker
+fi
+
+# ask to set up .NET / C# development (not used on all machines)
+if ask "Do you want to set up .NET / C# development tooling?" N; then
+  install_dotnet
 fi
 
 # Autostart docker and add user

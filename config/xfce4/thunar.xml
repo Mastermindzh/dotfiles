@@ -6,7 +6,7 @@
   <property name="last-window-width" type="int" value="1415"/>
   <property name="last-window-height" type="int" value="1846"/>
   <property name="last-window-maximized" type="bool" value="true"/>
-  <property name="last-separator-position" type="int" value="439"/>
+  <property name="last-separator-position" type="int" value="280"/>
   <property name="misc-single-click" type="bool" value="false"/>
   <property name="misc-thumbnail-mode" type="string" value="THUNAR_THUMBNAIL_MODE_ALWAYS"/>
   <property name="misc-thumbnail-draw-frames" type="bool" value="false"/>
@@ -22,7 +22,7 @@
   <property name="last-side-pane" type="string" value="THUNAR_SIDEPANE_TYPE_TREE"/>
   <property name="last-location-bar" type="string" value="ThunarLocationButtons"/>
   <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_38_PERCENT"/>
-  <property name="last-details-view-column-widths" type="string" value="50,50,177,50,50,50,50,50,634,50,50,104,50,173"/>
+  <property name="last-details-view-column-widths" type="string" value="50,50,178,50,50,119,50,50,634,50,50,107,50,311"/>
   <property name="last-sort-column" type="string" value="THUNAR_COLUMN_TYPE"/>
   <property name="last-sort-order" type="string" value="GTK_SORT_ASCENDING"/>
   <property name="misc-directory-specific-settings" type="bool" value="true"/>

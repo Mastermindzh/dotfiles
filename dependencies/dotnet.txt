@@ -1,0 +1,7 @@
+dotnet-host-bin
+dotnet-runtime-bin
+dotnet-sdk
+dotnet-targeting-pack
+
+# provides certutil, required to trust the ASP.NET Core HTTPS dev cert in browsers
+nss
