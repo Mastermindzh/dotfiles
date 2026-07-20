@@ -16,6 +16,7 @@ alias sqlserver='docker run --rm --name sql-server -e "ACCEPT_EULA=Y" -e "SA_PAS
 alias mailcatcher='docker run -d -p 1080:1080 -p 1025:1025 --name mailcatcher schickling/mailcatcher'
 alias openwebui='docker run --rm -d -p 3004:8080 -v ~/.ollama:/root/.ollama -v ~/.open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:ollama'
 alias postgresdb='docker run --rm -d -v ~/.db/postgres:/var/lib/postgresql -e POSTGRES_PASSWORD=admin -e POSTGRES_USER=admin -e POSTGRES_DB=postgres --name postgres -p 5432:5432  postgres:18'
-
+alias pgadmin='docker run --rm -d --add-host=host.docker.internal:host-gateway -e PGADMIN_DEFAULT_EMAIL=admin@admin.com -e PGADMIN_DEFAULT_PASSWORD=admin -p 5050:80 --name pgadmin dpage/pgadmin4'
+alias postgres='docker network create pg-stack 2>/dev/null; docker run --rm -d -v ~/.db/postgres:/var/lib/postgresql -e POSTGRES_PASSWORD=admin -e POSTGRES_USER=admin -e POSTGRES_DB=postgres --network pg-stack --name postgres -p 5432:5432 postgres:18 && docker run --rm -d -e PGADMIN_DEFAULT_EMAIL=admin@admin.com -e PGADMIN_DEFAULT_PASSWORD=admin --network pg-stack -p 5050:80 --name pgadmin dpage/pgadmin4'
 # devcontainers
 alias xhostdocker='xhost +local:docker'

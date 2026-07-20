@@ -9,6 +9,7 @@
 	diffname = !git diff --name-only
 	undocommit = reset --soft HEAD~1
 	log-small = log --oneline --no-merges
+	pr = "!f() {\n    if [ -z \"$1\" ]; then\n        echo \"Usage: git pr <number>\"\n        exit 1\n    fi\n    git fetch origin pull/$1/head:pr-$1 &&\n    git checkout pr-$1\n}; f"
 [core]
 	autocrlf = input
 	editor = nano

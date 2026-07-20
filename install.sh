@@ -184,6 +184,10 @@ function install_config {
   echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl --system
   mkdir -p ~/Pictures/Screenshots
 
+  # flameshot config
+  mkdir -p ~/.config/flameshot
+  ln -sf "$PWD"/config/flameshot/flameshot.ini ~/.config/flameshot/flameshot.ini
+
   setDateTimeConfig
   setup_groups mastermindzh
 }

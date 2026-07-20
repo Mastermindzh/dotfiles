@@ -30,3 +30,5 @@ eval "$(pyenv init -)"
 
 export PATH=$PATH:/home/mastermindzh/bin
 
+
+. "$HOME/.local/bin/env"

@@ -46,8 +46,14 @@ dotnet-trust-dev-cert() {
 # environment setup (only when a dotnet binary is available)
 if hash dotnet 2>/dev/null; then
   export DOTNET_ROOT=/usr/share/dotnet
-  MSBuildSDKsPathVersion=$(${DOTNET_ROOT}/dotnet --version)
-  export MSBuildSDKsPath=$DOTNET_ROOT/sdk/$MSBuildSDKsPathVersion/Sdks
+  # `dotnet --version` can fail when the latest installed SDK requires a runtime
+  # that isn't installed yet (e.g. SDK 10.0.109 wanting runtime 10.0.9 while only
+  # 10.0.8 is present). Swallow that noise and only export MSBuildSDKsPath when
+  # the SDK actually resolves.
+  if MSBuildSDKsPathVersion=$(${DOTNET_ROOT}/dotnet --version 2>/dev/null); then
+    export MSBuildSDKsPath=$DOTNET_ROOT/sdk/$MSBuildSDKsPathVersion/Sdks
+  fi
+  unset MSBuildSDKsPathVersion
   export PATH="${PATH}:${DOTNET_ROOT}:~/.dotnet/tools"
 
   # let OpenSSL clients (.NET runtime, curl, Aspire) discover the trusted dev cert
