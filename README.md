@@ -4,14 +4,14 @@ This repository holds my Linux config files.
 
 ## Mandatory unixporn screenshots
 
-New version as of January 2023:
+New version as of July 2026:
 
-[![dotfiles](media/2024-dracula.png)](media/2024-dracula.png)
-
-[![dotfiles](media/2024-dracula-2.png)](media/2024-dracula-2.png)
+[![Aura spirit dracula](media/2026-07-20_15-23.png)](media/2026-07-20_15-23.png)
 
 Older versions:
 
+- [dracula](media/2024-dracula.png)
+- [dracula2](media/2024-dracula-2.png)
 - [dotfiles6](media/dotfiles6.png)
 - [dotfiles5-small](media/dotfiles-small-5.png)
 - [dotfiles5](media/dotfiles5.png)
@@ -28,10 +28,10 @@ Older versions:
 | bar              | polybar                                                                |
 | App launcher     | rofi                                                                   |
 | Shell            | Bash                                                                   |
-| Notifications            | Dunst                                                                   |
+| Notifications    | Dunst                                                                  |
 | Package managers | Pacman & Trizen                                                        |
 | OS               | Arch Linux                                                             |
-| Terminal         | xfce4-terminal                                                         |
+| Terminal         | kitty                                                                  |
 | Editor           | nano & mousepad                                                        |
 | Code editor      | vscode                                                                 |
 | Browser          | Firefox                                                                |

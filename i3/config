@@ -126,8 +126,8 @@ bindsym $mod+shift+Tab exec /bin/bash ~/dotfiles/i3/scripts/visibleWorkspaces.sh
 ############################################
 #    Application Keys                      #
 ############################################
-bindsym $mod+Return exec xfce4-terminal                                 # terminal
-bindsym $mod+shift+Return exec xfce4-terminal  --drop-down              # terminal
+bindsym $mod+Return exec kitty                                          # terminal
+bindsym $mod+shift+Return exec --no-startup-id tdrop -ma -w -4 -h 50% -y 0 --class dropdown kitty --class dropdown   # drop-down terminal
 bindsym $mod+e exec thunar                                              # File manager
 bindsym Print exec  flameshot screen -d 0 -p ~/Pictures/Screenshots     # Fullscreen screenshot
 bindsym $mod+Print exec --no-startup-id sh -c 'QT_QPA_PLATFORM=xcb QT_AUTO_SCREEN_SCALE_FACTOR=0 QT_ENABLE_HIGHDPI_SCALING=0 QT_SCALE_FACTOR=1 flameshot gui'				                # Show screenshot window
@@ -214,12 +214,13 @@ hide_edge_borders both
 # client.focused_inactive #252526 #252526 #848484 #fcc09e
 # client.unfocused        #252526 #252526 #848484 #fcc09e
 # client.urgent           #252526 #a6a6a6 #ef5350 #fcc09e
-# dracula
-client.focused          #BD93F9 #BD93F9 #F8F8F2 #BD93F9 #BD93F9
-client.focused_inactive #44475A #44475A #F8F8F2 #44475A #44475A
-client.unfocused        #282A36 #282A36 #BFBFBF #282A36 #282A36
-client.urgent           #44475A #FF5555 #F8F8F2 #FF5555 #FF5555
-client.placeholder      #282A36 #282A36 #F8F8F2 #282A36 #282A36
+# Aura Dracula Spirit / official aura-theme sway port (Aura Dark background)
+# primary #a277ff  secondary #61ffca  background #15141b  text #edecee  comment #6d6d6d
+client.focused          #a277ff #15141b #edecee #61ffca #a277ff
+client.focused_inactive #6d6d6d #15141b #edecee #6d6d6d #6d6d6d
+client.unfocused        #15141b #15141b #edecee #15141b #15141b
+client.urgent           #61ffca #15141b #edecee #a277ff #61ffca
+client.placeholder      #15141b #15141b #edecee #15141b #15141b
 
 # Floating windows
 for_window [class="Pavucontrol"] floating enable
@@ -227,11 +228,12 @@ for_window [class="Lxappearance"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Eog"] floating enable
 for_window [title="Tidal-hifi - settings"] floating enable
-for_window [class="Sysmontask"] floating enable
-for_window [class="Sysmontask"] resize set 930 665
 for_window [instance="Godot_Engine"] floating enable
 for_window [class="Alert"] floating enable
 for_window [class="org.gnome.FileRoller"] floating enable
+
+# Dropdown terminal (tdrop + kitty): float before mapping to avoid tiling reflow
+for_window [class="dropdown"] floating enable
 
 ############################################
 #    Workspace specific tools              #
@@ -315,7 +317,7 @@ mode "$mode_gaps_outer" {
 exec_always feh --bg-fill $(find ~/Pictures/wallpapers/ -type f -name "*" | shuf -n 1)
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id systemctl --user start xsettingsd
-exec --no-startup-id i3-msg 'workspace $workspace2; exec xfce4-terminal' && i3-msg 'workspace $workspace1'
+exec --no-startup-id i3-msg 'workspace $workspace2; exec kitty' && i3-msg 'workspace $workspace1'
 exec --no-startup-id i3-msg 'workspace $workspace12; exec bitwarden-desktop'
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet

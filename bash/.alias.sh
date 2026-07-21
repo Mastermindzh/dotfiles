@@ -205,3 +205,11 @@ signfile() {
 
 alias "set-timezone-romania"='timedatectl set-timezone Europe/Bucharest'
 alias "set-timezone-netherlands"=' timedatectl set-timezone Europe/Amsterdam'
+notify-test() {
+  local u
+  for u in low normal critical; do
+    notify-send -u "$u" "Test: $u" "urgency=$u"
+  done
+  notify-send -h int:value:66 "Progress" "66%"
+  notify-send "Markup" "<b>bold</b> <i>italic</i>"
+}

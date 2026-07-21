@@ -132,6 +132,7 @@ function install_config {
   linkDir "$PWD"/i3 ~/.config/i3
   linkDir "$PWD"/config/terminal/xfce4-term ~/.config/xfce4/terminal
   linkDir "$PWD"/config/polybar ~/.config/polybar
+  linkDir "$PWD"/config/kitty ~/.config/kitty
   linkDir "$PWD"/config/poshthemes ~/.config/poshthemes
   linkDir "$PWD"/config/xfce4 ~/.config/xfce4/xfconf/xfce-perchannel-xml
   linkDir "$PWD"/config/rofi ~/.config/rofi

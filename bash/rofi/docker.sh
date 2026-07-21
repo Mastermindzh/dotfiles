@@ -1,11 +1,11 @@
 #!/usr/bin/bash
 
 #Set default terminal emulator
-TERMINAL_APP=xfce4-terminal
+TERMINAL_APP=kitty
 CUSTOM_SCRIPTS_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)/custom"
 
 function execInTerminal {
-  $TERMINAL_APP -H -e "$1"
+  $TERMINAL_APP --hold -e sh -c "$1"
 }
 
 function getExtraActions {

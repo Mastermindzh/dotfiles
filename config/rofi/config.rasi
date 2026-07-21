@@ -1,7 +1,7 @@
 configuration {
   modi: "window,run,ssh,combi,emoji,calc,drun";
   font: "Ubuntu mono 16";
-  terminal: "xfce4-terminal";
+  terminal: "kitty";
   ssh-client: "ssh";
   ssh-command: "{terminal} -e "{ssh-client} {host}"";
 
@@ -21,7 +21,8 @@ configuration {
 
 /*---- import color theme here  ----*/
 /*@import "~/.config/rofi/themes/dark.rasi"*/
-@import "~/.config/rofi/themes/dracula.rasi"
+/*@import "~/.config/rofi/themes/dracula.rasi"*/
+@import "~/.config/rofi/themes/aura.rasi"
 
 /*---- import theme here ----*/
 @import "~/.config/rofi/themes/base.rasi"

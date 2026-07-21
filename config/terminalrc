@@ -31,7 +31,10 @@ OverlayScrolling=TRUE
 ScrollingUnlimited=TRUE
 BackgroundDarkness=0.750000
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
-ColorBackground=#1e1e1e1e1e1e
+ColorBackground=#151514141b1b
+ColorForeground=#ededececeeee
+ColorPalette=#140e1a;#ff6767;#8effd9;#ffca85;#f477ff;#61ffca;#a277ff;#cdccce;#2d2d2d;#ffca85;#a277ff;#ffca85;#a277ff;#61ffca;#61ffca;#edecee
+ColorCursor=#a277ff
 TitleInitial=
 FontName=Ubuntu Mono 13
 

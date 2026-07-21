@@ -1,0 +1,25 @@
+* {
+  border-colour: #a277ff;
+  handle-colour: #a277ff;
+  background-colour: #15141b;
+  foreground-colour: #edecee;
+  alternate-background: #3b334b;
+  normal-background: #15141b;
+  normal-foreground: #edecee;
+  urgent-background: #ff6767;
+  urgent-foreground: #15141b;
+  active-background: #61ffca;
+  active-foreground: #15141b;
+  selected-normal-background: #a277ff;
+  selected-normal-foreground: #15141b;
+  selected-urgent-background: #61ffca;
+  selected-urgent-foreground: #15141b;
+  selected-active-background: #ff6767;
+  selected-active-foreground: #15141b;
+  alternate-normal-background: #15141b;
+  alternate-normal-foreground: #edecee;
+  alternate-urgent-background: #ff6767;
+  alternate-urgent-foreground: #15141b;
+  alternate-active-background: #61ffca;
+  alternate-active-foreground: #15141b;
+}

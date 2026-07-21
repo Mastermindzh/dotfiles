@@ -28,7 +28,8 @@ fi
 
 eval "$(pyenv init -)"
 
+export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 export PATH=$PATH:/home/mastermindzh/bin
-
+export TERM=xterm-256color
 
 . "$HOME/.local/bin/env"

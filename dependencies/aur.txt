@@ -4,6 +4,7 @@ insync
 mission-center
 
 downgrade
+tdrop
 dive
 chili-sddm-theme
 awf-gtk4

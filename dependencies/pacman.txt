@@ -139,7 +139,7 @@ gufw
 w3m
 blueberry
 xclip
-xfce4-terminal
+kitty
 xorg-xkill
 pass
 evince
