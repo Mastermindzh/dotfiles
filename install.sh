@@ -153,6 +153,7 @@ function install_config {
 
   ln -sf "$PWD"/config/.gitconfig ~/.gitconfig
   ln -sf "$PWD"/config/.npmrc ~/.npmrc
+  ln -sf "$PWD"/config/.keychainrc ~/.keychainrc
   ln -sf "$PWD"/config/user-dirs.dirs ~/.config/user-dirs.dirs
   mkdir -p ~/.pulse
   ln -sf "$PWD"/config/pulse/daemon.conf ~/.pulse/daemon.conf
