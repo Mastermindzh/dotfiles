@@ -13,12 +13,11 @@ gvfs-smb
 sddm
 polkit-gnome
 gnome-keyring
-libgnome-keyring
+
 python-keyring
 libsecret
 seahorse
 reflector
-gtk-engines
 kubectl
 less
 smartmontools 
@@ -97,8 +96,6 @@ loupe
 feh
 firefox
 flameshot
-gtk-engine-murrine
-gnome-themes-standard
 gnome-themes-extra
 htop
 i3blocks
@@ -107,7 +104,7 @@ jq
 keychain
 lxappearance
 mpv
-neofetch
+
 network-manager-applet
 networkmanager
 networkmanager-l2tp
@@ -137,7 +134,7 @@ yq
 ufw
 gufw
 w3m
-blueberry
+
 xclip
 kitty
 xorg-xkill

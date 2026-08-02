@@ -245,6 +245,7 @@ assign [class="MongoDB Compass"] $workspace8
 assign [class="robo3t"] $workspace8
 assign [class="Brave-browser"] $workspace9
 assign [class="obsidian"] $workspace7
+assign [class="^md\.Obsidian$"] $workspace7
 assign [class="Mysql-workbench-bin"] $workspace8
 assign [class="azuredatastudio"] $workspace8
 assign [class="beekeeper"] $workspace8

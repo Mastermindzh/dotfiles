@@ -1,49 +1,53 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
 
 blocks:
-- type: rprompt
-  overflow: hidden
-  segments:
-  - properties:
-      cache_duration: none
-      threshold: 1
-    template: "{{ .FormattedMs }}"
-    foreground: yellow
-    background: transparent
-    type: executiontime
-    style: plain
-- type: prompt
-  alignment: left
-  segments:
-  - properties:
-      cache_duration: none
-      home_icon: "\uf015 "
-      style: agnoster_short
-    template: "{{ .Path }} "
-    foreground: "#77E4F7"
-    type: path
-  - properties:
-      cache_duration: none
-      fetch_status: true
-    template: "<#ffffff>on</> {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }} \uf044 {{end}} "
-    foreground: "#C678DD"
-    type: git
-    style: plain
-  - properties:
-      cache_duration: none
-      fetch_version: true
-    template: " \uf3d3 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }} {{ .Full }} "
-    foreground: "#98C379"
-    type: node
-    style: plain
-  newline: true
-- type: prompt
-  alignment: left
-  segments:
-  - properties:
-      cache_duration: none
-    template: "➜  "
-    foreground: "#63F08C"
-    type: text
-    style: plain
+  - type: rprompt
+    overflow: hidden
+    segments:
+      - type: executiontime
+        style: plain
+        options:
+          threshold: 1
+        template: "{{ .FormattedMs }}"
+        foreground: yellow
+        background: transparent
+
+  - type: prompt
+    alignment: left
+    segments:
+      - type: path
+        style: plain
+        options:
+          home_icon: "\uf015"
+          style: agnoster_short
+        template: "{{ if eq .Path \"~\" }}\uf015 {{ else }}{{ .Path }}{{ end }} "
+        foreground: "#77E4F7"
+
+      - type: git
+        style: plain
+        options:
+          fetch_status: true
+        template: "<#ffffff>on</> {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }} \uf044 {{ end }} "
+        foreground: "#C678DD"
+
+      - type: node
+        style: plain
+        options:
+          cache_duration: none
+          fetch_version: true
+        template: " \uf3d3 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }} {{ .Full }} "
+        foreground: "#98C379"
+
+    newline: true
+
+  - type: prompt
+    alignment: left
+    segments:
+      - type: text
+        style: plain
+        options:
+          cache_duration: none
+        template: "\uf061  "
+        foreground: "#63F08C"
+
 version: 3

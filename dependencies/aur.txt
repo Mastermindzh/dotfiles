@@ -1,6 +1,5 @@
 visual-studio-code-bin
 i3blocks-contrib
-insync
 mission-center
 
 downgrade
@@ -14,7 +13,6 @@ nvm
 
 keychain
 nomachine
-otf-droid-sans-mono-powerline-git
 rofi-greenclip
 
 # audio

@@ -188,7 +188,7 @@ function install_config {
 
   # flameshot config
   mkdir -p ~/.config/flameshot
-  ln -sf "$PWD"/config/flameshot/flameshot.ini ~/.config/flameshot/flameshot.ini
+  ln -sf "$PWD"/config/flameshot.ini ~/.config/flameshot/flameshot.ini
 
   setDateTimeConfig
   setup_groups mastermindzh
