@@ -20,7 +20,7 @@ blocks:
         options:
           home_icon: "\uf015"
           style: agnoster_short
-        template: "{{ if eq .Path \"~\" }}\uf015 {{ else }}{{ .Path }}{{ end }} "
+        template: "{{ if eq .Path \"~\" }}\uf015 {{ else }} {{ .Path }} {{ end }} "
         foreground: "#77E4F7"
 
       - type: git

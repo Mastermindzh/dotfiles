@@ -7,6 +7,10 @@
 set -e
 set -o pipefail
 
+# Absolute path to this repo (dir containing install.sh), so symlink targets are
+# correct regardless of the caller's working directory.
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # =======================================
 # Helper functions
 # =======================================
@@ -76,9 +80,9 @@ function install_fonts {
 
   # standardize the generic font families (monospace/sans-serif/serif) on Ubuntu.
   mkdir -p ~/.config/fontconfig
-  ln -sf "$PWD"/config/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf
+  ln -sf "$SCRIPT_DIR"/config/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf
   # system scope is needed for the SDDM greeter, which runs as the sddm user
-  sudo ln -sf "$PWD"/config/fontconfig/fonts.conf /etc/fonts/local.conf
+  sudo ln -sf "$SCRIPT_DIR"/config/fontconfig/fonts.conf /etc/fonts/local.conf
 
   # refresh the fontconfig cache so changes take effect immediately
   fc-cache -f >/dev/null 2>&1
@@ -97,15 +101,15 @@ function install_trizen {
 function setDateTimeConfig {
   systemctl enable ntpd
   timedatectl set-ntp true
-  sudo ln -sf "$PWD"/config/networkmanager/09-timezone /etc/NetworkManager/dispatcher.d/09-timezone
+  sudo ln -sf "$SCRIPT_DIR"/config/networkmanager/09-timezone /etc/NetworkManager/dispatcher.d/09-timezone
 }
 
 function install_gtk {
   mkdir -p "$HOME/.config/gtk-3.0"
   mkdir -p "$HOME/.config/gtk-4.0"
-  ln -sf "$PWD"/config/gtk/settings.ini ~/.gtkrc-2.0.mine
-  ln -sf "$PWD"/config/gtk/settings.ini ~/.config/gtk-3.0/settings.ini
-  ln -sf "$PWD"/config/gtk/settings.ini ~/.config/gtk-4.0/settings.ini
+  ln -sf "$SCRIPT_DIR"/config/gtk/settings.ini ~/.gtkrc-2.0.mine
+  ln -sf "$SCRIPT_DIR"/config/gtk/settings.ini ~/.config/gtk-3.0/settings.ini
+  ln -sf "$SCRIPT_DIR"/config/gtk/settings.ini ~/.config/gtk-4.0/settings.ini
 
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
   gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
@@ -124,10 +128,10 @@ function install_dotnet {
   set -e
 
   # link the dotnet aliases / environment so ~/.alias sources them
-  ln -sf "$PWD"/bash/dotnet.sh ~/.dotnet-aliases
+  ln -sf "$SCRIPT_DIR"/bash/dotnet.sh ~/.dotnet-aliases
 
   # generate and trust the ASP.NET Core HTTPS development certificate
-  source "$PWD"/bash/dotnet.sh
+  source "$SCRIPT_DIR"/bash/dotnet.sh
   dotnet-trust-dev-cert
 }
 
@@ -137,48 +141,48 @@ function install_config {
   install_gtk
 
   # link directories
-  linkDir "$PWD"/wallpapers/images ~/Pictures/wallpapers
-  linkDir "$PWD"/i3 ~/.config/i3
-  linkDir "$PWD"/config/terminal/xfce4-term ~/.config/xfce4/terminal
-  linkDir "$PWD"/config/polybar ~/.config/polybar
-  linkDir "$PWD"/config/kitty ~/.config/kitty
-  linkDir "$PWD"/config/poshthemes ~/.config/poshthemes
-  linkDir "$PWD"/config/xfce4 ~/.config/xfce4/xfconf/xfce-perchannel-xml
-  linkDir "$PWD"/config/rofi ~/.config/rofi
+  linkDir "$SCRIPT_DIR"/wallpapers/images ~/Pictures/wallpapers
+  linkDir "$SCRIPT_DIR"/i3 ~/.config/i3
+  linkDir "$SCRIPT_DIR"/config/terminal/xfce4-term ~/.config/xfce4/terminal
+  linkDir "$SCRIPT_DIR"/config/polybar ~/.config/polybar
+  linkDir "$SCRIPT_DIR"/config/kitty ~/.config/kitty
+  linkDir "$SCRIPT_DIR"/config/poshthemes ~/.config/poshthemes
+  linkDir "$SCRIPT_DIR"/config/xfce4 ~/.config/xfce4/xfconf/xfce-perchannel-xml
+  linkDir "$SCRIPT_DIR"/config/rofi ~/.config/rofi
 
   # link user files
-  ln -sf "$PWD"/bash/.aliases ~/
-  ln -sf "$PWD"/bash/.bashrc ~/.bashrc
-  ln -sf "$PWD"/bash/.alias.sh ~/.alias
-  ln -sf "$PWD"/config/nano/.nanorc ~/.nanorc
-  ln -sf "$PWD"/config/.Xresources ~/.Xresources
-  ln -sf "$PWD"/bash/.powerline-shell.json ~/.powerline-shell.json
+  ln -sf "$SCRIPT_DIR"/bash/.aliases ~/
+  ln -sf "$SCRIPT_DIR"/bash/.bashrc ~/.bashrc
+  ln -sf "$SCRIPT_DIR"/bash/.alias.sh ~/.alias
+  ln -sf "$SCRIPT_DIR"/config/nano/.nanorc ~/.nanorc
+  ln -sf "$SCRIPT_DIR"/config/.Xresources ~/.Xresources
+  ln -sf "$SCRIPT_DIR"/bash/.powerline-shell.json ~/.powerline-shell.json
   mkdir -p ~/.config/dunst
-  ln -sf "$PWD"/config/dunstrc ~/.config/dunst/dunstrc
+  ln -sf "$SCRIPT_DIR"/config/dunstrc ~/.config/dunst/dunstrc
 
-  ln -sf "$PWD"/config/mimeapps.list ~/.config/mimeapps.list
-  ln -sf "$PWD"/config/greenclip.toml ~/.config/greenclip.toml
-  ln -sf "$PWD"/config/terminalrc ~/.config/xfce4/terminal/terminalrc
+  ln -sf "$SCRIPT_DIR"/config/mimeapps.list ~/.config/mimeapps.list
+  ln -sf "$SCRIPT_DIR"/config/greenclip.toml ~/.config/greenclip.toml
+  ln -sf "$SCRIPT_DIR"/config/terminalrc ~/.config/xfce4/terminal/terminalrc
 
-  ln -sf "$PWD"/config/.gitconfig ~/.gitconfig
-  ln -sf "$PWD"/config/.npmrc ~/.npmrc
-  ln -sf "$PWD"/config/.keychainrc ~/.keychainrc
-  ln -sf "$PWD"/config/user-dirs.dirs ~/.config/user-dirs.dirs
+  ln -sf "$SCRIPT_DIR"/config/.gitconfig ~/.gitconfig
+  ln -sf "$SCRIPT_DIR"/config/.npmrc ~/.npmrc
+  ln -sf "$SCRIPT_DIR"/config/.keychainrc ~/.keychainrc
+  ln -sf "$SCRIPT_DIR"/config/user-dirs.dirs ~/.config/user-dirs.dirs
   mkdir -p ~/.pulse
-  ln -sf "$PWD"/config/pulse/daemon.conf ~/.pulse/daemon.conf
-  ln -sf "$PWD"/config/picom.conf ~/.config/picom.conf
+  ln -sf "$SCRIPT_DIR"/config/pulse/daemon.conf ~/.pulse/daemon.conf
+  ln -sf "$SCRIPT_DIR"/config/picom.conf ~/.config/picom.conf
 
   # link autorandr files
   mkdir -p "$HOME/.config/autorandr"
-  ln -sf "$PWD"/config/autorandr/postswitch ~/.config/autorandr/postswitch
+  ln -sf "$SCRIPT_DIR"/config/autorandr/postswitch ~/.config/autorandr/postswitch
 
   # link system files / directories
-  sudo ln -sf "$PWD"/config/package-managers/pacman.conf /etc/pacman.conf
-  sudo ln -sf "$PWD"/config/package-managers/makepkg.conf /etc/makepkg.conf
-  sudo ln -sf "$PWD"/config/ntp.conf /etc/ntp.conf
-  sudo ln -sf "$PWD"/bash/Completion/ /etc/bash_completion.d
-  sudo ln -sf "$PWD"/config/environment /etc/environment
-  sudo ln -sf "$PWD"/config/.bash_profile ~/.bash_profile
+  sudo ln -sf "$SCRIPT_DIR"/config/package-managers/pacman.conf /etc/pacman.conf
+  sudo ln -sf "$SCRIPT_DIR"/config/package-managers/makepkg.conf /etc/makepkg.conf
+  sudo ln -sf "$SCRIPT_DIR"/config/ntp.conf /etc/ntp.conf
+  sudo ln -sf "$SCRIPT_DIR"/bash/Completion/ /etc/bash_completion.d
+  sudo ln -sf "$SCRIPT_DIR"/config/environment /etc/environment
+  sudo ln -sf "$SCRIPT_DIR"/config/.bash_profile ~/.bash_profile
 
   # create empty .custom alias file
   echo "" >~/.custom
@@ -186,10 +190,10 @@ function install_config {
 
   # files to be copied once
   mkdir -p "$HOME/.config/Code/User"
-  cp "$PWD"/config/code/syncLocalSettings.json ~/.config/Code/User/
+  cp "$SCRIPT_DIR"/config/code/syncLocalSettings.json ~/.config/Code/User/
 
   mkdir -p ~/.config/Code/User/globalStorage/zokugun.sync-settings
-  ln -sf "$PWD"/config/code/sync-settings.yml ~/.config/Code/User/globalStorage/zokugun.sync-settings/settings.yml
+  ln -sf "$SCRIPT_DIR"/config/code/sync-settings.yml ~/.config/Code/User/globalStorage/zokugun.sync-settings/settings.yml
 
   # system fixes
   echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl --system
@@ -197,7 +201,7 @@ function install_config {
 
   # flameshot config
   mkdir -p ~/.config/flameshot
-  ln -sf "$PWD"/config/flameshot.ini ~/.config/flameshot/flameshot.ini
+  ln -sf "$SCRIPT_DIR"/config/flameshot.ini ~/.config/flameshot/flameshot.ini
 
   setDateTimeConfig
   setup_groups mastermindzh
@@ -330,7 +334,7 @@ if ask "Do you want to enable sddm?" Y; then
   sudo systemctl enable sddm.service
   sudo mkdir -p "/etc/sddm.conf.d/"
   curl "http://gravatar.com/avatar/$(echo -n "info@rickvanlieshout.com" | md5sum - | cut -d' ' -f1)?s=1024" | sudo tee /usr/share/sddm/faces/mastermindzh.face.icon >/dev/null
-  sudo ln -sf "$PWD"/config/sddm/default.conf /etc/sddm.conf.d/
+  sudo ln -sf "$SCRIPT_DIR"/config/sddm/default.conf /etc/sddm.conf.d/
 fi
 
 clear
@@ -339,7 +343,7 @@ computer
 prompt=$(echo $'\n> ' "Please select a specific computer to install or q to finish the install")
 
 PS3="$prompt: "
-select opt in "$PWD/computers"/*; do
+select opt in "$SCRIPT_DIR/computers"/*; do
   if ((REPLY == "q")); then
     break
 
