@@ -1,7 +1,4 @@
 [Default Applications]
-
-# browser
-#--------------
 text/html=firefox.desktop
 x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
@@ -15,63 +12,39 @@ application/x-extension-shtml=firefox.desktop
 application/xhtml+xml=firefox.desktop
 application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
-
-# apps
-#--------------
 x-scheme-handler/postman=Postman.desktop
 x-scheme-handler/ssh=ktelnetservice5.desktop
-x-scheme-handler/msteams=teams.desktop
+x-scheme-handler/msteams=teams-for-linux.desktop
 x-scheme-handler/discord-478576776990425110=discord-478576776990425110.desktop
 x-scheme-handler/mailspring=Mailspring.desktop
 x-scheme-handler/etcher=balena-etcher-electron.desktop
 x-scheme-handler/tidal=tidal-hifi.desktop
-
-# files
-#--------------
 inode/director=thunar.desktop
 x-scheme-handler/ftb=ftb-app.desktop
+x-scheme-handler/slack=slack.desktop
 
 [Added Associations]
-# browser-stuff
-#--------------
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
 text/html=firefox.desktop;
-
-# text
-#--------------
 text/plain=gnome.gedit.desktop;
 application/pdf=mupdf.desktop;firefox.desktop;
 text/vnd.qt.linguist=org.gnome.gedit.desktop;
 text/x-nfo=gnome.gedit.desktop;
 text/x-log=code-insiders.desktop;
-
-# images
-#--------------
 image/jpeg=org.gnome.eog.desktop;feh.desktop;
 image/png=org.gnome.eog.desktop;feh.desktop;
 image/svg+xml=org.gnome.eog.desktop;feh.desktop;
 image/gif=org.gnome.eog.desktop;feh.desktop;
-
-# video
-#--------------
 video/mp4=mpv.desktop;
 video/x-matroska=mpv.desktop;
 video/x-msvideo=vlc.desktop;
-
-# code-related
-#--------------
 application/json=code-insiders.desktop;visual-studio-code-insiders.desktop;
 application/x-shellscript=visual-studio-code.desktop;
 application/sql=visual-studio-code.desktop;
 application/xml=visual-studio-code.desktop;
 application/javascript=visual-studio-code-insiders.desktop;
-
-# other
-#--------------
 application/zip=thunar,org.gnome.Nautilus.desktop;xarchiver.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=wps-office-wps.desktop;
 application/x-remmina=org.gnome.gedit.desktop;org.kde.krdc.desktop;remmina-file.desktop;org.remmina.Remmina.desktop;
-
-# newly added
-#--------------
+x-scheme-handler/slack=slack.desktop;

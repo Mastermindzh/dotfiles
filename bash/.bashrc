@@ -15,6 +15,7 @@ source ~/.variables
 sourceIfExists ~/.env
 sourceIfExists /usr/share/nvm/init-nvm.sh
 sourceIfExists ~/lib/azure-cli/az.completion
+eval "$(ssh-agent)"
 eval "$(thefuck --alias)"
 eval "$(oh-my-posh init bash --config ~/.config/poshthemes/mastermindzh.yaml)"
 

@@ -73,6 +73,15 @@ function install_fonts {
   cp -rf ./fonts/* ~/.fonts
   cp -rf ./fonts/* ~/.local/share/fonts
   sudo cp -rf ./fonts/* /usr/local/share/fonts
+
+  # standardize the generic font families (monospace/sans-serif/serif) on Ubuntu.
+  mkdir -p ~/.config/fontconfig
+  ln -sf "$PWD"/config/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf
+  # system scope is needed for the SDDM greeter, which runs as the sddm user
+  sudo ln -sf "$PWD"/config/fontconfig/fonts.conf /etc/fonts/local.conf
+
+  # refresh the fontconfig cache so changes take effect immediately
+  fc-cache -f >/dev/null 2>&1
 }
 
 # install trizen, an aur helper
