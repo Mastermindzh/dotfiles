@@ -59,6 +59,8 @@ alias addwireguard='sudo nmcli connection import type wireguard file '
 alias defaultfonts='for family in serif sans-serif monospace Arial Helvetica Verdana "Times New Roman" "Courier New"; do echo -e "\033[1m$family: \033[0m" && fc-match "$family" && echo ""; done'
 alias syncthinggui="xdg-open http://localhost:8384/"
 alias disableHistory="set +o history"
+alias enableHistory="set -o history"
+
 wav2mp3() {
   if [ -z "$1" ]; then
     echo "Usage: wav2mp3 input.wav [output.mp3]"

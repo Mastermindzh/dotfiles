@@ -1,6 +1,7 @@
 visual-studio-code-bin
 i3blocks-contrib
 mission-center
+joplin
 
 downgrade
 tdrop

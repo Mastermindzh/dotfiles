@@ -108,7 +108,7 @@ mpv
 network-manager-applet
 networkmanager
 networkmanager-l2tp
-obsidian
+# obsidian
 papirus-icon-theme
 pavucontrol
 peek
