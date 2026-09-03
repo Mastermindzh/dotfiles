@@ -203,6 +203,10 @@ function install_config {
   mkdir -p ~/.config/flameshot
   ln -sf "$SCRIPT_DIR"/config/flameshot.ini ~/.config/flameshot/flameshot.ini
 
+  # opencode config
+  mkdir -p ~/.config/opencode
+  ln -sf "$SCRIPT_DIR"/config/opencode/opencode.jsonc ~/.config/opencode/opencode.jsonc
+
   setDateTimeConfig
   setup_groups mastermindzh
 }
