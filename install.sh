@@ -185,8 +185,10 @@ function install_config {
   sudo ln -sf "$SCRIPT_DIR"/config/.bash_profile ~/.bash_profile
 
   # create empty .custom alias file
-  echo "" >~/.custom
-  echo "" >~/.variables
+  touch ~/.custom
+  touch ~/.variables
+  mkdir -p ~/.local/bin
+  touch ~/.local/bin/env
 
   # files to be copied once
   mkdir -p "$HOME/.config/Code/User"
@@ -224,6 +226,7 @@ function install_dependencies {
 
   # enable services
   sudo systemctl enable tlp
+  sudo systemctl enable --now NetworkManager.service
 }
 
 # set up a new ssh key

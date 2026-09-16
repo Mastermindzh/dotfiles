@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to date versioning.
 
+## [2026-09-16]
+
+- Added the `airarch` computer (MacBook Air 2017): alt as i3 mod key, libinput
+  trackpad settings, `hid_apple` options and the broadcom wifi driver
+- i3 now includes `~/.config/i3-local/*.conf` so a computer can override `$mod`
+- The installer now enables `NetworkManager` instead of only installing it
+
 ## [2024-12-12]
 
 - Switched `notify-osd` for `dunst`

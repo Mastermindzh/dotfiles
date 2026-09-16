@@ -3,6 +3,7 @@ i3blocks-contrib
 mission-center
 joplin
 
+oh-my-posh-bin
 downgrade
 tdrop
 dive
