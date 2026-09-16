@@ -143,6 +143,13 @@ evince
 tlp
 libreoffice
 
+# audio
+pipewire
+pipewire-pulse
+pipewire-alsa
+pipewire-jack
+wireplumber
+
 # fonts
 fontconfig
 noto-fonts-emoji

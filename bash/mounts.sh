@@ -90,6 +90,11 @@ declare -A MOUNTS13=(
   [share]="vault"
   [mount]="vault"
 )
+declare -A MOUNTS14=(
+  [server]="$MY_SERVER_LOCATION"
+  [share]="Music"
+  [mount]="music"
+)
 # declare array with "objects"
 declare -n MOUNTS
 

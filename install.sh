@@ -227,6 +227,9 @@ function install_dependencies {
   # enable services
   sudo systemctl enable tlp
   sudo systemctl enable --now NetworkManager.service
+
+  # pipewire replaces pulseaudio, but its units live in the user session
+  systemctl --user enable --now pipewire pipewire-pulse wireplumber || true
 }
 
 # set up a new ssh key
