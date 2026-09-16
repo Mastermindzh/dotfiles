@@ -11,6 +11,7 @@ and this project adheres to date versioning.
   trackpad settings, `hid_apple` options and the broadcom wifi driver
 - i3 now includes `~/.config/i3-local/*.conf` so a computer can override `$mod`
 - The installer now enables `NetworkManager` instead of only installing it
+- Polybar detects the battery/adapter device names instead of hardcoding `BAT1`
 
 ## [2024-12-12]
 
