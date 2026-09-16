@@ -1,0 +1,8 @@
+Xft.antialias: true
+Xft.hinting:   true
+Xft.rgba:      rgba
+Xft.hintstyle: hintslight
+Xcursor.size: 12
+
+! cmd sits where alt normally is on a mac keyboard, so i3 uses alt as $mod
+i3wm.mod: Mod1

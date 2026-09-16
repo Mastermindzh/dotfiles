@@ -9,7 +9,7 @@ and this project adheres to date versioning.
 
 - Added the `airarch` computer (MacBook Air 2017): alt as i3 mod key, libinput
   trackpad settings, `hid_apple` options and the broadcom wifi driver
-- i3 now includes `~/.config/i3-local/*.conf` so a computer can override `$mod`
+- i3 reads `$mod` from the `i3wm.mod` X resource so a computer can override it
 - The installer now enables `NetworkManager` instead of only installing it
 - Polybar detects the battery/adapter device names instead of hardcoding `BAT1`
 

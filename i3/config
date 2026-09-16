@@ -6,12 +6,8 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # Set the mod key to the "Windows key" and the floating modifier to the mod key.
-set $mod Mod4
-
-# Machine specific overrides (linked by computers/*/install.sh), loaded here so
-# they can still change $mod before any binding is parsed.
-include ~/.config/i3-local/*.conf
-
+# A computer can pick another one by setting i3wm.mod in its .Xresources.
+set_from_resource $mod i3wm.mod Mod4
 floating_modifier $mod
 
 ############################################

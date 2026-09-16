@@ -4,8 +4,10 @@ set -e
 MY_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # i3 mod key: cmd sits where alt normally is on this keyboard, so use alt instead
-mkdir -p ~/.config/i3-local
-ln -sf "$MY_PATH/i3.conf" ~/.config/i3-local/airarch.conf
+ln -sf "$MY_PATH/.Xresources" ~/.Xresources
+if [[ -n $DISPLAY ]]; then
+  xrdb -merge ~/.Xresources
+fi
 
 # trackpad: the bcm5974 pad is unusable without tap/scroll/palm-rejection settings
 sudo pacman -S --needed --noconfirm xf86-input-libinput
