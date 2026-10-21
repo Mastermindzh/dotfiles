@@ -14,7 +14,9 @@ for supply in /sys/class/power_supply/*; do
 done
 
 # Launch Polybar, using default config location ~/.config/polybar/config.ini
-PRIMARY=$(xrandr --query | grep -i "connected primary" | cut -d" " -f1)
+PRIMARY=$(xrandr --query | grep -i " connected primary" | cut -d" " -f1)
+# no primary set (e.g. fresh X session after a GPU swap): use the first connected output
+[[ -z $PRIMARY ]] && PRIMARY=$(xrandr --query | grep -i " connected" | head -n1 | cut -d" " -f1)
 export MONITOR=$PRIMARY
 polybar -r 2>&1 | tee -a /tmp/polybar.log &
 

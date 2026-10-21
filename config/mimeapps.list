@@ -47,4 +47,3 @@ application/javascript=visual-studio-code-insiders.desktop;
 application/zip=thunar,org.gnome.Nautilus.desktop;xarchiver.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=wps-office-wps.desktop;
 application/x-remmina=org.gnome.gedit.desktop;org.kde.krdc.desktop;remmina-file.desktop;org.remmina.Remmina.desktop;
-x-scheme-handler/slack=slack.desktop;
